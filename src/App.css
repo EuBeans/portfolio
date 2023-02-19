@@ -12,7 +12,15 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+@font-face {
+  font-family: 'Dina';
+  src: url("./assets/fonts/DinaRemasterCollection.ttc") format("truetype");
+}
 
+@font-face {
+  font-family: 'Gintronic';
+  src:url("./assets/fonts/Gintronic.ttf") format("truetype");
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +43,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+.navLink{
+  display: contents;
+}
+.navLink::before{
+  content:"#";
+  color:"##04ca9f";
+  
 }
