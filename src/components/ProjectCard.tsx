@@ -54,7 +54,7 @@ const projects = [
     },
     {
         title: "Polygon Contour V2",
-        description: "An improved version of Polygon Contour V1. This version allows users to draw polygons on a map and get the contour of the polygon.This version was build using TS, and can handle better angles and more complex polygons.",
+        description: "An improved version of Polygon Contour V1. This version allows users to draw polygons on a map and get the contour of the polygon. This version was build using TS, and can handle better angles and more complex polygons.",
         image: polygonContourProject,
 
     }
@@ -189,7 +189,7 @@ const ProjectCard = () => {
                     component="img"
                     height="200"
                     image={project.image}
-                    alt="green iguana"
+                    alt="card-project"
                     />
                     <CardContent sx ={{}}>
                         <Typography gutterBottom variant="h5" component="div" sx={headerStyle}>
