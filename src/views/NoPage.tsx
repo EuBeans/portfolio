@@ -9,7 +9,7 @@ const NoPage = () => {
         <div className="App">
             <header className="App-header">
                 <p>
-                    No page found. <Link to="/">Go to home</Link>
+                    No page found. <Link to="/home">Go to home</Link>
                 </p>
             </header>
         </div>

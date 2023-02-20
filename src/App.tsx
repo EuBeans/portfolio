@@ -27,7 +27,7 @@ function App() {
         <BrowserRouter>
           <NavBar/> 
           <Routes>
-            <Route path="/" element={routes.home.element}/>
+            <Route path="/home" element={routes.home.element}/>
             <Route path="*" element={routes.noPage.element} />
           </Routes>
         </BrowserRouter>

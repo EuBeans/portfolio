@@ -11,10 +11,11 @@ import Link  from '@mui/material/Link';
 import "../App.css"
 import { Drawer, Grid, List, ListItem, ListItemIcon,  } from '@mui/material';
 import Typical from 'react-typical';
-
+import {
+  Link as RouterLink,
+} from 'react-router-dom';
 // for the json object routes, get the name of each route
 const pages = ["home", "projects","experience","about-me"]
-type Anchor =  'right';
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -174,15 +175,22 @@ const list = () => (
             </Typography>
             <Box sx={{ justifyContent:'flex-end', flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
               {pages.map((page) => (
-                <Link
-                  component="button"
-                  variant="body2"
-                  key={page}
-                  onClick={toggleDrawer(false)}
-                  sx={styleNavLink}
+                <RouterLink
+                  to={"/" + page}
+                  style={{ textDecoration: "none" }}
                 >
+                  <Link
+                    href={"/" + page}
+                    component="button"
+                    variant="body2"
+                    key={page}
+                    onClick={toggleDrawer(false)}
+                    sx={styleNavLink}
+                  >
                   <span style={ styleSpecChar}>#</span>{page}
               </Link>
+                </RouterLink>
+                
               ))}
             </Box>
             <Box sx={{ justifyContent:'flex-end', flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
