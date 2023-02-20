@@ -1,20 +1,20 @@
 import React from 'react';
 import '../App.css';
 import Box from '@mui/material/Box';
-import { Button, Container, Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import {theme} from '../assets/theme';
 import Typography from '@mui/material/Typography';
 import Typical from 'react-typical'
 import Dots from './Dots';
 //import mainPicture  from '../assets/images/mainPicture.png';
 import mainPicture  from '../assets/images/mainPicture.jpg';
-import AsciiArt from './AsciiArt';
 import SectionDivider from './SectionDivider';
+import BoxArt from './BoxArt';
 
 
-const codingLanguages = ["code in", 1000,"code in Java", 5000, "code in Python", 5000, "code in C++", 5000, "code in C", 5000,"code in C#", 5000, "code in JavaScript", 5000, "code in TypeScript", 5000, "code in Kotlin" ]
+const codingLanguages = ["code in", 1000,"code in Java", 3000, "code in Python", 3000, "code in C++", 3000, "code in C", 3000,"code in C#", 3000, "code in JavaScript", 3000, "code in TypeScript", 3000, "code in Kotlin" ]
  const SummarySection = () => {
-
+    const SPEED = 1.5;
     const contactMeButtonStyle = {
         backgroundColor: "transparent",
         border: '1px solid',
@@ -53,8 +53,6 @@ const codingLanguages = ["code in", 1000,"code in Java", 5000, "code in Python",
 
     const svgStyle = {
         position: 'absolute',
-        top: '65%',
-        left: '60%',
     }
 
     const profileImageBoxStyle = {
@@ -113,13 +111,7 @@ const codingLanguages = ["code in", 1000,"code in Java", 5000, "code in Python",
     letterSpacing: theme.typography.h3.letterSpacing, 
     fontSize: theme.typography.h3.fontSize,
     }
-    const styleTextChar = {
-    color: theme.palette.text.primary, 
-    fontFamily: theme.typography.fontFamily,
-    fontWeight: theme.typography.h3.fontWeight,
-    letterSpacing: theme.typography.h3.letterSpacing, 
-    fontSize: theme.typography.h3.fontSize,
-    }
+
     const boxAsteticStyle = {
         border: '4px solid',
         borderColor: theme.palette.background.special,
@@ -135,6 +127,7 @@ const codingLanguages = ["code in", 1000,"code in Java", 5000, "code in Python",
 
     const quoteBoxStyle ={
         quoteBoxStyle:{
+            paddingTop: '15vh',
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
@@ -184,9 +177,9 @@ const codingLanguages = ["code in", 1000,"code in Java", 5000, "code in Python",
         }
     }
     return (
-        <SectionDivider>
+        <Box sx={{        height: '100vh'}}>
             <Grid container spacing={2} sx={aboutBoxStyle}  >
-                <Grid  md={6}  >
+                <Grid  md={6} order={{xs:1,sm:1, md:1}} >
                     <Box sx={aboutBoxTextStyle}>
                         <Grid  xs={12} >
                             <Typography sx={aboutHeadertStyle}> 
@@ -210,13 +203,15 @@ const codingLanguages = ["code in", 1000,"code in Java", 5000, "code in Python",
 
                     </Box>
                 </Grid>
-                <Grid  md={6} >
+                <Grid  md={6} order={{xs:1,sm:1, md:1}} >
                     <Box sx={AboutBoxImageStyle}>
                         <Box sx={BoxStyle}>
-                            <Box sx={[boxAsteticStyle,{top: '3vh', right: '20%',}]}/>
-                            <Box sx={[boxAsteticStyle,{top: '71%',right: '62%'}]}/>
+
+                            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'200px'} top={'3vh'} right= {'20%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+                            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'200px'} top={'66%'} right= {'62%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+
                             <Box sx={imageBoxStyle}>
-                                <Box sx={svgStyle}>
+                                <BoxArt box={"dot"} boxStyle={svgStyle} height= {'200px'} top={'65%'} left= {'60%'} x={[0,0]} y={[0,0]} speed={SPEED}>
                                     <Dots  
                                         radius = {3}
                                         gap = {16}
@@ -224,7 +219,7 @@ const codingLanguages = ["code in", 1000,"code in Java", 5000, "code in Python",
                                         height = {5}
                                         viewBox = "0 0 200 200"
                                     />
-                                </Box>
+                                </BoxArt>
                                 <Box sx={profileImageBoxStyle}>
                                     <img style={profileImageStyle} src={mainPicture} alt="Jean" width="100%" />
                                 </Box>
@@ -233,7 +228,7 @@ const codingLanguages = ["code in", 1000,"code in Java", 5000, "code in Python",
                     </Box>
                 </Grid>
             </Grid>
-            <Grid  md={12} >
+            <Grid  md={12} order={{xs: 3}} >
                 <Box sx={quoteBoxStyle.quoteBoxStyle}>
                     <fieldset style={quoteBoxStyle.fieldSet}>
                         <legend style={{...quoteBoxStyle.quoteTextStyle}} >"</legend> 
@@ -244,7 +239,7 @@ const codingLanguages = ["code in", 1000,"code in Java", 5000, "code in Python",
                     </fieldset> 
                 </Box>
             </Grid>        
-        </SectionDivider>
+        </Box>
     )
 
 }

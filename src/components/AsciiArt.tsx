@@ -5,7 +5,7 @@ import {theme} from '../assets/theme';
 
 // props type for the dots component
 interface AsciiArtProps {
-    type: "keyboard" | "computer" | "artLinux"
+    type: "keyboard" | "computer" | "artLinux" | "flopyDisk" | "mouse"
     fontSize: string;
     color?: string;
 
@@ -65,6 +65,45 @@ _)      \.___.,|     .'
     '-'       '--' 
         `
 
+    const artFlopyDisk =
+    `
+     ___,___,_______,____
+    |  :::|///./||'||    \`
+    |  :::|//.//|| || H)  |
+    |  :::|/.///|!!!|     |
+    |   _______________   |
+    |  |:::::::::::::::|  |
+    |  |_______________|  |
+    |  |_______________|  |
+    |  |_______________|  |
+    |  |_______________|  |
+    ||_|               ||_|
+    |__|_______________|__|
+    `
+
+    const artMouse =
+    `
+        \ \
+         \ \  ___,.,
+  _,..--=";"*^^     5
+ *         {         %
+ {          }         }
+  }          }        %
+  %          { ___,,.-"%
+   %_,..--==""^        %
+   L                   &
+   V                    L
+   [                    J
+   J                    J
+   ;                    L
+  #                     %
+  P                     $
+  P                     L
+  P                    K
+   L                  J
+    L                P
+     "=e,_________,s"
+    `
 
     // check what type of art to return
     const art = () => {
@@ -74,6 +113,10 @@ _)      \.___.,|     .'
             return artComputer
         } else if (type === "artLinux") {
             return artLinux
+        } else if (type === "flopyDisk") {
+            return artFlopyDisk
+        } else if (type === "mouse") {
+            return artMouse
         }
     }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../App.css';
 import Box from '@mui/material/Box';
 import { Button, Container, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
@@ -8,6 +8,10 @@ import Typical from 'react-typical'
 import Dots from './Dots';
 import AsciiArt from './AsciiArt';
 import SectionDivider from './SectionDivider';
+import { motion, useAnimation } from "framer-motion";
+
+import { useInView } from "react-intersection-observer";
+import BoxArt from './BoxArt';
 
 const skillTableData = [
     {
@@ -32,9 +36,24 @@ const skillTableData = [
     }
 ]
 const SkillSection = () => {
+    const [ref, inView] = useInView();
+
+    //state
+    const [stateTyper, setstateTyper] = React.useState(0);
+
+    useEffect(() => {
+
+        if(inView){
+            setstateTyper(1);
+        }
+        else{
+            setstateTyper(0);
+        }
+      }, [inView]);
 
 
     const skillBoxStyle = {
+        overflow: 'hidden',
         display: 'flex',
         flexDirection: "row",
         justifyContent: 'center',
@@ -58,11 +77,11 @@ const SkillSection = () => {
         boder: '1px solid',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        backgroundColor: 'Transparent',
+        backgroundColor: 'transparent',
         display: {xs:"none",md:"flex"},
         flexWrap: 'nowrap',
         position: 'relative',
-        minHeight: '40vh',
+        minHeight: '70vh',
         width: '100%',
         
     }
@@ -92,7 +111,7 @@ const SkillSection = () => {
     const SkillHeaderStyle ={
         color: theme.palette.text.primary,
         fontSize: theme.typography.h2.fontSize,
-        fontFamily: theme.typography.fontFamily,
+        fontFamily: theme.typography.fontFamily2,
         fontWeight: theme.typography.h2.fontWeight,
         letterSpacing: theme.typography.h2.letterSpacing,
     }
@@ -149,16 +168,15 @@ const SkillSection = () => {
 
     const printSkills = (skill:string) => {
         return (
-            <span style={skillTextStyle} key={skill}>{skill}<span style={skillTextDividerStyle}> |&| </span></span>
+            <span style={skillTextStyle} key={skill}>{skill}<span style={skillTextDividerStyle}>|</span></span>
         )
     }
 
 
     //function will genereate a table of skills
     const generateSkillTable = (skillTableData: any) => {
-        console.log(skillTableData)
         return (
-            <TableContainer sx={{ margin: '10px'}}>
+            <TableContainer sx={{ margin: '5px'}}>
                 <Table sx={{border: '1px solid', borderColor: theme.palette.background.secondary, backgroundColor: 'transparent'}} aria-label="a dense table">
                     <TableHead>
                         <TableRow>
@@ -191,10 +209,11 @@ const SkillSection = () => {
         <SectionDivider>
             <Grid  md={12}  sx={SkillBoxHeaderStyle}>
                 <Grid>
+                
                 <Typography sx={SkillHeaderStyle}>
-                    <span style={styleSpecChar}>#</span><Typical
-                                steps={["Skills", 5000]}
-                                loop={1}
+                    <span ref={ref} style={styleSpecChar}>#</span><Typical
+                                steps={[500,"Skills", 7000]}
+                                loop={stateTyper}
                                 wrapper="span"
                                 />
                 </Typography>
@@ -207,11 +226,11 @@ const SkillSection = () => {
             <Grid container spacing={2} sx={[skillBoxStyle,{paddingX:'50px'}]}  >
                 <Grid  md={5} >
                     <Box sx={skillBoxArtStyle}>
-                
-                        <Box sx={[boxAsteticStyle,{width: '100px',height:'100px' , top: '60%', right: '80%' }]}/>
-                        <Box sx={[boxAsteticStyle,{width: '50px', height: '50px', top:'78%', right: '20%'}]}/>
-                        <Box sx={[boxAsteticStyle,{width: '80px' ,height: '80px', top: '-50%', right: '60%' }]}/>
-                        <Box sx={[dotAsteticStyle,{width: '150px',height: '150px', top:'-10%', right: '70%' }]}>
+                        <BoxArt box={"box"} width= {'100px'} height= {'100px'} top=  {'60%'} right= {'80%'} x={[-0,-120]} y={[0,410]} speed={0.5}/>
+                        <BoxArt box={"box"} width= {'50px'} height= {'50px'} top=  {'78%'} right= {'20%'} x={[0,120]} y={[0,510]} speed={0.5}/>
+                        <BoxArt box={"box"} width= {'80px'} height= {'80px'} top=  {'10%'} right= {'20%'} x={[0,120]} y={[0,60]} speed={0.5}/>
+
+                        <BoxArt box={"dot"}width= {'150px'} height= {'150px'} top=  {'5%'} right= {'70%'} x={[120,-50]} y={[310,25]} speed={0.5}>
                             <Dots  
                                 radius = {3}
                                 gap = {16}
@@ -219,8 +238,8 @@ const SkillSection = () => {
                                 height = {5}
                                 viewBox = "0 0 200 200"
                                 />
-                        </Box>
-                        <Box sx={[dotAsteticStyle,{width: '100px',height: '100px', top:'57%',right:'20%'}]}>
+                        </BoxArt>
+                        <BoxArt box={"dot"} width= {'100px'} height= {'100px'} top=  {'0%'} right= {'30%'} x={[120,70]} y={[310,130]} speed={0.5}>
                             <Dots  
                                 radius = {3}
                                 gap = {16}
@@ -228,8 +247,8 @@ const SkillSection = () => {
                                 height = {5}
                                 viewBox = "0 0 200 200"
                                 />
-                        </Box>
-                        <Box sx={[dotAsteticStyle,{width: '100px',height: '100px', top:'-40%',right:'30%'}]}>
+                        </BoxArt>
+                        <BoxArt box={"dot"} width= {'100px'} height= {'100px'} top={'70%'} right= {'30%'} x={[120,90]} y={[310,480]} >
                             <Dots  
                                 radius = {3}
                                 gap = {16}
@@ -237,36 +256,36 @@ const SkillSection = () => {
                                 height = {5}
                                 viewBox = "0 0 200 200"
                                 />
-                        </Box>
-                        <Box sx={[asciiArtBoxStyle,{top: '-20%' ,right:'20%', height:"300px"}]}>
+                        </BoxArt>
+                        <BoxArt box={"ascii"} width={"400px"} height= {'400px'} top={'60%'} right= {'30%'} x={[0,220]} y={[150,150]} >
                             <AsciiArt type={"computer"} fontSize={theme.typography.h2.fontSize} color={theme.palette.secondary.main}/>
-                        </Box>
+                        </BoxArt>
 
 
                     </Box>
                 </Grid>
                 <Grid  md={7}  >
                     <Box sx={skillTableBoxStyle}>
-                        <Grid  xs={6} sx={{padding:"10px"}}>
+                        <Grid  xs={6} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[0])}
                             
                         </Grid>
-                        <Grid  xs={6} sx={{padding:"10px"}}>
+                        <Grid  xs={6} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[1])}
                         </Grid>
-                        <Grid  xs={6} sx={{padding:"10px"}}>
+                        <Grid  xs={6} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[2])}
                         </Grid>
-                        <Grid  xs={6} sx={{padding:"10px"}}>
+                        <Grid  xs={6} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[3])}
                         </Grid>
-                        <Grid  xs={6} sx={{padding:"10px"}}>
+                        <Grid  xs={6} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[4])}
                         </Grid>
                         <Grid  xs={6} sx={{padding:"10px",position:"relative"}}>
-                        <Box sx={[asciiArtBoxStyle,{top: '5%', left: '30%', height:"100 px "}]}>
-                            <AsciiArt type={"artLinux"} fontSize={theme.typography.h4.fontSize}/>
-                        </Box>
+                            <Box sx={[asciiArtBoxStyle,{top: '5%', left: '30%', height:"100 px "}]}>
+                                <AsciiArt type={"artLinux"} fontSize={theme.typography.h4.fontSize}/>
+                            </Box>
                         </Grid>
                         
                     </Box>

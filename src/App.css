@@ -22,6 +22,11 @@
   src:url("./assets/fonts/Gintronic.ttf") format("truetype");
 }
 
+.titleNav{
+  color:"##04ca9f";
+
+
+}
 
 .App-header {
   background-color: #282c34;

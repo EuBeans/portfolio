@@ -1,15 +1,7 @@
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import React from 'react';
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import '../App.css';
-import Box from '@mui/material/Box';
-import { Button, Container, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import {theme} from '../assets/theme';
-import Typography from '@mui/material/Typography';
-import Typical from 'react-typical'
-import Dots from './Dots';
-import AsciiArt from './AsciiArt';
-import SectionDivider from './SectionDivider';
-import Icon from '@mui/material/Icon';
 import 'react-vertical-timeline-component/style.min.css';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline'
 import Chip from '@mui/material/Chip';
@@ -161,10 +153,6 @@ const WorkExperienceTimeLine = () => {
         WorkExperience.forEach((workExperience,index) => {
             workExperiences[index] = workExperience.description.split(/\\n/g);
         })
-
-        console.log(workExperiences)
-
-        
         return WorkExperience.map((workExperience,index) => {
             return(
                 <VerticalTimelineElement

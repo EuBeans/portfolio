@@ -1,19 +1,23 @@
 import React, { useEffect } from 'react';
 import '../App.css';
 import Box from '@mui/material/Box';
-import { Grid} from '@mui/material';
+import { Grid, Tooltip} from '@mui/material';
 import {theme} from '../assets/theme';
 import Typography from '@mui/material/Typography';
 import Typical from 'react-typical'
 import SectionDivider from './SectionDivider';
-import WorkExperienceTimeLine from './WorkExperienceTimeLine';
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
+import polygonContourProjectGit  from '../assets/images/polygonContourProjectGit.png';
 
-const ExperienceSection = () => {
+const AutoplaySlider = withAutoplay(AwesomeSlider);
+
+
+const ProjectSection = () => {
     const [ref, inView] = useInView();
-
-    //state
     const [stateTyper, setstateTyper] = React.useState(0);
 
     useEffect(() => {
@@ -25,8 +29,7 @@ const ExperienceSection = () => {
         }
       }, [inView]);
 
-      
-    const workExperienceBoxStyle = {
+    const contentBoxStyle = {
         //this style is a container that will hold multiple skill tables
         display: 'flex',
         flexDirection: "row",
@@ -57,7 +60,7 @@ const ExperienceSection = () => {
         flexWrap: 'nowrap',        
     }
 
-    const boxHeaderBorderBoxStyle = {
+    const boxHeaderBorderStyle = {
         //border with only 1 straight line horizontal
         border: '1px solid',
         borderRight: '0px',
@@ -88,27 +91,62 @@ const ExperienceSection = () => {
     fontSize: theme.typography.h3.fontSize,
     }
 
+    const toastStyle = {
+        position: 'absolute',
+        top: '50vh',
+        left: '0px',
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'red',
+        zIndex: 100,
+    }
+
+
+
     return (
         <SectionDivider>
             <Grid  md={12}  sx={boxHeaderStyle}>
                 <Grid>
                 <Typography sx={headerStyle}>
                     <span ref={ref} style={styleSpecChar}>#</span><Typical
-                                steps={[500,"Experiences", 5000]}
+                                steps={[500,"Projects", 5000]}
                                 loop={stateTyper}
                                 wrapper="span"
                             />  
                 </Typography>
                 </Grid>
                 <Grid>
-                    <Box sx={boxHeaderBorderBoxStyle}/>
+                    <Box sx={boxHeaderBorderStyle}/>
                 </Grid>
 
             </Grid>
-           
             <Grid  md={12} >
-                <Box sx={workExperienceBoxStyle}>
-                    <WorkExperienceTimeLine/>
+                <Box sx={contentBoxStyle}>
+                <AwesomeSlider
+                cssModule={AwesomeSlider}
+                    name="slider"
+                    buttons = {true}
+                    
+                >   
+                    <Box 
+                        data-src={polygonContourProjectGit}
+                        
+                        onPointerEnter={() =>console.log()}
+                    >
+                        <p>.</p>
+
+                    </Box>
+                    <Box 
+                        data-src={polygonContourProjectGit}
+                        
+                        onPointerEnter={() =>console.log()}
+                    >
+                        <p>.</p>
+
+                    </Box>
+                
+                </AwesomeSlider>
+
                 </Box>
             </Grid>
             
@@ -118,4 +156,4 @@ const ExperienceSection = () => {
 
 }
 
-export default ExperienceSection;
+export default ProjectSection;

@@ -4,19 +4,13 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import {theme} from '../assets/theme';
-import {routes} from '../routing';
 import Link  from '@mui/material/Link';
 import "../App.css"
-import { Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { Drawer, Grid, List, ListItem, ListItemIcon,  } from '@mui/material';
+import Typical from 'react-typical';
 
 // for the json object routes, get the name of each route
 const pages = ["home", "projects","experience","about-me"]
@@ -162,15 +156,21 @@ const list = () => (
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'flex' },
-                fontFamily: theme.typography.fontFamily,
-                fontSize: theme.typography.h2.fontSize,
-                fontWeight: theme.typography.h2.fontWeight,
-                letterSpacing: theme.typography.h2.letterSpacing,
-                color: theme.palette.text.primary,
+                fontFamily: theme.typography.fontFamily2,
+                fontSize: theme.typography.h1.fontSize,
+                fontWeight: theme.typography.h1.fontWeight,
+                letterSpacing: theme.typography.h1.letterSpacing,
+                color: theme.palette.text.special,
                 textDecoration: 'none',
               }}
             >
-            <span style={ styleSpecChar}>"Jean"</span>
+            
+                  <Typical
+                      steps={[500, `"Jean"`, 4000,`"JP"`, 4000, `"Jean Pierre"`, 4000, `"Johnny"`,4000]}
+                      loop={Infinity}
+                      wrapper="span"
+                    />
+            
             </Typography>
             <Box sx={{ justifyContent:'flex-end', flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
               {pages.map((page) => (
