@@ -28,6 +28,10 @@
 
 }
 
+.cursorBorder {
+  border-color: "##04ca9f";
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

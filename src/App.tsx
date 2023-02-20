@@ -20,7 +20,7 @@ function App() {
   
 
   return (
-    <Cursor>
+    <Cursor borderClassName='cursorBorder'>
       <Box sx={containerStyle}>
         <BackgroundArt/>
         <Container maxWidth="lg">

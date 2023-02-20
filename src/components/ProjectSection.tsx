@@ -12,6 +12,7 @@ import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import polygonContourProjectGit  from '../assets/images/polygonContourProjectGit.png';
+import ProjectCard from './ProjectCard';
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -122,30 +123,7 @@ const ProjectSection = () => {
             </Grid>
             <Grid  md={12} >
                 <Box sx={contentBoxStyle}>
-                <AwesomeSlider
-                cssModule={AwesomeSlider}
-                    name="slider"
-                    buttons = {true}
-                    
-                >   
-                    <Box 
-                        data-src={polygonContourProjectGit}
-                        
-                        onPointerEnter={() =>console.log()}
-                    >
-                        <p>.</p>
-
-                    </Box>
-                    <Box 
-                        data-src={polygonContourProjectGit}
-                        
-                        onPointerEnter={() =>console.log()}
-                    >
-                        <p>.</p>
-
-                    </Box>
-                
-                </AwesomeSlider>
+                    <ProjectCard/>
 
                 </Box>
             </Grid>
