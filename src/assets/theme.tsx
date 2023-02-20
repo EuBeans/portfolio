@@ -11,7 +11,7 @@ export const theme = {
         secondary: {
             main: '#04ca9f',
             dark: '#056d63',
-            light: '#5c9c96',
+            light: '#3a7e7d',
         },
         error: {
             main: '#000000',
@@ -35,6 +35,10 @@ export const theme = {
         },
         background: {
             default: '#282c34',
+            special:'#04ca9f',
+            secondary: '#adb4b4',
+            thirdary: '#5c9c96',
+            fifth: '#3a7e7d',
             paper: '#000000',
         },
         text: {
@@ -56,10 +60,9 @@ export const theme = {
             color: '#000000',
         },
         h2: {
-            fontSize: '2rem',
-            fontWeight: 600,
+            fontSize: '1.5rem',
+            fontWeight: 700,
             letterSpacing: '.2rem',
-            //white
             color: '#000000', 
         },
         h3: {
@@ -81,8 +84,8 @@ export const theme = {
             color: '#000000',
         },
         h6: {
-            fontSize: '0.9rem',
-            fontWeight: 700,
+            fontSize: '0.8rem',
+            fontWeight: 600,
             letterSpacing: '.15rem',
             color: '#000000',
         },
@@ -93,7 +96,7 @@ export const theme = {
             color: '#000000',
         },
         body2: {
-            fontSize: '.4rem',
+            fontSize: '.7rem',
             fontWeight: 200,
             letterSpacing: '.3rem',
             color: '#000000',

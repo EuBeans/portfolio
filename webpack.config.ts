@@ -29,19 +29,23 @@ module: {
           },
           {
             test: /\.s[ac]ss$/i,
-            use: ['sass-loader',],
+            use: [
+              // Creates `style` nodes from JS strings
+              "style-loader",
+              // Translates CSS into CommonJS
+              "css-loader",
+              // Compiles Sass to CSS
+              "sass-loader",
+            ],
           },
           {
-            test: /\.(png|jpe?g|svg)$/,
-            loader: 'file-loader',
-            options: {
-                name: '/src/assets/[name].[ext]',
-            }
-        }
+            test: /\.(png|jpg|jpeg|gif)$/i,
+            type: "asset/resource",
+          }
         ]
     },
     resolve: {
-    extensions: ['.tsx', '.ts', '.js','.css','.sass', '.jpg', '.png', '.svg'],
+    extensions: ['.tsx', '.ts', '.js','.css','.sass', '.scss', '.jpg', '.png', '.svg'],
     },
 plugins:[
 new HtmlWebpackPlugin({

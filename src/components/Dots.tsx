@@ -1,13 +1,23 @@
 
 import React from "react";
 import {theme} from '../assets/theme';
-export default function Dots() {
 
+// props type for the dots component
+interface DotsProps {
+    width: number;
+    height: number;
+    radius: number;
+    gap: number;
+    viewBox: string;
+}
+
+export default function Dots(props: DotsProps) {
+    
+    // props to var
+    const {width, height, radius, gap, viewBox} = props;
+    
     const dots = () => {
-        const radius = 4;
-        const gap = 16;
-        const width = 5;
-        const height = 5;
+
 
         //function that create an SVG element with 5 by 5 dots in a grid, each dot is 8px in diameter with a 16px gap between them. This is done with a for loop and array
     
@@ -23,7 +33,7 @@ export default function Dots() {
 
     return (
         <div className="dots">
-            <svg width="100%" height="100%" viewBox="0 0 140 140" preserveAspectRatio="none">
+            <svg width="100%" height="100%" viewBox={viewBox} preserveAspectRatio="none">
                 <g>
                     {dots()}
                 </g>

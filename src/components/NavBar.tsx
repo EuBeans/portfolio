@@ -16,7 +16,7 @@ import {theme} from '../assets/theme';
 import {routes} from '../routing';
 import Link  from '@mui/material/Link';
 import "../App.css"
-import { Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
 // for the json object routes, get the name of each route
 const pages = ["home", "projects","experience","about-me"]
@@ -40,6 +40,51 @@ function ResponsiveAppBar() {
     display: 'flex',
     
   }
+
+  const mediaStyleBox = {
+    // This style box will contain 2 elements, the mediaLine that is vertical, and right underneath a list of icon links 
+    // the mediaLine will be fixed on the left hand side, top of the screen 
+    // the list of icon links will be fixed on the right hand side, top of the screen
+    // the mediaLine will be a fixed width, and height will be 200px
+    
+    display: 'flex',
+    position : 'fixed',
+    top: '0px',
+    left: '0px',
+    width: '50px',
+    height: '500px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    zIndex: 1,
+
+  }
+  const mediaLineStyle ={
+    border : '1px solid',
+    borderLeft: 'none',
+    borderTop: 'none',
+    borderBottom: 'none',
+    borderColor: theme.palette.background.special,
+    height: '300px',
+    width: '2px',
+    position: 'fixed',
+    top: '0px',
+    left:  '20px',
+    zIndex: 1,
+  }
+
+  const mediaIconStyle = {
+    position: 'fixed',
+    top: '0px',
+    left:  '20px',
+    color: theme.palette.text.secondary,
+    fontSize: '30px',
+    margin: '10px',
+    '&:hover': {
+      color: theme.palette.text.hover,
+    },
+  }
+  
 
   const styleNavLink = {
     my: 2,
@@ -90,63 +135,74 @@ const list = () => (
 );
 
   return (
-    <AppBar position="sticky" sx={{backgroundColor:theme.palette.background.default, boxShadow:'none'}}>
-      <Drawer
-          sx={{ display: { xs: 'flex', md: 'none' } }}
-          anchor={"right"}
-          open={drawerOpen}
-          onClose={toggleDrawer(false)}
-        >
-            {list()}
-      </Drawer>
-      <Container maxWidth="lg">
-        <Toolbar disableGutters>
-          <Typography
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'flex' },
-              fontFamily: theme.typography.fontFamily,
-              fontSize: theme.typography.h3.fontSize,
-              fontWeight: theme.typography.h3.fontWeight,
-              letterSpacing: theme.typography.h3.letterSpacing,
-              color: theme.palette.text.primary,
-              textDecoration: 'none',
-            }}
-          >
-          <span style={ styleSpecChar}>"</span>Jean<span style={ styleSpecChar}>"</span>
-          </Typography>
-          <Box sx={{ justifyContent:'flex-end', flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
-            {pages.map((page) => (
-              <Link
-                component="button"
-                variant="body2"
-                key={page}
-                onClick={toggleDrawer(false)}
-                sx={styleNavLink}
-              >
-                <span style={ styleSpecChar}>#</span>{page}
-            </Link>
-            ))}
-          </Box>
-          <Box sx={{ justifyContent:'flex-end', flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={toggleDrawer(true)}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
+    <>
+      
+      <AppBar position="fixed" sx={{backgroundColor:theme.palette.background.default, boxShadow:'none'}}>
+        <Grid sx={mediaStyleBox}> 
+          <Grid xs={8}sx={mediaLineStyle}/>
+          <Grid xs={4} sx={mediaIconStyle}>
             
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+          </Grid>
+        </Grid>
+        
+        <Drawer
+            sx={{ display: { xs: 'flex', md: 'none' } }}
+            anchor={"right"}
+            open={drawerOpen}
+            onClose={toggleDrawer(false)}
+          >
+              {list()}
+        </Drawer>
+        <Container maxWidth="lg">
+          <Toolbar disableGutters>
+            <Typography
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'flex' },
+                fontFamily: theme.typography.fontFamily,
+                fontSize: theme.typography.h2.fontSize,
+                fontWeight: theme.typography.h2.fontWeight,
+                letterSpacing: theme.typography.h2.letterSpacing,
+                color: theme.palette.text.primary,
+                textDecoration: 'none',
+              }}
+            >
+            <span style={ styleSpecChar}>"Jean"</span>
+            </Typography>
+            <Box sx={{ justifyContent:'flex-end', flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
+              {pages.map((page) => (
+                <Link
+                  component="button"
+                  variant="body2"
+                  key={page}
+                  onClick={toggleDrawer(false)}
+                  sx={styleNavLink}
+                >
+                  <span style={ styleSpecChar}>#</span>{page}
+              </Link>
+              ))}
+            </Box>
+            <Box sx={{ justifyContent:'flex-end', flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={toggleDrawer(true)}
+                color="inherit"
+                
+              >
+                <MenuIcon />
+              </IconButton>
+              
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </>
   );
 }
 export default ResponsiveAppBar;
