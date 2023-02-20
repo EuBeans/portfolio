@@ -4,6 +4,11 @@ module.exports = {
 mode: 'development',
 entry: './src/index.tsx',
 devtool: 'inline-source-map',
+performance: {
+  hints: false,
+  maxEntrypointSize: 512000,
+  maxAssetSize: 512000
+},
 output: {
 path: path.join(__dirname, '/dist'),
 filename: 'bundle.js'

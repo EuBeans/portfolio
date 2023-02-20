@@ -35,6 +35,7 @@ export const theme = {
         },
         background: {
             default: '#282c34',
+            light: '#ffffff',
             special:'#04ca9f',
             secondary: '#adb4b4',
             thirdary: '#5c9c96',
@@ -90,7 +91,7 @@ export const theme = {
             color: '#000000',
         },
         body1: {
-            fontSize: '0.7rem',
+            fontSize: '0.8rem',
             fontWeight: 200,
             letterSpacing: '.2rem',
             color: '#000000',

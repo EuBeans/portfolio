@@ -86,7 +86,6 @@ const SkillSection = () => {
         justifyContent: 'center',
         alignItems: 'center',
         paddingBottom: '15px',
-        marginLeft: '15px',
         borderRadius: '0px',
 
     }
@@ -193,7 +192,11 @@ const SkillSection = () => {
             <Grid  md={12}  sx={SkillBoxHeaderStyle}>
                 <Grid>
                 <Typography sx={SkillHeaderStyle}>
-                    <span style={styleSpecChar}>#</span>Skills  
+                    <span style={styleSpecChar}>#</span><Typical
+                                steps={["Skills", 5000]}
+                                loop={1}
+                                wrapper="span"
+                                />
                 </Typography>
                 </Grid>
                 <Grid>

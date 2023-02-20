@@ -34,16 +34,6 @@ const skillTableData = [
 ]
 const ExperienceSection = () => {
 
-
-    const skillBoxStyle = {
-        display: 'flex',
-        flexDirection: "row",
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        }
-
-
     const skillTableBoxStyle = {
         //this style is a container that will hold multiple skill tables
         display: 'flex',
@@ -81,13 +71,12 @@ const ExperienceSection = () => {
         borderRight: '0px',
         borderLeft: '0px',
         borderTop: '0px',
-        width: '200px',
+        width: '400px',
         borderColor: theme.palette.secondary.main,
         display: 'inline-flex',
         justifyContent: 'center',
         alignItems: 'center',
         paddingBottom: '15px',
-        marginLeft: '15px',
         borderRadius: '0px',
 
     }
@@ -106,63 +95,17 @@ const ExperienceSection = () => {
     letterSpacing: theme.typography.h3.letterSpacing, 
     fontSize: theme.typography.h3.fontSize,
     }
-    const styleTextChar = {
-    color: theme.palette.text.primary, 
-    fontFamily: theme.typography.fontFamily,
-    fontWeight: theme.typography.h3.fontWeight,
-    letterSpacing: theme.typography.h3.letterSpacing, 
-    fontSize: theme.typography.h3.fontSize,
-    }
-    
-    const boxAsteticStyle = {
-        border: '1px solid',
-        display: 'inline-flex',
-        borderColor: theme.palette.background.secondary,
-        backgroundColor: 'transparent',
-        position: 'absolute',
-        zIndex: 1,
-        overflow: 'hidden',
-    }
-    const dotAsteticStyle = {
-        borderColor: theme.palette.background.secondary,
-        backgroundColor: 'transparent',
-        position: 'absolute',
-        zIndex: 1,
-        overflow: 'hidden',
-    }
-    const asciiArtBoxStyle = {
-        display: 'inline-flex',
-        backgroundColor: 'transparent',
-        position: 'absolute',
-        padding: '0',
-        margin: '0',
-        overflow: 'hidden',
-    }
-
-    const skillTextStyle = {
-        display: "inline-block",
-        color: theme.palette.text.secondary, 
-        fontSize: theme.typography.body1.fontSize, 
-        fontFamily: theme.typography.fontFamily, 
-        fontWeight: theme.typography.body1.fontWeight, 
-        letterSpacing: theme.typography.body1.letterSpacing
-    }
-    const skillTextDividerStyle = {
-        display: "inline-block",
-        color: theme.palette.secondary.light, 
-        fontSize: theme.typography.body1.fontSize, 
-        fontFamily: theme.typography.fontFamily, 
-        fontWeight: theme.typography.body1.fontWeight, 
-        letterSpacing: theme.typography.body1.letterSpacing
-    }
-
 
     return (
         <SectionDivider>
             <Grid  md={12}  sx={SkillBoxHeaderStyle}>
                 <Grid>
                 <Typography sx={SkillHeaderStyle}>
-                    <span style={styleSpecChar}>#</span>Experiences  
+                    <span style={styleSpecChar}>#</span><Typical
+                                steps={["Experiences", 5000]}
+                                loop={1}
+                                wrapper="span"
+                            />  
                 </Typography>
                 </Grid>
                 <Grid>
@@ -171,13 +114,12 @@ const ExperienceSection = () => {
 
             </Grid>
            
-                <Grid  md={12} >
-
-                    <Box sx={skillTableBoxStyle}>
-                       <WorkExperienceTimeLine/>
-                    </Box>
-                </Grid>
-                
+            <Grid  md={12} >
+                <Box sx={skillTableBoxStyle}>
+                    <WorkExperienceTimeLine/>
+                </Box>
+            </Grid>
+            
             
         </SectionDivider>
     )
