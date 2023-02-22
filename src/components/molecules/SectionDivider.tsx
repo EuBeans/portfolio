@@ -2,7 +2,7 @@
 
 import { Box } from '@mui/material';
 import React from 'react';
-import {theme} from '../assets/theme';
+import {theme} from '../../assets/theme';
 
 
 interface SectionDividerProps {
@@ -16,8 +16,8 @@ const SectionDivider = (props: SectionDividerProps) => {
     const containerStyle = {
         backgroundColor: 'Transparent',
         position: 'relative',
-        paddingTop: '5vh',
-        paddingBottom: '15vh',
+        paddingTop: '0vh',
+        paddingBottom: '5vh',
 
     }
 

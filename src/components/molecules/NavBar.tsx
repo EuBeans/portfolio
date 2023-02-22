@@ -6,22 +6,26 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import {theme} from '../assets/theme';
+import {theme} from '../../assets/theme';
 import Link  from '@mui/material/Link';
-import "../App.css"
+import "../../App.css"
 import { Drawer, Grid, List, ListItem, ListItemIcon,  } from '@mui/material';
 import Typical from 'react-typical';
 import {
   Link as RouterLink,
 } from 'react-router-dom';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import EmailIcon from '@mui/icons-material/Email';
 // for the json object routes, get the name of each route
-const pages = ["home", "projects","experience","about-me"]
+import {routes} from "../../routing"
+const GITHUBLINK = "https://github.com/EuBeans"
+const EMAILLINK = "mailto:jeansfeir@hotmail.ca"
+
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+
+  // list of routes
 
   // style for quote and # 
   const styleSpecChar = {
@@ -37,23 +41,16 @@ function ResponsiveAppBar() {
   }
 
   const mediaStyleBox = {
-    // This style box will contain 2 elements, the mediaLine that is vertical, and right underneath a list of icon links 
-    // the mediaLine will be fixed on the left hand side, top of the screen 
-    // the list of icon links will be fixed on the right hand side, top of the screen
-    // the mediaLine will be a fixed width, and height will be 200px
-    
-    display: 'flex',
     position : 'fixed',
     top: '0px',
     left: '0px',
-    width: '50px',
-    height: '500px',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
+    maxWidth: '40px',
+    height: '365px',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     zIndex: 1,
-
   }
+
   const mediaLineStyle ={
     border : '1px solid',
     borderLeft: 'none',
@@ -64,22 +61,26 @@ function ResponsiveAppBar() {
     width: '2px',
     position: 'fixed',
     top: '0px',
-    left:  '20px',
+    left:  '15px',
     zIndex: 1,
   }
 
   const mediaIconStyle = {
-    position: 'fixed',
-    top: '0px',
-    left:  '20px',
     color: theme.palette.text.secondary,
     fontSize: '30px',
-    margin: '10px',
+    marginTop: '-13px',
+    left:  '15px',
     '&:hover': {
       color: theme.palette.text.hover,
     },
   }
-  
+
+  const mediaIconBoxStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    marginLeft: '7px',
+    alignItems: 'center',
+  }
 
   const styleNavLink = {
     my: 2,
@@ -110,19 +111,26 @@ const list = () => (
     onKeyDown={toggleDrawer(false)}
   >
     <List>
-      {pages.map((text) => (
-        <ListItem key={text} >
+      {routes.map((route) => (
+        route.nav && 
+        <ListItem key={route.name} >
             <ListItemIcon>
             </ListItemIcon>
-                <Link
-                component="button"
-                variant="body2"
-                key={text}
-                onClick={toggleDrawer(false)}
-                sx={styleNavLink}
-              >
-                <Typography sx={styleSpecChar}>#</Typography>{text}
+              <RouterLink
+                    to={route.path}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Link
+                      href={route.path}
+                      component="button"
+                      variant="body2"
+                      key={route.path}
+                      onClick={toggleDrawer(false)}
+                      sx={styleNavLink}
+                    >
+                    <span style={ styleSpecChar}>#</span>{route.name}
                 </Link>
+                </RouterLink>
         </ListItem>
       ))}
     </List>
@@ -131,12 +139,20 @@ const list = () => (
 
   return (
     <>
-      
+
       <AppBar position="fixed" sx={{backgroundColor:theme.palette.background.default, boxShadow:'none'}}>
-        <Grid sx={mediaStyleBox}> 
-          <Grid xs={8}sx={mediaLineStyle}/>
-          <Grid xs={4} sx={mediaIconStyle}>
-            
+        <Grid 
+          container     
+          direction="column-reverse"
+          sx={mediaStyleBox}> 
+          <Grid item sx={mediaLineStyle}/>
+          <Grid item sx={mediaIconBoxStyle} direction="column">
+            <Link href={GITHUBLINK} sx={mediaIconStyle} >
+              <GitHubIcon sx={{width:"80%"}}/>
+            </Link>
+            <Link href={EMAILLINK} sx={mediaIconStyle} >
+              <EmailIcon sx={{width:"80%"}}/>
+            </Link>
           </Grid>
         </Grid>
         
@@ -166,28 +182,29 @@ const list = () => (
               }}
             >
             
-                  <Typical
-                      steps={[500, `"Jean"`, 4000,`"JP"`, 4000, `"Jean Pierre"`, 4000, `"Johnny"`,4000]}
-                      loop={Infinity}
-                      wrapper="span"
-                    />
+                <Typical
+                    steps={[500, `"Jean"`, 4000,`"JP"`, 4000, `"Jean Pierre"`,4000]}
+                    loop={Infinity}
+                    wrapper="span"
+                  />
             
             </Typography>
             <Box sx={{ justifyContent:'flex-end', flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
-              {pages.map((page) => (
+              {routes.map((route) => (
+                route.nav &&
                 <RouterLink
-                  to={"/" + page}
+                  to={route.path}
                   style={{ textDecoration: "none" }}
                 >
                   <Link
-                    href={"/" + page}
+                    href={route.path}
                     component="button"
                     variant="body2"
-                    key={page}
+                    key={route.path}
                     onClick={toggleDrawer(false)}
                     sx={styleNavLink}
                   >
-                  <span style={ styleSpecChar}>#</span>{page}
+                  <span style={ styleSpecChar}>#</span>{route.name}
               </Link>
                 </RouterLink>
                 
@@ -201,7 +218,6 @@ const list = () => (
                 aria-haspopup="true"
                 onClick={toggleDrawer(true)}
                 color="inherit"
-                
               >
                 <MenuIcon />
               </IconButton>
@@ -214,7 +230,3 @@ const list = () => (
   );
 }
 export default ResponsiveAppBar;
-
-function setState(arg0: any) {
-  throw new Error('Function not implemented.');
-}

@@ -1,24 +1,24 @@
 import React, { useEffect } from 'react';
-import '../App.css';
+import '../../App.css';
 import Box from '@mui/material/Box';
-import { Grid, Tooltip} from '@mui/material';
-import {theme} from '../assets/theme';
+import { Grid} from '@mui/material';
+import {theme} from '../../assets/theme';
 import Typography from '@mui/material/Typography';
 import Typical from 'react-typical'
-import SectionDivider from './SectionDivider';
-import { motion, useAnimation } from "framer-motion";
+import SectionDivider from '../molecules/SectionDivider';
+import WorkExperienceTimeLine from '../molecules/WorkExperienceTimeLine';
 import { useInView } from "react-intersection-observer";
-import AwesomeSlider from 'react-awesome-slider';
-import 'react-awesome-slider/dist/styles.css';
-import withAutoplay from 'react-awesome-slider/dist/autoplay';
-import polygonContourProjectGit  from '../assets/images/polygonContourProjectGit.png';
-import ProjectCard from './ProjectCard';
+import Link  from '@mui/material/Link';
+import {
+    Link as RouterLink,
+  } from 'react-router-dom';
 
-const AutoplaySlider = withAutoplay(AwesomeSlider);
+import {routes} from '../../routing';
 
-
-const ProjectSection = () => {
+const ExperienceSection = () => {
     const [ref, inView] = useInView();
+
+    //state
     const [stateTyper, setstateTyper] = React.useState(0);
 
     useEffect(() => {
@@ -30,7 +30,8 @@ const ProjectSection = () => {
         }
       }, [inView]);
 
-    const contentBoxStyle = {
+      
+    const workExperienceBoxStyle = {
         //this style is a container that will hold multiple skill tables
         display: 'flex',
         flexDirection: "row",
@@ -41,18 +42,6 @@ const ProjectSection = () => {
 
 
     }
-    const skillBoxArtStyle = {
-        boder: '1px solid',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        backgroundColor: 'Transparent',
-        display: {xs:"none",md:"flex"},
-        flexWrap: 'nowrap',
-        position: 'relative',
-        minHeight: '40vh',
-        width: '100%',
-        
-    }
 
     const boxHeaderStyle = {
         paddingY: '30px',
@@ -61,13 +50,13 @@ const ProjectSection = () => {
         flexWrap: 'nowrap',        
     }
 
-    const boxHeaderBorderStyle = {
+    const boxHeaderBorderBoxStyle = {
         //border with only 1 straight line horizontal
         border: '1px solid',
         borderRight: '0px',
         borderLeft: '0px',
         borderTop: '0px',
-        width: '400px',
+        width: '300px',
         borderColor: theme.palette.secondary.main,
         display: 'inline-flex',
         justifyContent: 'center',
@@ -91,18 +80,32 @@ const ProjectSection = () => {
     letterSpacing: theme.typography.h3.letterSpacing, 
     fontSize: theme.typography.h3.fontSize,
     }
-
-    const toastStyle = {
-        position: 'absolute',
-        top: '50vh',
-        left: '0px',
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'red',
-        zIndex: 100,
+    const boxHeaderLinkStyle = {
+        width: '100px',
+        borderColor: theme.palette.primary.light,
+        flexDirection: 'row-reverse',
+        display: 'inline-flex',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        paddingBottom: '15px',
     }
+    const styleNavLink = {
+        my: 2,
+        mx: 1,
+        flexDirection: 'row',
+        display: 'flex',
+        color: theme.palette.text.primary, 
+        fontFamily: theme.typography.fontFamily, 
+        fontWeight: theme.typography.body1.fontWeight, 
+        letterSpacing: theme.typography.body1.letterSpacing, 
+        fontSize: theme.typography.body1.fontSize,
+        textDecorationColor: theme.palette.text.primary,
+        '&:hover': {
+          color: theme.palette.text.special,
+          
 
-
+        },
+    }
 
     return (
         <SectionDivider>
@@ -110,21 +113,38 @@ const ProjectSection = () => {
                 <Grid>
                 <Typography sx={headerStyle}>
                     <span ref={ref} style={styleSpecChar}>#</span><Typical
-                                steps={[500,"Projects", 5000]}
+                                steps={[500,"experiences", 5000]}
                                 loop={stateTyper}
                                 wrapper="span"
                             />  
                 </Typography>
                 </Grid>
                 <Grid>
-                    <Box sx={boxHeaderBorderStyle}/>
+                    <Box sx={boxHeaderBorderBoxStyle}/>
+                </Grid>
+                <Grid container xs={12 }sx={boxHeaderLinkStyle}>
+                    <RouterLink
+                        to={routes[2].path}
+                        style={{ textDecoration: "none" }}
+                        >
+                            <Link
+                                component="button"
+                                variant="body2"
+                                key={'projects'}
+                                sx={styleNavLink}
+                            >
+                            {"View all ==>"}
+                        </Link>
+                    </RouterLink>
                 </Grid>
 
             </Grid>
+           
             <Grid  md={12} >
-                <Box sx={contentBoxStyle}>
-                    <ProjectCard/>
-
+                <Box sx={workExperienceBoxStyle}>
+                    <WorkExperienceTimeLine
+                        ShowAll={false}
+                    />
                 </Box>
             </Grid>
             
@@ -134,4 +154,4 @@ const ProjectSection = () => {
 
 }
 
-export default ProjectSection;
+export default ExperienceSection;

@@ -4,10 +4,11 @@ import '../App.css';
 import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
 import {theme} from '../assets/theme';
-import SummarySection from '../components/SummarySection';
-import SkillSection from '../components/SkillSection';
-import ExperienceSection from '../components/ExperienceSection';
-import ProjectSection from '../components/ProjectSection';
+import SummarySection from '../components/sections/SummarySection';
+import SkillSection from '../components/sections/SkillSection';
+import ExperienceSection from '../components/sections/ExperienceSection';
+import ProjectSection from '../components/sections/ProjectSection';
+import AboutMeSection from '../components/sections/aboutMeSection';
 
 const Home = () => {
     const containerStyle = {
@@ -23,7 +24,8 @@ const Home = () => {
         >   
             <SummarySection/>
             <ProjectSection/>
-            <SkillSection/>
+            <SkillSection showArt={true}/>
+            <AboutMeSection/>
             <ExperienceSection/>
         </Container>
     </Box>

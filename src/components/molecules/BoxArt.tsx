@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import react, { useEffect } from 'react';
-import { theme } from '../assets/theme';
+import { theme } from '../../assets/theme';
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React from 'react';
@@ -22,7 +22,6 @@ interface BoxArtProps {
 
 const BoxArt = (props:BoxArtProps) => {
     const [ref, inView] = useInView();
-
     //state
     const [stateTyper, setstateTyper] = React.useState(0);
     const control = useAnimation()
@@ -31,14 +30,10 @@ const BoxArt = (props:BoxArtProps) => {
     useEffect(() => {
 
         //check if reload is true, if it is false or undefined, then the box will not  be hidden when it is not in view
-        
-        
-
         if(inView){
             control.start({ opacity: 1,x: x, y:y,transition: { duration: speed }})
         }
         else{
-            
             control.start({ opacity: 0, display: "hidden" })
         }
       }, [inView]);

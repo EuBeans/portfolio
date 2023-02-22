@@ -1,6 +1,6 @@
 
 import React from "react";
-import {theme} from '../assets/theme';
+import {theme} from '../../assets/theme';
 
 
 // props type for the dots component

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box} from '@mui/material';
-import { theme } from '../assets/theme';
+import { theme } from '../../assets/theme';
 import AsciiArt from './AsciiArt';
 import Dots from './Dots';
 import BoxArt from './BoxArt';
@@ -47,6 +47,12 @@ export default function BackgroundArt() {
             <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'570vh'} left= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
             <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'70px'} top={'630vh'} right= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
             <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'690vh'} left= {'98%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'750vh'} right= {'98%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'150px'} top={'770vh'} left= {'90%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'870vh'} left= {'97%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'130px'} top={'900vh'} right= {'94%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'200px'} top={'950vh'} left= {'93%'} x={[0,0]} y={[0,0]} speed={SPEED}/>\
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'1010vh'} right= {'92%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
 
             <BoxArt box={"dot"} boxStyle={asciiArtBoxStyle} height= {'100px'} top={'98vh'} right= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>
                 <Dots  
@@ -75,6 +81,17 @@ export default function BackgroundArt() {
                     viewBox = "0 0 100 100"
                 />
             </BoxArt>
+            <BoxArt box={"dot"} boxStyle={asciiArtBoxStyle} height= {'100px'} top={'600vh'} left= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}>
+                <Dots
+                    radius = {2}
+                    gap = {16}
+                    width = { 7}
+                    height = {7}
+                    viewBox = "0 0 100 100"
+                />
+            </BoxArt>
+
+            
             
         
             <BoxArt box={"ascii"}  boxStyle={asciiArtBoxStyle}  height= {'200px'} top={'60vh'} left= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>

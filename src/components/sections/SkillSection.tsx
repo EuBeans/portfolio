@@ -1,41 +1,23 @@
 import React, { useEffect } from 'react';
-import '../App.css';
+import '../../App.css';
 import Box from '@mui/material/Box';
-import { Button, Container, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import {theme} from '../assets/theme';
+import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import {theme} from '../../assets/theme';
 import Typography from '@mui/material/Typography';
 import Typical from 'react-typical'
-import Dots from './Dots';
-import AsciiArt from './AsciiArt';
-import SectionDivider from './SectionDivider';
-import { motion, useAnimation } from "framer-motion";
-
+import Dots from '../molecules/Dots';
+import AsciiArt from '../molecules/AsciiArt';
+import SectionDivider from '../molecules/SectionDivider';
 import { useInView } from "react-intersection-observer";
-import BoxArt from './BoxArt';
+import BoxArt from '../molecules/BoxArt';
+import {skillTableData} from '../../const/constants';
 
-const skillTableData = [
-    {
-        tableName: "Frameworks",
-        tableData: ["SpringBoot", "React", "Angular", "NodeJs", "Express", "Flask", "Bootstrap", "Material UI", "JQuery"],   
-    },
-    {
-    tableName: "Languages",
-    tableData: ["Java", "Python", "C++", "C", "C#", "JavaScript", "TypeScript", "Kotlin"],
-    },
-    {
-        tableName: "Tools",
-        tableData: ["Git", "GitHub","Docker", "Gradle", "Jira", "Confluence", "AWS", "Azure", "GCP", "Heroku","Windows", "MacOS"],
-    },
-    {
-    tableName: "Databases",
-    tableData: ["MySQL", "PostgreSQL", "SQLite", "Firebase"],
-    },
-    {
-    tableName: "Other",
-    tableData: ["Agile", "Scrum", "Kanban", "REST", "GraphQL", "OOP", "Functional Programming", "Data Structures", "Algorithms", "Design Patterns", "Clean Code"]
-    }
-]
-const SkillSection = () => {
+interface SkillTableProps {
+    showArt: boolean;
+}
+
+const SkillSection = (props:SkillTableProps) => {
+    const {showArt} = props;
     const [ref, inView] = useInView();
 
     //state
@@ -123,23 +105,7 @@ const SkillSection = () => {
     letterSpacing: theme.typography.h3.letterSpacing, 
     fontSize: theme.typography.h3.fontSize,
     }
-    
-    const boxAsteticStyle = {
-        border: '1px solid',
-        display: 'inline-flex',
-        borderColor: theme.palette.background.secondary,
-        backgroundColor: 'transparent',
-        position: 'absolute',
-        zIndex: 1,
-        overflow: 'hidden',
-    }
-    const dotAsteticStyle = {
-        borderColor: theme.palette.background.secondary,
-        backgroundColor: 'transparent',
-        position: 'absolute',
-        zIndex: 1,
-        overflow: 'hidden',
-    }
+
     const asciiArtBoxStyle = {
         display: 'inline-flex',
         backgroundColor: 'transparent',
@@ -212,7 +178,7 @@ const SkillSection = () => {
                 
                 <Typography sx={SkillHeaderStyle}>
                     <span ref={ref} style={styleSpecChar}>#</span><Typical
-                                steps={[500,"Skills", 7000]}
+                                steps={[500,"skills", 7000]}
                                 loop={stateTyper}
                                 wrapper="span"
                                 />
@@ -223,71 +189,75 @@ const SkillSection = () => {
                 </Grid>
 
             </Grid>
-            <Grid container spacing={2} sx={[skillBoxStyle,{paddingX:'50px'}]}  >
-                <Grid  md={5} >
-                    <Box sx={skillBoxArtStyle}>
-                        <BoxArt box={"box"} width= {'100px'} height= {'100px'} top=  {'60%'} right= {'80%'} x={[-0,-120]} y={[0,410]} speed={0.5}/>
-                        <BoxArt box={"box"} width= {'50px'} height= {'50px'} top=  {'78%'} right= {'20%'} x={[0,120]} y={[0,510]} speed={0.5}/>
-                        <BoxArt box={"box"} width= {'80px'} height= {'80px'} top=  {'10%'} right= {'20%'} x={[0,120]} y={[0,60]} speed={0.5}/>
 
-                        <BoxArt box={"dot"}width= {'150px'} height= {'150px'} top=  {'5%'} right= {'70%'} x={[120,-50]} y={[310,25]} speed={0.5}>
-                            <Dots  
-                                radius = {3}
-                                gap = {16}
-                                width = {5}
-                                height = {5}
-                                viewBox = "0 0 200 200"
-                                />
-                        </BoxArt>
-                        <BoxArt box={"dot"} width= {'100px'} height= {'100px'} top=  {'0%'} right= {'30%'} x={[120,70]} y={[310,130]} speed={0.5}>
-                            <Dots  
-                                radius = {3}
-                                gap = {16}
-                                width = {5}
-                                height = {5}
-                                viewBox = "0 0 200 200"
-                                />
-                        </BoxArt>
-                        <BoxArt box={"dot"} width= {'100px'} height= {'100px'} top={'70%'} right= {'30%'} x={[120,90]} y={[310,480]} >
-                            <Dots  
-                                radius = {3}
-                                gap = {16}
-                                width = {5}
-                                height = {5}
-                                viewBox = "0 0 200 200"
-                                />
-                        </BoxArt>
-                        <BoxArt box={"ascii"} width={"400px"} height= {'400px'} top={'60%'} right= {'30%'} x={[0,220]} y={[150,150]} >
-                            <AsciiArt type={"computer"} fontSize={theme.typography.h2.fontSize} color={theme.palette.secondary.main}/>
-                        </BoxArt>
+            <Grid container spacing={2} sx={[skillBoxStyle,{paddingX: showArt ? '50px':"0px", flexWrap: showArt?"nowrap":"wrap"}]}  >
+                {showArt&&
+                    <Grid  md={5} >
+                        <Box sx={skillBoxArtStyle}>
+                            <BoxArt box={"box"} width= {'100px'} height= {'100px'} top=  {'60%'} right= {'80%'} x={[-0,-120]} y={[0,410]} speed={0.5}/>
+                            <BoxArt box={"box"} width= {'50px'} height= {'50px'} top=  {'78%'} right= {'20%'} x={[0,120]} y={[0,510]} speed={0.5}/>
+                            <BoxArt box={"box"} width= {'80px'} height= {'80px'} top=  {'10%'} right= {'20%'} x={[0,120]} y={[0,60]} speed={0.5}/>
+
+                            <BoxArt box={"dot"}width= {'150px'} height= {'150px'} top=  {'5%'} right= {'70%'} x={[120,-50]} y={[310,25]} speed={0.5}>
+                                <Dots  
+                                    radius = {3}
+                                    gap = {16}
+                                    width = {5}
+                                    height = {5}
+                                    viewBox = "0 0 200 200"
+                                    />
+                            </BoxArt>
+                            <BoxArt box={"dot"} width= {'100px'} height= {'100px'} top=  {'0%'} right= {'30%'} x={[120,70]} y={[310,130]} speed={0.5}>
+                                <Dots  
+                                    radius = {3}
+                                    gap = {16}
+                                    width = {5}
+                                    height = {5}
+                                    viewBox = "0 0 200 200"
+                                    />
+                            </BoxArt>
+                            <BoxArt box={"dot"} width= {'100px'} height= {'100px'} top={'70%'} right= {'30%'} x={[120,90]} y={[310,480]} >
+                                <Dots  
+                                    radius = {3}
+                                    gap = {16}
+                                    width = {5}
+                                    height = {5}
+                                    viewBox = "0 0 200 200"
+                                    />
+                            </BoxArt>
+                            <BoxArt box={"ascii"} width={"400px"} height= {'400px'} top={'60%'} right= {'30%'} x={[0,220]} y={[150,150]} >
+                                <AsciiArt type={"computer"} fontSize={theme.typography.h2.fontSize} color={theme.palette.secondary.main}/>
+                            </BoxArt>
 
 
-                    </Box>
-                </Grid>
-                <Grid  md={7}  >
+                        </Box>
+                    </Grid>
+                }
+                <Grid   md={showArt ? 7: 12} >
                     <Box sx={skillTableBoxStyle}>
-                        <Grid  xs={6} sx={{padding:"3px"}}>
+                        <Grid  md={showArt ? 6: 2} xs={showArt ? 12: 6} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[0])}
                             
                         </Grid>
-                        <Grid  xs={6} sx={{padding:"3px"}}>
+                        <Grid  md={showArt ? 6: 2} xs={showArt ? 12: 6} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[1])}
                         </Grid>
-                        <Grid  xs={6} sx={{padding:"3px"}}>
+                        <Grid  md={showArt ? 6: 2} xs={showArt ? 12: 6} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[2])}
                         </Grid>
-                        <Grid  xs={6} sx={{padding:"3px"}}>
+                        <Grid  md={showArt ? 6: 2} xs={showArt ? 12: 6} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[3])}
                         </Grid>
-                        <Grid  xs={6} sx={{padding:"3px"}}>
+                        <Grid  md={showArt ? 6: 2} xs={showArt ? 12: 6} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[4])}
                         </Grid>
-                        <Grid  xs={6} sx={{padding:"10px",position:"relative"}}>
-                            <Box sx={[asciiArtBoxStyle,{top: '5%', left: '30%', height:"100 px "}]}>
-                                <AsciiArt type={"artLinux"} fontSize={theme.typography.h4.fontSize}/>
-                            </Box>
-                        </Grid>
-                        
+                        {showArt&&
+                            <Grid xs={3} sx={{padding:"10px",position:"relative"}}>
+                                <Box sx={[asciiArtBoxStyle,{top: '5%', left: '30%', height:"100 px "}]}>
+                                    <AsciiArt type={"artLinux"} fontSize={theme.typography.h4.fontSize}/>
+                                </Box>
+                            </Grid>
+                        }
                     </Box>
                 </Grid>
                 
