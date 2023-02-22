@@ -18,12 +18,15 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 // for the json object routes, get the name of each route
 import {routes} from "../../routing"
+import { useLocation } from 'react-router-dom'
+
 const GITHUBLINK = "https://github.com/EuBeans"
 const EMAILLINK = "mailto:jeansfeir@hotmail.ca"
 
 
 function ResponsiveAppBar() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const location = useLocation();
 
   // list of routes
 
@@ -126,7 +129,7 @@ const list = () => (
                       variant="body2"
                       key={route.path}
                       onClick={toggleDrawer(false)}
-                      sx={styleNavLink}
+                      sx={[styleNavLink,{color: location.pathname === route.path ? theme.palette.text.hover : theme.palette.text.secondary}]}
                     >
                     <span style={ styleSpecChar}>#</span>{route.name}
                 </Link>
@@ -202,7 +205,7 @@ const list = () => (
                     variant="body2"
                     key={route.path}
                     onClick={toggleDrawer(false)}
-                    sx={styleNavLink}
+                    sx={[styleNavLink,{color: location.pathname === route.path ? theme.palette.text.hover : theme.palette.text.secondary}]}
                   >
                   <span style={ styleSpecChar}>#</span>{route.name}
               </Link>
