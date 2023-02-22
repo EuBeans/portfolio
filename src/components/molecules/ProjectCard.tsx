@@ -7,15 +7,17 @@ import 'react-awesome-slider/dist/styles.css';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea, Grid } from '@mui/material';
+import { Alert, ButtonBase, CardActionArea, Grid, Snackbar } from '@mui/material';
 import {projects} from '../../const/constants';
 import Typical from 'react-typical';
-
+import Slide, { SlideProps } from '@mui/material/Slide';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 interface ProjectCardProps {
     ShowAll: boolean;
     ShowSections: boolean;
 }
+type TransitionProps = Omit<SlideProps, 'direction'>;
 
 const ProjectCard = (props:ProjectCardProps) => {
     let numCardAlgo = 0;
@@ -25,15 +27,23 @@ const ProjectCard = (props:ProjectCardProps) => {
     const {ShowAll, ShowSections} = props;
 
     const headerStyle ={
-        color: theme.palette.text.primary,
+        color: theme.palette.text.special,
         fontSize: theme.typography.h2.fontSize,
         fontFamily: theme.typography.fontFamily2,
         fontWeight: theme.typography.h2.fontWeight,
         letterSpacing: theme.typography.h2.letterSpacing,
     }
     const textStyle = {
-        color: theme.palette.text.secondary, 
-        fontSize: theme.typography.body2.fontSize, 
+        color: theme.palette.text.primary, 
+        fontSize: theme.typography.body1.fontSize, 
+        fontFamily: theme.typography.fontFamily, 
+        fontWeight: theme.typography.body2.fontWeight, 
+        letterSpacing: theme.typography.body2.letterSpacing
+    }
+
+    const textSpecStyle = {
+        color: theme.palette.text.special, 
+        fontSize: theme.typography.body1.fontSize, 
         fontFamily: theme.typography.fontFamily, 
         fontWeight: theme.typography.body2.fontWeight, 
         letterSpacing: theme.typography.body2.letterSpacing
@@ -69,7 +79,17 @@ const ProjectCard = (props:ProjectCardProps) => {
             boxShadow: '0px 0px 20px 0px rgba(0,0,0,0.75)',
         }
     }
-
+    const skillBoxStyle={
+        border : '1px solid',
+        borderLeft: '0px',
+        borderRight: '0px',
+        paddingY: '10px',
+        marginY: '5px',
+        borderColor: theme.palette.secondary.main,
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    }
     const styleSpecChar = {
         color: theme.palette.text.special, 
         fontFamily: theme.typography.fontFamily,
@@ -86,8 +106,36 @@ const ProjectCard = (props:ProjectCardProps) => {
         alignItems: 'flex-start',
         flexWrap: 'nowrap',
     }
+
+    const snackBarStyle = {
+        width: '100%',
+        backgroundColor: theme.palette.error.main,
+    }
+
     
-    // function
+    const [open, setOpen] = React.useState(false);
+
+      
+    const printSkills = (skill:string) => {
+        return (
+            <span style={textStyle} key={skill}>{skill}<span style={textSpecStyle}>|</span></span>
+        )
+    }
+
+      const handleClose = () => {
+        setOpen(false);
+      };
+
+    const onCardClick = (project: typeof projects[0]) => {
+        if(!project.isPrivate){
+            window.open(project.link);
+            return;
+        }     
+        setOpen(true);  
+        console.log("open", open);
+        return;
+    }
+
     const showProjectCards = (type:string) => {
        
 
@@ -106,29 +154,40 @@ const ProjectCard = (props:ProjectCardProps) => {
             project.type === "Machine Learning" && numCardML++;
 
             return (
-                <Card sx={cardContentStyle}>
-                    <CardActionArea sx={cardActiontyle}>
-                        <CardMedia
-                        component="img"
-                        height="200"
-                        image={project.image}
-                        alt="green iguana"
-                        />
-                        <CardContent sx ={{}}>
-                            <Typography gutterBottom variant="h5" component="div" sx={headerStyle}>
-                                {project.title}
-                            </Typography>
+                <>
+                
+                    <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}   anchorOrigin={{ vertical: 'top',  horizontal: 'right', }}>
+                        <Alert onClose={handleClose} severity="error" sx={snackBarStyle} icon={<ErrorOutlineIcon sx={{color:theme.palette.text.primary}} />}>
                             <Typography variant="body2" sx={textStyle}>
-                                {project.description}
+                                {"This repository is private."}
                             </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
-            )
+                        </Alert>
+                    </Snackbar>
             
-   
-       
-
+                    <Card sx={cardContentStyle}>
+                        <CardActionArea sx={cardActiontyle}>               
+                            <CardMedia
+                            component="img"
+                            height="200"
+                            image={project.image}
+                            alt="green iguana"
+                            onClick={() => onCardClick(project)}
+                            />
+                            <CardContent sx ={{}}>
+                                <Typography gutterBottom variant="h5" component="div" sx={headerStyle}>
+                                    {project.title}
+                                </Typography>
+                                <Box sx={skillBoxStyle}>
+                                    {project.skills.map((skill) => printSkills(skill))}
+                                </Box>
+                                <Typography variant="body2" sx={textStyle}>
+                                    {project.description}
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>     
+                </>
+            )
             })    
         return projectCards;
     }

@@ -14,7 +14,7 @@ export const theme = {
             light: '#3a7e7d',
         },
         error: {
-            main: '#000000',
+            main: '#a32950',
             dark: '#000000',
             light: '#000000',
         },
@@ -49,6 +49,7 @@ export const theme = {
             disabled: '#000000',
             hover:'white',
             hint: '#000000',
+            
         },
     },
     typography: {
@@ -99,7 +100,7 @@ export const theme = {
         body2: {
             fontSize: '.7rem',
             fontWeight: 200,
-            letterSpacing: '.3rem',
+            letterSpacing: '.2rem',
             color: '#000000',
         },
         subtitle1: {

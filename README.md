@@ -8,11 +8,11 @@
 
 - /// add view More button
 - /// add section for projects
-- 
+- /// fix layout for mobile applications
+- add project link and skills
 - add contact me form
 - add resume downlaoder
 
-- /// fix layout for mobile applications
 
 <https://github.com/stephane-monnot/react-vertical-timeline>
 <https://www.npmjs.com/package/custom-cursor-react>

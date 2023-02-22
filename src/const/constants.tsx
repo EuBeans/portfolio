@@ -10,43 +10,56 @@ export const projects = [
         title: "Polygon Contour V1",
         description: "A web application that allows users to draw polygons on a map and get the contour of the polygon.",
         image: polygonContourV1,
-        link: "",
-        type: "Algorithm"
+        skills: ["Python", "Algebra"],
+        link: "https://github.com/EuBeans/PolygonContour",
+        type: "Algorithm",
+        isPrivate: false
     },
     {
         title: "League of Legends ML",
-        description: "A Machine Learning project that uses a neural network to predict the outcome of a League of Legends game based on the first 10 minutes of the game.",
+        description: "A Machine Learning project that predict the outcome of a League of Legends game.",
+        skills: ["Python", "Jupyter Notebook"],
         image: leagueOfLegendsMLGif,
-        link: "",
-        type: "Machine Learning"
-    },
-    {
-        title: "Portfolio Website",
-        description: "A website that showcases my skills and projects. This website was built using React and Material UI.",
-        image: portfolio,
-        link: "",
-        type: "Application"
+        link: "https://github.com/EuBeans/LeagueOfLegendsMLWinRate",
+        type: "Machine Learning",
+        isPrivate: false
     },
     {
         title: "Parkeris React Native App",
-        description: "A React Native app that allows users to find parking spots in the city of Ottawa. This app was built using React Native, SpringBoot and Graphql microservice architecture.",
+        description: "A React Native app that allows users to find parking spots in the city of Ottawa.",
         image: parkeris,
+        skills: ["React Native", "SpringBoot", "Graphql", "GGS", "Microservice"],
         link: "",
-        type: "Application"
+        type: "Application",
+        isPrivate: true
     },
     {
+        title: "Portfolio Website",
+        description: "A website that showcases my skills, experiences, projects and more.",
+        skills: ["React", "Material UI", "Typescript", "React Router"],
+        image: portfolio,
+        link: "https://github.com/EuBeans/portfolio",
+        type: "Application",
+        isPrivate: false
+    },
+
+    {
         title: "Obelix StoryBook",
-        description: "A StoryBook that showcases the components used in the Parkeris React Native app. This StoryBook was built using React Native, StoryBook and Typescript.",
+        description: "A StoryBook that showcases the components used in the Parkeris React Native app.",
         image: storyBook,
+        skills: ["React Native", "StoryBook", "Typescript"],
         link: "",
-        type: "Application"
+        type: "Application",
+        isPrivate: true
     },
     {
         title: "Polygon Contour V2",
-        description: "An improved version of Polygon Contour V1. This version allows users to draw polygons on a map and get the contour of the polygon.This version was build using TS, and can handle better angles and more complex polygons.",
+        description: "An improved version of Polygon Contour V1. This version can handle better angles and more complex polygons.",
         image: polygonContourProject,
+        skills: ["Typescript", "Algebra"],
         link: "",
-        type: "Algorithm"
+        type: "Algorithm",
+        isPrivate: true
 
     }
 
