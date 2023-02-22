@@ -1,17 +1,14 @@
 import { Box, Container } from '@mui/material';
 import React from 'react';
-import { BrowserRouter, Routes, Route, HashRouter, useRoutes} from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import './App.css';
 import { theme } from './assets/theme';
 import NavBar from './components/molecules/NavBar';
 import {routes} from "./routing";
 import  startTitleAnimation  from './utils/TitleAnimation';
-import Cursor from "react-special-cursor";
 import BackgroundArt from './components/molecules/BackgroundArt';
 import ScrollToTop from './utils/ScrollToTop';
 function App() {
-
-
   startTitleAnimation("Portfolio");
   const containerStyle = {
     backgroundColor: theme.palette.background.default,
@@ -19,9 +16,7 @@ function App() {
     position: "relative"
   }
   
-  console.log("routes: ", routes);
   return (
-    <Cursor borderClassName='cursorBorder'>
       <Box sx={containerStyle}>
         <BackgroundArt/>
         <Container maxWidth="lg">
@@ -36,7 +31,6 @@ function App() {
           </Routes>
         </Container>
       </Box>
-    </Cursor>
   );
 }
 

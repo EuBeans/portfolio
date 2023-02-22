@@ -7,6 +7,7 @@ import WorkOutlineIcon from '@mui/icons-material/WorkOutline'
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import {WorkExperience} from '../../const/constants';
+import SchoolIcon from '@mui/icons-material/School';
 
 interface WorkExperienceTimeLineProps {
     ShowAll: boolean;
@@ -126,7 +127,7 @@ const WorkExperienceTimeLine = (props:WorkExperienceTimeLineProps) => {
                     dateClassName={ "datePadding" }
                     date={workExperience.date}
                     iconStyle={workIconStyle}
-                    icon={<WorkOutlineIcon/>}
+                    icon={workExperience.icon === "work" ?<WorkOutlineIcon/> : <SchoolIcon/>}
                 >
                     {workExperience.skills.map((skill) => {
                             return(

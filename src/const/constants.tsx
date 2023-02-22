@@ -54,6 +54,15 @@ export const projects = [
 
 export const WorkExperience = [
     {
+        title: "Software Engineer Bachelor Degree",
+        company: "University of Ottawa",
+        date: "September 2018 - December 2023",
+        location: "Ottawa, Ontario",
+        description: "Recently finished my last semester, and graduating this spring.",
+        icon:"school",
+        skills: []
+    },
+    {
         title: "Software Engineer Intern",
         company: "IBwave Solutions",
         date: "May 2022 - August 2022",

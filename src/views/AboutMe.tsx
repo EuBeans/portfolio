@@ -37,23 +37,6 @@ const AboutMe = () => {
         flexWrap: 'nowrap',        
     }
 
-    const boxHeaderBorderStyle = {
-        //border with only 1 straight line horizontal
-        border: '1px solid',
-        borderRight: '0px',
-        borderLeft: '0px',
-        borderTop: '0px',
-        width: '100px',
-        borderColor: theme.palette.secondary.main,
-        flexDirection: 'row-reverse',
-        display: 'inline-flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingBottom: '15px',
-        borderRadius: '0px',
-
-    }
-
     const headerStyle ={
         color: theme.palette.text.primary,
         fontSize: theme.typography.h2.fontSize,

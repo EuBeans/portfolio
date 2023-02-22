@@ -25,7 +25,7 @@ const Home = () => {
             <SummarySection/>
             <ProjectSection/>
             <SkillSection showArt={true}/>
-            <AboutMeSection/>
+            <AboutMeSection showHeader={true}/>
             <ExperienceSection/>
         </Container>
     </Box>

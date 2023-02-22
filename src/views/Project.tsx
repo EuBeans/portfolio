@@ -36,32 +36,6 @@ const Project = () => {
         flexWrap: 'nowrap',        
     }
 
-    const boxHeaderBorderStyle = {
-        //border with only 1 straight line horizontal
-        border: '1px solid',
-        borderRight: '0px',
-        borderLeft: '0px',
-        borderTop: '0px',
-        width: '100px',
-        borderColor: theme.palette.secondary.main,
-        flexDirection: 'row-reverse',
-        display: 'inline-flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingBottom: '15px',
-        borderRadius: '0px',
-
-    }
-
-    const boxHeaderLinkStyle = {
-        width: '100px',
-        borderColor: theme.palette.primary.light,
-        flexDirection: 'row-reverse',
-        display: 'inline-flex',
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        paddingBottom: '15px',
-    }
     const headerStyle ={
         color: theme.palette.text.primary,
         fontSize: theme.typography.h2.fontSize,
@@ -84,24 +58,6 @@ const Project = () => {
         fontFamily: theme.typography.fontFamily2,
         fontWeight: theme.typography.body1.fontWeight,
         letterSpacing: theme.typography.body1.letterSpacing,
-    }
-
-    const styleNavLink = {
-        my: 2,
-        mx: 1,
-        flexDirection: 'row',
-        display: 'flex',
-        color: theme.palette.text.primary, 
-        fontFamily: theme.typography.fontFamily, 
-        fontWeight: theme.typography.body1.fontWeight, 
-        letterSpacing: theme.typography.body1.letterSpacing, 
-        fontSize: theme.typography.body1.fontSize,
-        textDecorationColor: theme.palette.text.primary,
-        '&:hover': {
-          color: theme.palette.text.special,
-          
-
-        },
     }
 
     return (
