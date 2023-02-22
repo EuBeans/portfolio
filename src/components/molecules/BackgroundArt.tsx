@@ -90,11 +90,7 @@ export default function BackgroundArt() {
                     viewBox = "0 0 100 100"
                 />
             </BoxArt>
-
-            
-            
-        
-            <BoxArt box={"ascii"}  boxStyle={asciiArtBoxStyle}  height= {'200px'} top={'60vh'} left= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>
+            <BoxArt box={"ascii"}  boxStyle={asciiArtBoxStyle}  height= {'240px'} top={'60vh'} left= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>
                 <AsciiArt type={"keyboard"} fontSize={theme.typography.h4.fontSize}/>
             </BoxArt>
             <BoxArt box={"ascii"}  boxStyle={asciiArtBoxStyle} height= {'400px'} top={'210vh'} right= {'92%'}  x={[0,0]} y={[0,0]} speed={SPEED}>

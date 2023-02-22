@@ -46,11 +46,12 @@ module: {
           {
             test: /\.(png|jpg|jpeg|gif)$/i,
             type: "asset/resource",
-          }
+          },
+
         ]
     },
     resolve: {
-    extensions: ['.tsx', '.ts', '.js','.css','.sass', '.scss', '.jpg', '.png', '.svg'],
+    extensions: ['.tsx', '.ts', '.js','.css','.sass', '.scss', '.jpg', '.png', '.svg','.pdf'],
     },
 plugins:[
 new HtmlWebpackPlugin({

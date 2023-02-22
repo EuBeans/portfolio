@@ -9,7 +9,7 @@
 - /// add view More button
 - /// add section for projects
 - /// fix layout for mobile applications
-- add project link and skills
+- /// add project link and skills
 - add contact me form
 - add resume downlaoder
 

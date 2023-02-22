@@ -8,6 +8,8 @@ import Typical from 'react-typical'
 import mainPicture  from '../../assets/images/mainPicture.jpg';
 import ImageBox from '../molecules/imageBox';
 import {codingLanguages} from '../../const/constants';
+import FileSaver, { saveAs } from 'file-saver';
+
 
  const SummarySection = () => {
     
@@ -118,6 +120,16 @@ import {codingLanguages} from '../../const/constants';
             backgroundColor: '#FFFFFF'
         }
     }
+
+    const saveManual = () => {
+        console.log("saveManual")
+
+        FileSaver.saveAs(
+          process.env.REACT_APP_CLIENT_URL + "../../assets/JeanPierre_Sfeir_Resume.pdf",
+          "JeanPierre_Sfeir_Resume.pdf",
+        );
+    };
+
     return (
         <Box sx={{height: '100vh'}}>
             <Grid container spacing={2} sx={aboutBoxStyle}  >
@@ -140,7 +152,7 @@ import {codingLanguages} from '../../const/constants';
                             </Typography>
                         </Grid>
                         <Grid  xs={12} sx={{paddingTop:"20px"}}>
-                            <Button variant="outlined" sx={contactMeButtonStyle}>Contact Me ##</Button>
+                            <Button variant="outlined" sx={contactMeButtonStyle} onClick={()=>{saveManual()}}>Contact Me ##</Button>
                         </Grid>
 
                     </Box>
