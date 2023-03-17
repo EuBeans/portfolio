@@ -1,5 +1,5 @@
 import polygonContourV1  from '../assets/images/polygonContourV1.png';
-import polygonContourProject  from '../assets/images/polygonContourProject.png';
+import polygonContourProject  from '../assets/images/polygonContourProject.gif';
 import leagueOfLegendsMLGif  from '../assets/images/leagueOfLegendsMLGif.gif';
 import portfolio from '../assets/images/portfolio.png';
 import parkeris from '../assets/images/parkeris.png';
@@ -57,9 +57,9 @@ export const projects = [
         description: "An improved version of Polygon Contour V1. This version can handle better angles and more complex polygons.",
         image: polygonContourProject,
         skills: ["Typescript", "Algebra"],
-        link: "",
+        link: "https://github.com/EuBeans/polygonContourV2",
         type: "Algorithm",
-        isPrivate: true
+        isPrivate: false
 
     }
 
