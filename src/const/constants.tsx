@@ -1,6 +1,7 @@
 import polygonContourV1  from '../assets/images/polygonContourV1.png';
 import polygonContourProject  from '../assets/images/polygonContourProject.gif';
 import leagueOfLegendsMLGif  from '../assets/images/leagueOfLegendsMLGif.gif';
+import simiWordPNG  from '../assets/images/simiWord.png';
 import portfolio from '../assets/images/portfolio.png';
 import parkeris from '../assets/images/parkeris.png';
 import storyBook from '../assets/images/storyBook.gif';
@@ -21,6 +22,15 @@ export const projects = [
         skills: ["Python", "Jupyter Notebook"],
         image: leagueOfLegendsMLGif,
         link: "https://github.com/EuBeans/LeagueOfLegendsMLWinRate",
+        type: "Machine Learning",
+        isPrivate: false
+    },
+    {
+        title: "SimiWord ML Project",
+        description: "Algorithms and natural language processing techniques to analyze the relationships between words and calculate the semantic distance between them",
+        skills: ["Python", "Jupyter Notebook"],
+        image: simiWordPNG,
+        link: "https://github.com/EuBeans/SimiWordML",
         type: "Machine Learning",
         isPrivate: false
     },
