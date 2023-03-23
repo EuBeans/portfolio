@@ -5,6 +5,7 @@ import simiWordPNG  from '../assets/images/simiWord.png';
 import portfolio from '../assets/images/portfolio.png';
 import parkeris from '../assets/images/parkeris.png';
 import storyBook from '../assets/images/storyBook.gif';
+import simiWordBackEnd from '../assets/images/simiWordBackEnd.gif';
 
 export const projects = [
     {
@@ -32,6 +33,15 @@ export const projects = [
         image: simiWordPNG,
         link: "https://github.com/EuBeans/SimiWordML",
         type: "Machine Learning",
+        isPrivate: false
+    },
+    {
+        title: "Simordia Backend",
+        description: "Backend for the Simordia application. This application uses theSimiWord ML model, and is a RESTful API for the Simordia application Game.",
+        skills: ["Python", "Flask", "REST", "PostgreSQL", "OAuth", "Flask-WebSockets", "SQLAlchemy" ],
+        image: simiWordBackEnd,
+        link: "https://github.com/EuBeans/simi-word-back-end",
+        type: "Application",
         isPrivate: false
     },
     {
