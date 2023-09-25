@@ -1,6 +1,7 @@
 import polygonContourV1  from '../assets/images/polygonContourV1.png';
 import polygonContourProject  from '../assets/images/polygonContourProject.gif';
 import leagueOfLegendsMLGif  from '../assets/images/leagueOfLegendsMLGif.gif';
+import simordiaFrontEnd  from '../assets/images/simordiaFrontEnd.gif';
 import simiWordPNG  from '../assets/images/simiWord.png';
 import portfolio from '../assets/images/portfolio.png';
 import parkeris from '../assets/images/parkeris.png';
@@ -8,6 +9,15 @@ import storyBook from '../assets/images/storyBook.gif';
 import simiWordBackEnd from '../assets/images/simiWordBackEnd.gif';
 
 export const projects = [
+    {
+        title: "Simordia Backend",
+        description: "Backend for the Simordia application. This application uses theSimiWord ML model, and is a RESTful API for the Simordia application Game.",
+        skills: ["Python", "Flask", "REST", "PostgreSQL", "OAuth", "WebSockets", "SQLAlchemy" ,"AWS"],
+        image: simiWordBackEnd,
+        link: "https://github.com/EuBeans/simi-word-back-end",
+        type: "Application",
+        isPrivate: false
+    },
     {
         title: "Polygon Contour V1",
         description: "A web application that allows users to draw polygons on a map and get the contour of the polygon.",
@@ -33,15 +43,6 @@ export const projects = [
         image: simiWordPNG,
         link: "https://github.com/EuBeans/SimiWordML",
         type: "Machine Learning",
-        isPrivate: false
-    },
-    {
-        title: "Simordia Backend",
-        description: "Backend for the Simordia application. This application uses theSimiWord ML model, and is a RESTful API for the Simordia application Game.",
-        skills: ["Python", "Flask", "REST", "PostgreSQL", "OAuth", "Flask-WebSockets", "SQLAlchemy" ],
-        image: simiWordBackEnd,
-        link: "https://github.com/EuBeans/simi-word-back-end",
-        type: "Application",
         isPrivate: false
     },
     {
@@ -79,6 +80,16 @@ export const projects = [
         skills: ["Typescript", "Algebra"],
         link: "https://github.com/EuBeans/polygonContourV2",
         type: "Algorithm",
+        isPrivate: false
+
+    },
+    {
+        title: "Simordia Application",
+        description: "The Simordia Web Game. This is created using React and it is using the Simordia API to feed it data.",
+        image: simordiaFrontEnd,
+        skills: ["Typescript", "React",'Material UI', 'Simordia API', ],
+        link: "https://github.com/EuBeans/simordia-front-end",
+        type: "Application",
         isPrivate: false
 
     }

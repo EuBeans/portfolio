@@ -7,6 +7,7 @@ import Project from "./views/Project";
 import NoPage from "./views/NoPage";
 import Experience from "./views/Experiences";
 import AboutMe from "./views/AboutMe";
+import Demos from "./views/Demos";
 
 //json object
 interface Route {
@@ -42,6 +43,12 @@ export const routes :Route[] = [
         name: "about-me",
         path: "/aboutme",
         element: <AboutMe />,
+        nav: true,
+    },
+    {
+        name: "demos",
+        path: "/demos",
+        element: <Demos />,
         nav: true,
     },
     {   
