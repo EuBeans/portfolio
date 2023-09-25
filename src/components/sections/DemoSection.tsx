@@ -63,7 +63,7 @@ import Typical from 'react-typical';
                 <Typography sx={headerStyle}>
                     <span style={styleSpecChar}>#</span>
                     <Typical
-                        steps={[500,"polygon-contour", 5000]}
+                        steps={[500,"simordia-word-game", 5000]}
                         loop={1}
                         wrapper="span"
                     />  
@@ -71,8 +71,8 @@ import Typical from 'react-typical';
             </Grid>
             <Grid  md={12} sx={demoBoxStyle} >
                 <iframe
-                    src="https://polygon-contour-v2.herokuapp.com/"
-                    height={600}
+                    src="https://simordia-front-end-1114b24bf751.herokuapp.com/"
+                    height={1000}
                     width={'100%'}
                     style={{'padding':'0','display':'flex'}}
                     allow="fullscreen"
