@@ -111,7 +111,16 @@ const ExperienceSection = () => {
     }
 
     return (
-        <SectionDivider>
+        <SectionDivider id="experience">
+            <Box className="terminal-status">
+                <span>status: ok</span>
+                <span>uptime: 2y</span>
+                <span>build: release</span>
+            </Box>
+            <Typography className="terminal-command">
+                <span className="terminal-prompt">jp@linux:~$</span>
+                <span className="terminal-command-text">tail -n 5 experience.log</span>
+            </Typography>
             <Grid  md={12}  sx={boxHeaderStyle}>
                 <Grid>
                 <Typography sx={headerStyle} className="terminal-heading">
@@ -122,6 +131,7 @@ const ExperienceSection = () => {
                         loop={stateTyper}
                         wrapper="span"
                     />  
+                    <span className="terminal-cursor">█</span>
                 </Typography>
                 </Grid>
                 <Grid>

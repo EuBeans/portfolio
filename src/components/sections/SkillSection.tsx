@@ -198,7 +198,16 @@ const SkillSection = (props:SkillTableProps) => {
     }
 
     return (
-        <SectionDivider>
+        <SectionDivider id="skills">
+            <Box className="terminal-status">
+                <span>status: ok</span>
+                <span>uptime: 2y</span>
+                <span>build: release</span>
+            </Box>
+            <Typography className="terminal-command">
+                <span className="terminal-prompt">jp@linux:~$</span>
+                <span className="terminal-command-text">cat skills.txt</span>
+            </Typography>
             <Grid  md={12}  sx={SkillBoxHeaderStyle}>
                 <Grid>
                 
@@ -210,6 +219,7 @@ const SkillSection = (props:SkillTableProps) => {
                         loop={stateTyper}
                         wrapper="span"
                     />
+                    <span className="terminal-cursor">█</span>
                 </Typography>
                 </Grid>
                 <Grid>

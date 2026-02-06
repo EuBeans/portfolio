@@ -64,6 +64,15 @@ const Project = () => {
 
     return (
     <Box sx = {containerStyle}>
+        <Box className="terminal-status">
+            <span>status: ok</span>
+            <span>uptime: 2y</span>
+            <span>build: release</span>
+        </Box>
+        <Typography className="terminal-command">
+            <span className="terminal-prompt">jp@linux:~$</span>
+            <span className="terminal-command-text">ls projects/</span>
+        </Typography>
         
         <Grid  xs={12}  sx={boxHeaderStyle}>
             <Grid>
@@ -71,6 +80,7 @@ const Project = () => {
                     <span className="terminal-prompt">jp@linux:~$</span>
                     <span  style={styleSpecChar} className="terminal-cursor">/</span>
                         {"projects"}
+                        <span className="terminal-cursor">█</span>
                 </Typography>
             </Grid>
         </Grid>

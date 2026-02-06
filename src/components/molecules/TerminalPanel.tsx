@@ -1,6 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import "../../App.css";
+import { useLocation } from "react-router-dom";
 
 interface TerminalPanelProps {
   title?: string;
@@ -18,6 +19,8 @@ const TerminalPanel = (props: TerminalPanelProps) => {
     showHeader = true,
     children
   } = props;
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   return (
     <Box className={`terminal-window${showHeader ? "" : " terminal-window-no-header"}`}>
@@ -51,6 +54,15 @@ const TerminalPanel = (props: TerminalPanelProps) => {
         <span>status: online</span>
         <span>theme: terminal</span>
         <span>mode: public</span>
+        {isHome ? (
+          <span className="terminal-footer-hint">
+            hint: use <a href="#home">#home</a> <a href="#projects">#projects</a> <a href="#about">#about</a> <a href="#experience">#experience</a>
+          </span>
+        ) : (
+          <span className="terminal-footer-hint">
+            hint: use nav to switch pages
+          </span>
+        )}
       </Box>
     </Box>
   );

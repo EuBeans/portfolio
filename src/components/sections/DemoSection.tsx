@@ -45,7 +45,7 @@ import Typical from '../atoms/Typical';
     }
 
     return (
-        <Box sx={containerDemoStyle}>
+        <Box sx={containerDemoStyle} id="demos">
             <Grid>
                 <Typography sx={headerStyle} className="terminal-heading">
                     <span className="terminal-prompt">jp@linux:~$</span>
@@ -55,6 +55,7 @@ import Typical from '../atoms/Typical';
                         loop={1}
                         wrapper="span"
                     />  
+                    <span className="terminal-cursor">█</span>
                 </Typography>
             </Grid>
             <Grid  md={12} sx={demoBoxStyle} >
@@ -73,6 +74,7 @@ import Typical from '../atoms/Typical';
                         loop={1}
                         wrapper="span"
                     />  
+                    <span className="terminal-cursor">█</span>
                 </Typography>
             </Grid>
             <Grid  md={12} sx={demoBoxStyle} >

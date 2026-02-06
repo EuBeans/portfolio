@@ -7,11 +7,13 @@ import {theme} from '../../assets/theme';
 
 interface SectionDividerProps {
     children?: React.ReactNode;
+    id?: string;
+    className?: string;
 }
 
 const SectionDivider = (props: SectionDividerProps) => {
     // props to var
-    const {children} = props;
+    const {children, id, className} = props;
 
     const containerStyle = {
         backgroundColor: 'Transparent',
@@ -22,7 +24,7 @@ const SectionDivider = (props: SectionDividerProps) => {
     }
 
     return (
-        <Box sx={containerStyle}>
+        <Box sx={containerStyle} id={id} className={className}>
             {children}
         </Box>
     );

@@ -151,7 +151,16 @@ import FileSaver from 'file-saver';
     };
 
     return (
-        <Box sx={{minHeight: '70vh'}}>
+        <Box sx={{minHeight: '70vh'}} id="home">
+            <Box className="terminal-status">
+                <span>status: ok</span>
+                <span>uptime: 2y</span>
+                <span>build: release</span>
+            </Box>
+            <Typography className="terminal-command">
+                <span className="terminal-prompt">jp@linux:~$</span>
+                <span className="terminal-command-text">cat home.txt</span>
+            </Typography>
             <Grid container spacing={2} sx={aboutBoxStyle}  >
                 <Grid item xs={12} md={6} order={{xs:1,sm:1, md:1}} sx={{ minWidth: 0 }}>
                     <Box sx={aboutBoxTextStyle}>
@@ -160,6 +169,7 @@ import FileSaver from 'file-saver';
                                 <span className="terminal-prompt">jp@linux:~$</span>
                                 <span style={styleSpecChar} className="terminal-cursor">#</span>
                                 <span>home</span>
+                                <span className="terminal-cursor">█</span>
                             </Typography>
                             <Typography sx={aboutHeadertStyle}> 
                             Jean is a <span style={styleSpecChar}> Software Engineer</span> in cybersecurity who loves to&nbsp;<span>
@@ -179,6 +189,15 @@ import FileSaver from 'file-saver';
                         <Grid item xs={12} sx={{paddingTop:"20px"}}>
                             <Button variant="outlined" sx={primaryButtonStyle} onClick={()=>{saveManual()}}>Download Resume</Button>
                             <Button variant="outlined" sx={secondaryButtonStyle} href={contactLinks.email}>Email Me</Button>
+                        </Grid>
+                        <Grid item xs={12} sx={{paddingTop:"20px"}}>
+                            <Box className="terminal-output terminal-log">
+                                <span className="terminal-log-line">Gov of Canada - Cybersecurity Engineer (Aug 2024 - Present)</span>
+                                <span className="terminal-log-line">Masters in Interdisciplinary AI at uOttawa (started Sep 2024)</span>
+                                <span className="terminal-log-line">Go + Terraform providers, microservices on Kubernetes, RabbitMQ, S3</span>
+                                <span className="terminal-log-line">CI/CD with Jenkins + Bitbucket; monitoring with Grafana + Splunk</span>
+                                <span className="terminal-log-line">Built CLI tooling with Picocli + GraalVM</span>
+                            </Box>
                         </Grid>
 
                     </Box>

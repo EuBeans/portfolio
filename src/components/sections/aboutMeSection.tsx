@@ -93,7 +93,20 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
     }
 
     return (
-        <SectionDivider>
+        <SectionDivider id="about">
+            {showHeader && (
+                <>
+                    <Box className="terminal-status">
+                        <span>status: ok</span>
+                        <span>uptime: 2y</span>
+                        <span>build: release</span>
+                    </Box>
+                    <Typography className="terminal-command">
+                        <span className="terminal-prompt">jp@linux:~$</span>
+                        <span className="terminal-command-text">cat about_me.txt</span>
+                    </Typography>
+                </>
+            )}
             {showHeader &&
                 <Grid  md={12}  sx={boxHeaderStyle}>
                     <Grid>
@@ -105,6 +118,7 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
                             loop={stateTyper}
                             wrapper="span"
                         />  
+                        <span className="terminal-cursor">█</span>
                     </Typography>
                     </Grid>
                     <Grid>
