@@ -17,6 +17,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.embed {
+  --embed-scale: 0.85;
+  transform: scale(var(--embed-scale));
+  transform-origin: top left;
+  width: calc(100% / var(--embed-scale));
+  height: calc(100% / var(--embed-scale));
+}
+
 html, body, #root {
   height: 100%;
   overflow: hidden;
