@@ -17,6 +17,7 @@ interface BoxArtProps {
     speed?: number;
     box: "box" | "dot"| "ascii";
     boxStyle?: {};
+    className?: string;
 }
 
 
@@ -25,7 +26,7 @@ const BoxArt = (props:BoxArtProps) => {
     //state
     const [stateTyper, setstateTyper] = React.useState(0);
     const control = useAnimation()
-    const {box,children, width, height, top, right, bottom, left,x,y,speed,boxStyle} = props;
+    const {box,children, width, height, top, right, bottom, left,x,y,speed,boxStyle, className} = props;
 
     useEffect(() => {
 
@@ -82,7 +83,7 @@ const BoxArt = (props:BoxArtProps) => {
             animate={control}
             
         >
-            <Box ref={ref} sx={[
+            <Box ref={ref} className={className} sx={[
                 boxStyle ? boxStyle : box === "box" ? boxAsteticStyle : box == "dot" ? dotAsteticStyle : asciiArtBoxStyle,
                 sizeStyle
             ]}>

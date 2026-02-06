@@ -360,6 +360,27 @@
 .home-section + .home-section {
   margin-top: 28px;
 }
+.background-art .ascii-art pre {
+  line-height: 1.1;
+}
+
+@media (max-height: 820px) {
+  .background-art .ascii-art pre {
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-height: 700px) {
+  .background-art .ascii-art pre {
+    font-size: 0.65rem !important;
+  }
+}
+
+@media (max-height: 760px) {
+  .background-art .bg-ascii-secondary {
+    display: none !important;
+  }
+}
 .terminal-prompt {
   white-space: nowrap;
 }

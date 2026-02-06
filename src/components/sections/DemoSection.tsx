@@ -9,17 +9,19 @@ import Typical from '../atoms/Typical';
     
     const containerDemoStyle = {
         display: 'flex',
-        width:'100vh',
+        width:'100%',
         flexDirection: "column",
         justifyContent: 'flex-start',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         flexWrap: 'wrap'
     }
     const demoBoxStyle = {
         border: '2px dashed',
         borderColor: theme.palette.secondary.main,
         display: 'flex',
-        width:'75%',
+        width:'100%',
+        maxWidth: '820px',
+        margin: '0 auto',
     }
     const demoPlaceholderStyle = {
         display: 'flex',
@@ -27,6 +29,8 @@ import Typical from '../atoms/Typical';
         justifyContent: 'center',
         width: '100%',
         height: '320px',
+        padding: '10px',
+        textAlign: 'center',
     }
     const headerStyle ={
         color: theme.palette.primary.light,

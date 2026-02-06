@@ -34,7 +34,7 @@ export default function BackgroundArt() {
     }
 
     return (
-        <Box sx={[containerStyle]}>
+        <Box sx={[containerStyle]} className="background-art">
             <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'200px'} top={'8%'} left= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
             <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'18%'} right= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
             <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'80px'} top={'28%'} left= {'98%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
@@ -70,10 +70,10 @@ export default function BackgroundArt() {
                     viewBox = "0 0 100 100"
                 />
             </BoxArt>
-            <BoxArt box={"ascii"}  boxStyle={asciiArtBoxStyle}  height= {'240px'} top={'34%'} left= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>
+            <BoxArt box={"ascii"} className="bg-ascii bg-ascii-primary" boxStyle={asciiArtBoxStyle}  height= {'clamp(140px, 24vh, 220px)'} top={'22%'} left= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>
                 <AsciiArt type={"keyboard"} fontSize={theme.typography.h4.fontSize}/>
             </BoxArt>
-            <BoxArt box={"ascii"}  boxStyle={asciiArtBoxStyle} height= {'400px'} top={'62%'} right= {'92%'}  x={[0,0]} y={[0,0]} speed={SPEED}>
+            <BoxArt box={"ascii"} className="bg-ascii bg-ascii-secondary" boxStyle={asciiArtBoxStyle} height= {'clamp(180px, 28vh, 320px)'} top={'62%'} right= {'92%'}  x={[0,0]} y={[0,0]} speed={SPEED}>
                 <AsciiArt type={"flopyDisk"} fontSize={theme.typography.h4.fontSize}/>
             </BoxArt>
 
