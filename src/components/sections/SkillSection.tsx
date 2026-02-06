@@ -35,7 +35,7 @@ const SkillSection = (props:SkillTableProps) => {
 
 
     const skillBoxStyle = {
-        overflow: 'hidden',
+        overflow: 'visible',
         display: 'flex',
         flexDirection: "row",
         justifyContent: 'center',
@@ -280,8 +280,8 @@ const SkillSection = (props:SkillTableProps) => {
                             {generateSkillTable(skillTableData[4])}
                         </Grid>
                         {showArt&&
-                            <Grid xs={3} sx={{padding:"10px",position:"relative"}}>
-                                <Box sx={[asciiArtBoxStyle,{top: '5%', left: '30%', height:"100 px "}]}>
+                            <Grid xs={3} sx={{padding:"10px",position:"relative", overflow: "visible"}}>
+                                <Box sx={[asciiArtBoxStyle,{top: '5%', left: '30%', height:"100 px ", overflow: "visible"}]}>
                                     <AsciiArt type={"artLinux"} fontSize={theme.typography.h4.fontSize}/>
                                 </Box>
                             </Grid>
