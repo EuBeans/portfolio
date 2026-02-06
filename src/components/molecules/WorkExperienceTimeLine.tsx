@@ -131,7 +131,7 @@ const WorkExperienceTimeLine = (props:WorkExperienceTimeLineProps) => {
                 >
                     {workExperience.skills.map((skill) => {
                             return(
-                                <Stack direction="row" spacing={1} sx={stackStyle}>
+                                <Stack key={skill} direction="row" spacing={1} sx={stackStyle}>
                                     <Chip label={skill} variant="outlined"  sx={[chipStyle,{borderColor: index % 2? theme.palette.primary.light : theme.palette.secondary.main}]}/>
                                 </Stack>
                             )

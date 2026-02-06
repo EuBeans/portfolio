@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import {theme} from '../../assets/theme';
 import Typography from '@mui/material/Typography';
-import Typical from 'react-typical'
+import Typical from '../atoms/Typical';
 import Dots from '../molecules/Dots';
 import AsciiArt from '../molecules/AsciiArt';
 import SectionDivider from '../molecules/SectionDivider';
@@ -117,18 +117,19 @@ const SkillSection = (props:SkillTableProps) => {
 
     const skillTextStyle = {
         display: "inline-block",
-        color: theme.palette.text.secondary, 
-        fontSize: theme.typography.body1.fontSize, 
-        fontFamily: theme.typography.fontFamily, 
-        fontWeight: theme.typography.body1.fontWeight, 
-        letterSpacing: theme.typography.body1.letterSpacing
+        color: theme.palette.text.primary,
+        fontSize: theme.typography.body1.fontSize,
+        fontFamily: theme.typography.fontFamily,
+        fontWeight: theme.typography.body1.fontWeight,
+        letterSpacing: theme.typography.body1.letterSpacing,
+        lineHeight: 1.7
     }
     const skillTextDividerStyle = {
         display: "inline-block",
-        color: theme.palette.secondary.light, 
-        fontSize: theme.typography.body1.fontSize, 
-        fontFamily: theme.typography.fontFamily, 
-        fontWeight: theme.typography.body1.fontWeight, 
+        color: theme.palette.text.special,
+        fontSize: theme.typography.body1.fontSize,
+        fontFamily: theme.typography.fontFamily,
+        fontWeight: theme.typography.body1.fontWeight,
         letterSpacing: theme.typography.body1.letterSpacing
     }
 
@@ -142,32 +143,54 @@ const SkillSection = (props:SkillTableProps) => {
     //function will genereate a table of skills
     const generateSkillTable = (skillTableData: any) => {
         return (
-            <TableContainer sx={{ margin: '5px'}}>
-                <Table sx={{border: '1px solid', borderColor: theme.palette.background.secondary, backgroundColor: 'transparent'}} aria-label="a dense table">
+            <TableContainer sx={{ margin: '8px'}}>
+                <Table
+                    sx={{
+                        border: '1px solid',
+                        borderColor: theme.palette.background.secondary,
+                        backgroundColor: 'transparent'
+                    }}
+                    aria-label="skills table"
+                >
                     <TableHead>
                         <TableRow>
-                            <TableCell sx={{color: theme.palette.text.primary, fontSize: theme.typography.h5.fontSize, fontFamily: theme.typography.fontFamily2, fontWeight: theme.typography.h5.fontWeight, letterSpacing: theme.typography.h5.letterSpacing,}} align="center">{skillTableData.tableName}</TableCell>
+                            <TableCell
+                                sx={{
+                                    color: theme.palette.text.primary,
+                                    fontSize: theme.typography.h5.fontSize,
+                                    fontFamily: theme.typography.fontFamily2,
+                                    fontWeight: theme.typography.h5.fontWeight,
+                                    letterSpacing: theme.typography.h5.letterSpacing,
+                                    paddingY: '14px'
+                                }}
+                                align="center"
+                            >
+                                {skillTableData.tableName}
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                       
                         <TableRow
                             key={1}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: '' }}
-                        > 
-                        <TableCell 
-                            component="th"
-                            scope="row">
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                        >
+                            <TableCell
+                                component="th"
+                                scope="row"
+                                sx={{
+                                    paddingX: '16px',
+                                    paddingY: '14px',
+                                    backgroundColor: 'rgba(255,255,255,0.02)'
+                                }}
+                            >
                                 {skillTableData.tableData.map((skill: any) => (
-                                    printSkills(skill)                  
-                            ))}
-                            </TableCell>  
+                                    printSkills(skill)
+                                ))}
+                            </TableCell>
                         </TableRow>
-                    
                     </TableBody>
                 </Table>
             </TableContainer>
-
         )
     }
 

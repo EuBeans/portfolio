@@ -44,7 +44,7 @@ module: {
             ],
           },
           {
-            test: /\.(png|jpg|jpeg|gif)$/i,
+            test: /\.(png|jpg|jpeg|gif|svg|pdf)$/i,
             type: "asset/resource",
           },
 
@@ -59,5 +59,3 @@ template: './index.html'
 })
 ]
 }
-
-

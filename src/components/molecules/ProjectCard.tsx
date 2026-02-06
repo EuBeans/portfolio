@@ -9,7 +9,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Alert, ButtonBase, CardActionArea, Grid, Snackbar } from '@mui/material';
 import {projects} from '../../const/constants';
-import Typical from 'react-typical';
+import Typical from '../atoms/Typical';
 import Slide, { SlideProps } from '@mui/material/Slide';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
@@ -171,6 +171,7 @@ const ProjectCard = (props:ProjectCardProps) => {
                             height="200"
                             image={project.image}
                             alt="green iguana"
+                            sx={{ objectFit: "contain", backgroundColor: theme.palette.background.default, padding: "8px" }}
                             onClick={() => onCardClick(project)}
                             />
                             <CardContent sx ={{}}>

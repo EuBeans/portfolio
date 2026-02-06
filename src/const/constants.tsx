@@ -7,11 +7,42 @@ import portfolio from '../assets/images/portfolio.png';
 import parkeris from '../assets/images/parkeris.png';
 import storyBook from '../assets/images/storyBook.gif';
 import simiWordBackEnd from '../assets/images/simiWordBackEnd.gif';
+import bleepStream from '../assets/images/bleep_stream.png';
+import portfolio3d from '../assets/images/portfolio-3d.png';
+import oauthGraphic from '../assets/images/oauth.svg';
+import stripeGraphic from '../assets/images/stripe.svg';
 
 export const projects = [
     {
+        title: "Bleep Stream Chrome Extension",
+        description: "Chrome extension that detects and blurs profanity and sexual content in real time. Filters text and images with ML-based moderation (CLIP), supports sensitivity settings and custom word filters, and allows hover-to-reveal. Auth and user state managed with Supabase.",
+        skills: ["TypeScript", "React", "Plasmo", "Chrome Extensions", "ML", "Content Moderation", "Supabase"],
+        image: bleepStream,
+        link: "",
+        type: "Application",
+        isPrivate: true
+    },
+    {
+        title: "Bleep OAuth Server",
+        description: "Minimal FastAPI service that powers the Chrome extension OAuth popup flow. Extension-specific auth routes integrate Supabase OAuth providers for secure sign-in within Chrome extension constraints.",
+        skills: ["Python", "FastAPI", "Supabase", "OAuth", "Docker"],
+        image: oauthGraphic,
+        link: "",
+        type: "Application",
+        isPrivate: true
+    },
+    {
+        title: "Bleep Stripe Listener",
+        description: "Node/Express service that handles Stripe Checkout, Customer Portal, and webhook events to sync subscription status with Supabase for the extension.",
+        skills: ["Node.js", "Express", "Stripe", "Webhooks", "Supabase"],
+        image: stripeGraphic,
+        link: "",
+        type: "Application",
+        isPrivate: true
+    },
+    {
         title: "Simordia Backend",
-        description: "Backend for the Simordia application. This application uses theSimiWord ML model, and is a RESTful API for the Simordia application Game.",
+        description: "Backend for the Simordia application. It uses the SimiWord ML model and exposes a RESTful API for the Simordia game.",
         skills: ["Python", "Flask", "REST", "PostgreSQL", "OAuth", "WebSockets", "SQLAlchemy" ,"AWS"],
         image: simiWordBackEnd,
         link: "https://github.com/EuBeans/simi-word-back-end",
@@ -29,7 +60,7 @@ export const projects = [
     },
     {
         title: "League of Legends ML",
-        description: "A Machine Learning project that predict the outcome of a League of Legends game.",
+        description: "A Machine Learning project that predicts the outcome of a League of Legends game.",
         skills: ["Python", "Jupyter Notebook"],
         image: leagueOfLegendsMLGif,
         link: "https://github.com/EuBeans/LeagueOfLegendsMLWinRate",
@@ -49,7 +80,7 @@ export const projects = [
         title: "Parkeris React Native App",
         description: "A React Native app that allows users to find parking spots in the city of Ottawa.",
         image: parkeris,
-        skills: ["React Native", "SpringBoot", "Graphql", "GGS", "Microservice"],
+        skills: ["React Native", "SpringBoot", "GraphQL", "GGS", "Microservice"],
         link: "",
         type: "Application",
         isPrivate: true
@@ -57,9 +88,18 @@ export const projects = [
     {
         title: "Portfolio Website",
         description: "A website that showcases my skills, experiences, projects and more.",
-        skills: ["React", "Material UI", "Typescript", "React Router"],
+        skills: ["React", "Material UI", "TypeScript", "React Router"],
         image: portfolio,
         link: "https://github.com/EuBeans/portfolio",
+        type: "Application",
+        isPrivate: false
+    },
+    {
+        title: "3D Portfolio",
+        description: "Interactive 3D portfolio built with Three.js, custom shaders, and animated scenes.",
+        skills: ["Three.js", "WebGL", "GLSL", "GSAP", "TypeScript", "Webpack"],
+        image: portfolio3d,
+        link: "https://jean3dportfolio.web.app/",
         type: "Application",
         isPrivate: false
     },
@@ -68,7 +108,7 @@ export const projects = [
         title: "Obelix StoryBook",
         description: "A StoryBook that showcases the components used in the Parkeris React Native app.",
         image: storyBook,
-        skills: ["React Native", "StoryBook", "Typescript"],
+        skills: ["React Native", "StoryBook", "TypeScript"],
         link: "",
         type: "Application",
         isPrivate: true
@@ -77,7 +117,7 @@ export const projects = [
         title: "Polygon Contour V2",
         description: "An improved version of Polygon Contour V1. This version can handle better angles and more complex polygons.",
         image: polygonContourProject,
-        skills: ["Typescript", "Algebra"],
+        skills: ["TypeScript", "Algebra"],
         link: "https://github.com/EuBeans/polygonContourV2",
         type: "Algorithm",
         isPrivate: false
@@ -85,9 +125,9 @@ export const projects = [
     },
     {
         title: "Simordia Application",
-        description: "The Simordia Web Game. This is created using React and it is using the Simordia API to feed it data.",
+        description: "The Simordia web game built in React and powered by the Simordia API.",
         image: simordiaFrontEnd,
-        skills: ["Typescript", "React",'Material UI', 'Simordia API', ],
+        skills: ["TypeScript", "React", "Material UI", "Simordia API"],
         link: "https://github.com/EuBeans/simordia-front-end",
         type: "Application",
         isPrivate: false
@@ -98,11 +138,29 @@ export const projects = [
 
 export const WorkExperience = [
     {
-        title: "Software Engineer Bachelor Degree",
+        title: "Software Engineer (Cybersecurity)",
+        company: "Government of Canada",
+        date: "August 2024 - Present",
+        location: "Ottawa, Ontario",
+        description: "Develop secure services and internal platforms in a high-trust environment. Design architectures for large programs and collaborate across engineering, operations, and support. \\nBuild Java and Go microservices deployed on Kubernetes, connected through RabbitMQ and S3-compatible storage. Manage infrastructure with Terraform and Helm, and ship hardened Docker images via Jenkins pipelines using minimal, secure build agents. \\nAuthor multiple Go-based Terraform providers, build internal tooling including a CLI with Picocli and GraalVM native binaries, and automate workflows with Bash and Python. \\nImplement unit and integration testing for services and tooling, and support observability with Grafana and Splunk. \\nMentor multiple co-op students.",
+        icon:"work",
+        skills: ["Java", "Spring Boot", "Go", "Kubernetes", "Docker", "Helm", "Terraform", "Jenkins", "Bitbucket", "RabbitMQ", "S3", "Bash", "Python", "CI/CD", "Microservices", "Testing", "Grafana", "Splunk", "Architecture"]
+    },
+    {
+        title: "Master's in Interdisciplinary AI (In Progress)",
+        company: "University of Ottawa",
+        date: "September 2024 - Present",
+        location: "Ottawa, Ontario",
+        description: "Pursuing graduate studies focused on applied, interdisciplinary AI and its impact across domains.",
+        icon:"school",
+        skills: ["Machine Learning", "AI", "Research"]
+    },
+    {
+        title: "B.A.Sc. Software Engineering",
         company: "University of Ottawa",
         date: "September 2018 - December 2023",
         location: "Ottawa, Ontario",
-        description: "Recently finished my last semester, and graduating this spring.",
+        description: "Completed a Bachelor's degree in Software Engineering.",
         icon:"school",
         skills: []
     },
@@ -111,16 +169,16 @@ export const WorkExperience = [
         company: "IBwave Solutions",
         date: "May 2022 - August 2022",
         location: "Montreal, Quebec",
-        description: "Worked on a team of 8 to develop a new feature and tools in order to customize Fibre Obtic cables. \\nReact was used for frontend and C# for backend programming, and have designed user interfaces and utilized REST for communication. \\nCollaborated with project managers, improved system performance, and reviewed project specifications",
+        description: "Worked on a team of 8 to develop new features and tools to customize fibre optic cables. \\nBuilt UI in React and backend services in C#, with REST-based communication. \\nCollaborated with project managers, improved system performance, and reviewed project specifications.",
         icon: "work",
         skills: ["React", "C#", "REST", "Typescript", "HTML", "CSS", "Git","PostgreSQL", "PostMan", "Jira", "Confluence"]
     },
     {
-        title: "Software Developper Intern",
+        title: "Software Developer Intern",
         company: "NetFore Systems",
         date: "May 2021 - August 2021",
         location: "Ottawa, Ontario",
-        description: "Implemented RESTful API calls using React, resulting in a 15% increase in user interface performance. \\nDesigned and developed user interfaces using ReactJS, which led to a 20% increase in user satisfaction based on surveys. \\nIn addition, contributed to team meetings and provided regular updates on project progress, resulting in on-time delivery of projects with a 95% success rate.",
+        description: "Implemented RESTful API calls using React, improving UI performance. \\nDesigned and developed user interfaces using ReactJS, contributing to higher user satisfaction. \\nContributed to team meetings and provided regular updates on project progress, resulting in on-time delivery of projects.",
         icon: "work",
         skills: ["React", "Groovy", "REST", "Jira", "Confluence", "Git", "PostgreSQL"]
     },
@@ -129,7 +187,7 @@ export const WorkExperience = [
         company: "University Of Ottawa",
         date: "September 2020 - December 2020",
         location: "Ottawa, Ontario",
-        description: "Led the development of multiple websites utilizing HTML, JavaScript, AJAX, and JSON to transform mockups into fully functional web presences. \\nDeveloped back-end components to integrate websites with web services such as Google Analytics, resulting in a 20% increase in website traffic analysis. \\nUtilized proficiency in HTML, CSS, JavaScript, and jQuery to code and maintain websites, resulting in a smooth and intuitive user experience.",
+        description: "Led development of multiple websites using HTML, JavaScript, AJAX, and JSON to transform mockups into functional web presences. \\nBuilt back-end components to integrate web services such as Google Analytics, improving traffic analysis. \\nMaintained websites with HTML, CSS, JavaScript, and jQuery to deliver a smooth user experience.",
         icon: "work",
         skills: [".NET", "C#", "HTML", "CSS", "JavaScript", "jQuery", "Git", "SQL"]
 
@@ -139,7 +197,7 @@ export const WorkExperience = [
         company: "SSC Telecom Group",
         date: "January 2020 - May 2020",
         location: "Ottawa, Ontario",
-        description: "Developed a Python script to benchmark HTTP servers, resulting in a 10% increase in website performance. \\nLed website development, converting mockups into functional web presence using HTML, JavaScript, AJAX, and JSON. \\nAcquired experience in using MySQL and backend frameworks such as Symphony to develop efficient databases. \\nSuccessfully integrated various APIs such as Apache HTTP server and Google Analytics into the framework, resulting in a 20% increase in website functionality.",
+        description: "Developed a Python script to benchmark HTTP servers and improve website performance. \\nConverted mockups into functional web experiences using HTML, JavaScript, AJAX, and JSON. \\nWorked with MySQL and backend frameworks such as Symfony to build efficient data layers. \\nIntegrated APIs including Apache HTTP Server and Google Analytics to expand site capabilities.",
         icon: "work",
         skills: ["Python", "HTML", "CSS", "JavaScript", "jQuery", "Git", "MySQL", "Apache HTTP Server", "AJAX"]
     },
@@ -161,11 +219,11 @@ export const skillTableData = [
     },
     {
     tableName: "Languages",
-    tableData: ["Java", "Python", "C++", "C", "C#", "JavaScript", "TypeScript", "Kotlin"],
+    tableData: ["Java", "Go", "Python", "C++", "C", "C#", "JavaScript", "TypeScript", "Kotlin"],
     },
     {
         tableName: "Tools",
-        tableData: ["Git", "GitHub","Docker", "Gradle", "Jira", "Confluence", "AWS", "Azure", "GCP", "Heroku","Windows", "MacOS"],
+        tableData: ["Git", "GitHub", "Docker", "Kubernetes", "Helm", "Terraform", "Jenkins", "Bitbucket", "RabbitMQ", "Vector", "Grafana", "Splunk", "Gradle", "Jira", "Confluence", "Picocli", "AWS", "Azure", "GCP", "Heroku", "Linux", "Windows", "MacOS", "Bash"],
     },
     {
     tableName: "Databases",
@@ -173,9 +231,14 @@ export const skillTableData = [
     },
     {
     tableName: "Other",
-    tableData: ["Agile", "Scrum", "Kanban", "REST", "GraphQL", "OOP", "Functional Programming", "Data Structures", "Algorithms", "Design Patterns", "Clean Code"]
+    tableData: ["Agile", "Scrum", "Kanban", "REST", "GraphQL", "IaC", "DevOps", "OOP", "Functional Programming", "Data Structures", "Algorithms", "Design Patterns", "Clean Code"]
     }
 ]
-export const codingLanguages = ["code in", 1000,"code in Java", 3000, "code in Python", 3000, "code in C++", 3000, "code in C", 3000,"code in C#", 3000, "code in JavaScript", 3000, "code in TypeScript", 3000, "code in Kotlin" ]
+export const codingLanguages = ["code in", 1000,"code in Java", 3000, "code in Go", 3000, "code in Python", 3000, "code in C++", 3000, "code in C", 3000,"code in C#", 3000, "code in JavaScript", 3000, "code in TypeScript", 3000, "code in Kotlin" ]
 
-export const aboutMeDescription = "Hello and welcome to my portfolio website! My name is Jean Pierre and I am a recent graduate from the University of Ottawa with a Bachelor's degree in Engineering for Software Engineering. \\nAs a passionate and driven individual, I aspire to become a Full Stack Developer and am constantly working towards this goal. I am always striving to learn new technologies and to keep up with the latest trends and developments in the industry, so that I can provide innovative solutions and create efficient and effective software. \\nAside from my passion for technology, I am also a very creative individual. I love to think outside the box and approach problems from unique angles, which allows me to find creative solutions that are both functional and visually appealing. \\nWhen I am not working on software projects, you can often find me playing sports. I am an avid volleyball, soccer, basketball, and ski enthusiast, and I love to challenge myself both mentally and physically. I believe that staying active and healthy is important for both personal and professional growth, and I always make time for physical activity in my busy schedule. \\nThank you for taking the time to learn a little bit more about me. Please feel free to explore my portfolio and reach out to me if you have any questions or would like to discuss potential opportunities."
+export const aboutMeDescription = "Hello and welcome to my portfolio! My name is Jean Pierre and I am a software engineer focused on cybersecurity and reliable backend systems. I currently work at the Government of Canada, where I build secure services and internal platforms and design architectures for large programs. \\nI work primarily with Java and Spring Boot on Kubernetes, with infrastructure and deployments managed through Terraform, Helm, Jenkins, and Bitbucket. I also build automation with Bash and Python, and have delivered Go-based services and a custom Terraform provider. I built internal tooling such as a CLI with Picocli and GraalVM for native binaries. \\nI am currently completing a Master's in Interdisciplinary AI at the University of Ottawa, exploring practical applications of AI across domains. \\nOutside of work, I build keyboards, go to the gym, run, play video games, and stay active with volleyball, soccer, basketball, and skiing. I am always looking for a new hobby to improve myself."
+
+export const contactLinks = {
+    github: "https://github.com/EuBeans",
+    email: "mailto:jeansfeir@hotmail.ca",
+};

@@ -3,7 +3,7 @@ import '../../App.css';
 import Box from '@mui/material/Box';
 import { Grid, Typography } from '@mui/material';
 import {theme} from '../../assets/theme';
-import Typical from 'react-typical';
+import Typical from '../atoms/Typical';
 
  const DemoSection = () => {
     

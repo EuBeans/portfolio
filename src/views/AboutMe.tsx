@@ -75,7 +75,7 @@ const AboutMe = () => {
         <Grid  xs={12}  sx={boxBodyStyle}>
             <Grid>
             <Typography sx={bodyStyle}>
-                {"Who am I ? and what do I do ?"}
+                {"Who am I and what do I do?"}
             </Typography>
             </Grid>
         </Grid>

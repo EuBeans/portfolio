@@ -10,7 +10,7 @@ import {theme} from '../../assets/theme';
 import Link  from '@mui/material/Link';
 import "../../App.css"
 import { Drawer, Grid, List, ListItem, ListItemIcon,  } from '@mui/material';
-import Typical from 'react-typical';
+import Typical from '../atoms/Typical';
 import {
   Link as RouterLink,
 } from 'react-router-dom';
@@ -19,10 +19,7 @@ import EmailIcon from '@mui/icons-material/Email';
 // for the json object routes, get the name of each route
 import {routes} from "../../routing"
 import { useLocation } from 'react-router-dom'
-
-const GITHUBLINK = "https://github.com/EuBeans"
-const EMAILLINK = "mailto:jeansfeir@hotmail.ca"
-
+import { contactLinks } from '../../const/constants';
 
 function ResponsiveAppBar() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -119,21 +116,24 @@ const list = () => (
         <ListItem key={route.name} >
             <ListItemIcon>
             </ListItemIcon>
-              <RouterLink
-                    to={route.path}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <Link
-                      href={route.path}
-                      component="button"
-                      variant="body2"
-                      key={route.path}
-                      onClick={toggleDrawer(false)}
-                      sx={[styleNavLink,{color: location.pathname === route.path ? theme.palette.text.hover : theme.palette.text.secondary}]}
-                    >
-                    <span style={ styleSpecChar}>#</span>{route.name}
-                </Link>
-                </RouterLink>
+              <Link
+                component={RouterLink}
+                to={route.path}
+                variant="body2"
+                onClick={toggleDrawer(false)}
+                sx={[
+                  styleNavLink,
+                  {
+                    color:
+                      location.pathname === route.path
+                        ? theme.palette.text.hover
+                        : theme.palette.text.secondary,
+                  },
+                ]}
+              >
+                <span style={styleSpecChar}>#</span>
+                {route.name}
+              </Link>
         </ListItem>
       ))}
     </List>
@@ -150,10 +150,10 @@ const list = () => (
           sx={mediaStyleBox}> 
           <Grid item sx={mediaLineStyle}/>
           <Grid item sx={mediaIconBoxStyle} direction="column">
-            <Link href={GITHUBLINK} sx={mediaIconStyle} >
+            <Link href={contactLinks.github} sx={mediaIconStyle} >
               <GitHubIcon sx={{width:"80%"}}/>
             </Link>
-            <Link href={EMAILLINK} sx={mediaIconStyle} >
+            <Link href={contactLinks.email} sx={mediaIconStyle} >
               <EmailIcon sx={{width:"80%"}}/>
             </Link>
           </Grid>
@@ -195,21 +195,24 @@ const list = () => (
             <Box sx={{ justifyContent:'flex-end', flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
               {routes.map((route) => (
                 route.nav &&
-                <RouterLink
+                <Link
+                  component={RouterLink}
                   to={route.path}
-                  style={{ textDecoration: "none" }}
+                  variant="body2"
+                  onClick={toggleDrawer(false)}
+                  sx={[
+                    styleNavLink,
+                    {
+                      color:
+                        location.pathname === route.path
+                          ? theme.palette.text.hover
+                          : theme.palette.text.secondary,
+                    },
+                  ]}
                 >
-                  <Link
-                    href={route.path}
-                    component="button"
-                    variant="body2"
-                    key={route.path}
-                    onClick={toggleDrawer(false)}
-                    sx={[styleNavLink,{color: location.pathname === route.path ? theme.palette.text.hover : theme.palette.text.secondary}]}
-                  >
-                  <span style={ styleSpecChar}>#</span>{route.name}
-              </Link>
-                </RouterLink>
+                  <span style={styleSpecChar}>#</span>
+                  {route.name}
+                </Link>
                 
               ))}
             </Box>

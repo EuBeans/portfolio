@@ -1,22 +1,32 @@
-# portfolio
+# Portfolio
 
-# TODO
-- ///add social media icons 
-- /// add about me section
-- /// add individual pages
-- /// add links to buttons
+Personal portfolio site built with React, TypeScript, and MUI. The design leans into a terminal-inspired theme with sharp lines, monospace accents, and animated type.
 
-- /// add view More button
-- /// add section for projects
-- /// fix layout for mobile applications
-- /// add project link and skills
-- add contact me form
-- add resume downlaoder
+**Stack**
+- React 18
+- TypeScript
+- MUI
+- Webpack
+- Framer Motion
 
+**Local Development**
+1. `npm install`
+2. `npm start`
 
-<https://github.com/stephane-monnot/react-vertical-timeline>
-<https://www.npmjs.com/package/custom-cursor-react>
-<https://github.com/rcaferati/react-awesome-slider>
-<https://reactscript.com/custom-cursor/>
-<https://tholman.com/github-corners/>
-<https://github.com/Dorota1997/react-frontend-dev-portfolio>
+**Build**
+1. `npm run build`
+
+**Deploy**
+1. `npm run deploy`
+
+**Update Resume**
+1. Replace the PDF at `src/assets/JeanPierre_Sfeir_Resume.pdf`.
+2. The download button in `src/components/sections/SummarySection.tsx` uses this file.
+
+**Edit Content**
+- Summary copy and about-me text live in `src/components/sections/SummarySection.tsx` and `src/const/constants.tsx`.
+- Work experience and skills live in `src/const/constants.tsx`.
+- Contact links live in `src/const/constants.tsx` under `contactLinks`.
+
+**Notes**
+- This project uses `HashRouter`, so routes are hash-based on GitHub Pages.

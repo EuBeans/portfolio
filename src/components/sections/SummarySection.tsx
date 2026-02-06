@@ -4,17 +4,18 @@ import Box from '@mui/material/Box';
 import { Button, Grid } from '@mui/material';
 import {theme} from '../../assets/theme';
 import Typography from '@mui/material/Typography';
-import Typical from 'react-typical'
+import Typical from '../atoms/Typical';
 import mainPicture  from '../../assets/images/mainPicture.jpg';
+import resumePdf from '../../assets/JeanPierre_Sfeir_Resume.pdf';
 import ImageBox from '../molecules/imageBox';
-import {codingLanguages} from '../../const/constants';
-import FileSaver, { saveAs } from 'file-saver';
+import {codingLanguages, contactLinks} from '../../const/constants';
+import FileSaver from 'file-saver';
 
 
  const SummarySection = () => {
     
     const SPEED = 1.5;
-    const contactMeButtonStyle = {
+    const primaryButtonStyle = {
         backgroundColor: "transparent",
         border: '1px solid',
         borderColor: theme.palette.secondary.main,
@@ -30,6 +31,24 @@ import FileSaver, { saveAs } from 'file-saver';
             borderColor: theme.palette.secondary.main,
           },
         
+    }
+    const secondaryButtonStyle = {
+        backgroundColor: "transparent",
+        border: '1px solid',
+        borderColor: theme.palette.background.secondary,
+        color: theme.palette.text.secondary,
+        fontSize: theme.typography.h6.fontSize,
+        fontFamily: theme.typography.fontFamily,
+        fontWeight: theme.typography.h6.fontWeight,
+        letterSpacing: theme.typography.h6.letterSpacing,
+        padding: '10px',
+        borderRadius: '0px',
+        marginLeft: '12px',
+        '&:hover': {
+            backgroundColor: theme.palette.background.secondary,
+            borderColor: theme.palette.background.secondary,
+            color: theme.palette.text.primary,
+          },
     }
 
     const aboutBoxStyle = {
@@ -122,12 +141,7 @@ import FileSaver, { saveAs } from 'file-saver';
     }
 
     const saveManual = () => {
-        console.log("saveManual")
-
-        FileSaver.saveAs(
-          process.env.REACT_APP_CLIENT_URL + "../../assets/JeanPierre_Sfeir_Resume.pdf",
-          "JeanPierre_Sfeir_Resume.pdf",
-        );
+        FileSaver.saveAs(resumePdf, "JeanPierre_Sfeir_Resume.pdf");
     };
 
     return (
@@ -137,7 +151,7 @@ import FileSaver, { saveAs } from 'file-saver';
                     <Box sx={aboutBoxTextStyle}>
                         <Grid  xs={12} >
                             <Typography sx={aboutHeadertStyle}> 
-                            Jean is a <span style={styleSpecChar}> Software Engineer</span> who loves to&nbsp;<span>
+                            Jean is a <span style={styleSpecChar}> Software Engineer</span> in cybersecurity who loves to&nbsp;<span>
                             <Typical
                                 steps={codingLanguages}
                                 loop={1}
@@ -148,11 +162,12 @@ import FileSaver, { saveAs } from 'file-saver';
                         </Grid>
                         <Grid  xs={12} sx={{paddingTop:"20px"}}>
                             <Typography sx={aboutTextStyle}>
-                                He crafts responsive websites where technologies meet creativity
+                                He builds secure backend services and scalable platforms, while still crafting polished web experiences.
                             </Typography>
                         </Grid>
                         <Grid  xs={12} sx={{paddingTop:"20px"}}>
-                            <Button variant="outlined" sx={contactMeButtonStyle} onClick={()=>{saveManual()}}>Contact Me ##</Button>
+                            <Button variant="outlined" sx={primaryButtonStyle} onClick={()=>{saveManual()}}>Download Resume</Button>
+                            <Button variant="outlined" sx={secondaryButtonStyle} href={contactLinks.email}>Email Me</Button>
                         </Grid>
 
                     </Box>

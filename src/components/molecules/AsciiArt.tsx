@@ -17,8 +17,7 @@ export default function AsciiArt(props: AsciiArtProps) {
     const {type,fontSize,color} = props;
 
         //art for keyboard
-        const artKeyboard = 
-        `
+        const artKeyboard = String.raw`
         ,---,---,---,---,---,---,---,---,---,---,---,---,---,-------,
         | ~ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | [ | ] | <-    |
         |---'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-----|
@@ -30,23 +29,21 @@ export default function AsciiArt(props: AsciiArtProps) {
         |------,-',--'--,'---'---'---'---'---'---'-,-'---',--,------|
         | ctrl |  | alt |                          | alt  |  | ctrl |
         '------'  '-----'--------------------------'------'  '------'
-        `
+        `;
 
-        const artComputer =
-        `
+        const artComputer = String.raw`
                     .----.
         .---------. | == |
         |.-"""""-.| |----|
         ||       || | == |
         ||       || |----|
         |'-.....-'| |::::|
-         \`")---("\`  |___.|
-       /:::::::::::\`    "
-      /:::=======:::\`\
-      `
+        ")-.-.-("  |___.|
+       /:::::::::::|
+      /:::=======:::|
+      `;
 
-      const artLinux =
-        `
+      const artLinux = String.raw`
         _nnnn_
         dGGGGMMb
        @p~qp~~qMb
@@ -63,10 +60,9 @@ export default function AsciiArt(props: AsciiArtProps) {
 _)      \.___.,|     .'
 \____   )MMMMMP|   .'
     '-'       '--' 
-        `
+        `;
 
-    const artFlopyDisk =
-    `
+    const artFlopyDisk = String.raw`
      ___,___,_______,____
     |  :::|///./||'||    \`
     |  :::|//.//|| || H)  |
@@ -79,10 +75,9 @@ _)      \.___.,|     .'
     |  |_______________|  |
     ||_|               ||_|
     |__|_______________|__|
-    `
+    `;
 
-    const artMouse =
-    `
+    const artMouse = String.raw`
         \ \
          \ \  ___,.,
   _,..--=";"*^^     5
@@ -103,7 +98,7 @@ _)      \.___.,|     .'
    L                  J
     L                P
      "=e,_________,s"
-    `
+    `;
 
     // check what type of art to return
     const art = () => {
@@ -123,7 +118,7 @@ _)      \.___.,|     .'
 
 
     const artStyle = {
-        color: color ? color :theme.palette.background.secondary ,
+        color: color ? color : theme.palette.text.secondary,
         fontFamily: theme.typography.fontFamily2,
         fontSize: fontSize,
         fontWeight: theme.typography.h6.fontWeight,      

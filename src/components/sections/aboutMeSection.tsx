@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { Grid} from '@mui/material';
 import {theme} from '../../assets/theme';
 import Typography from '@mui/material/Typography';
-import Typical from 'react-typical'
+import Typical from '../atoms/Typical';
 import SectionDivider from '../molecules/SectionDivider';
 import { useInView } from "react-intersection-observer";
 import 'react-awesome-slider/dist/styles.css';
