@@ -47,6 +47,7 @@ const BoxArt = (props:BoxArtProps) => {
         position: 'absolute',
         zIndex: 1,
         overflow: 'hidden',
+        boxSizing: 'border-box',
     }
     const dotAsteticStyle = {
         borderColor: theme.palette.background.secondary,
@@ -54,6 +55,7 @@ const BoxArt = (props:BoxArtProps) => {
         position: 'absolute',
         zIndex: 1,
         overflow: 'hidden',
+        boxSizing: 'border-box',
     }
     const asciiArtBoxStyle = {
         display: 'inline-flex',
@@ -62,6 +64,17 @@ const BoxArt = (props:BoxArtProps) => {
         padding: '0',
         margin: '0',
         overflow: 'hidden',
+        boxSizing: 'border-box',
+    }
+    const sizeStyle = {
+        width: width,
+        height: height,
+        minWidth: width,
+        minHeight: height,
+        top: top,
+        right: right,
+        bottom: bottom,
+        left: left
     }
     return (
         <motion.div
@@ -69,7 +82,10 @@ const BoxArt = (props:BoxArtProps) => {
             animate={control}
             
         >
-            <Box ref={ref} sx={[boxStyle? boxStyle :box === "box"?boxAsteticStyle: box=="dot"? dotAsteticStyle : asciiArtBoxStyle ,{width: width, height: height, top: top, right: right, bottom: bottom, left:left }]}>
+            <Box ref={ref} sx={[
+                boxStyle ? boxStyle : box === "box" ? boxAsteticStyle : box == "dot" ? dotAsteticStyle : asciiArtBoxStyle,
+                sizeStyle
+            ]}>
                 {children}
             </Box>
         </motion.div>
