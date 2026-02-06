@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../../App.css';
 import Box from '@mui/material/Box';
 import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import {theme} from '../../assets/theme';
 import Typography from '@mui/material/Typography';
-import Typical from '../atoms/Typical';
 import Dots from '../molecules/Dots';
 import AsciiArt from '../molecules/AsciiArt';
 import SectionDivider from '../molecules/SectionDivider';
-import { useInView } from "react-intersection-observer";
 import BoxArt from '../molecules/BoxArt';
 import {skillTableData} from '../../const/constants';
 
@@ -18,18 +16,6 @@ interface SkillTableProps {
 
 const SkillSection = (props:SkillTableProps) => {
     const {showArt} = props;
-    const [ref, inView] = useInView();
-    const [stateTyper, setstateTyper] = React.useState(0);
-
-    useEffect(() => {
-
-        if(inView){
-            setstateTyper(1);
-        }
-        else{
-            setstateTyper(0);
-        }
-      }, [inView]);
 
     const skillBoxStyle = {
         overflow: 'visible',
@@ -201,21 +187,13 @@ const SkillSection = (props:SkillTableProps) => {
                 <span>uptime: 2y</span>
                 <span>build: release</span>
             </Box>
-            <Typography className="terminal-command">
-                <span className="terminal-prompt">jp@linux:~$</span>
-                <span className="terminal-command-text">cat skills.txt</span>
-            </Typography>
             <Grid  md={12}  sx={SkillBoxHeaderStyle}>
                 <Grid>
                 
                 <Typography sx={SkillHeaderStyle} className="terminal-heading">
                     <span className="terminal-prompt">jp@linux:~$</span>
-                    <span ref={ref} style={styleSpecChar} className="terminal-cursor">#</span>
-                    <Typical
-                        steps={[500,"skills", 7000]}
-                        loop={stateTyper}
-                        wrapper="span"
-                    />
+                    <span style={styleSpecChar} className="terminal-cursor">#</span>
+                    <span>cat skills.txt</span>
                     <span className="terminal-cursor">█</span>
                 </Typography>
                 </Grid>

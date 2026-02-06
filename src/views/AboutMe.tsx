@@ -27,7 +27,7 @@ const AboutMe = () => {
     <Box sx = {containerStyle}>
         <Grid  md={12} >
             <Box sx={contentBoxStyle}>
-                <AboutMeSection/>
+                <AboutMeSection showHeader={true}/>
             </Box>
         </Grid>
         <Grid  md={12} >

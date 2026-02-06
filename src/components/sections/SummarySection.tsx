@@ -152,23 +152,22 @@ import FileSaver from 'file-saver';
 
     return (
         <Box sx={{minHeight: '70vh'}} id="home">
-            <Box className="terminal-status">
-                <span>status: ok</span>
-                <span>uptime: 2y</span>
-                <span>build: release</span>
-            </Box>
-            <Typography className="terminal-command">
-                <span className="terminal-prompt">jp@linux:~$</span>
-                <span className="terminal-command-text">cat home.txt</span>
-            </Typography>
+            
             <Grid container spacing={2} sx={aboutBoxStyle}  >
                 <Grid item xs={12} md={6} order={{xs:1,sm:1, md:1}} sx={{ minWidth: 0 }}>
+                    
                     <Box sx={aboutBoxTextStyle}>
+                        <Box className="terminal-status">
+                                <span>status: ok</span>
+                                <span>uptime: 2y</span>
+                                <span>build: release</span>
+                            </Box>
                         <Grid item xs={12} >
+                           
                             <Typography sx={aboutHeadertStyle} className="terminal-heading">
                                 <span className="terminal-prompt">jp@linux:~$</span>
                                 <span style={styleSpecChar} className="terminal-cursor">#</span>
-                                <span>home</span>
+                                <span>cat home.txt</span>
                                 <span className="terminal-cursor">█</span>
                             </Typography>
                             <Typography sx={aboutHeadertStyle}> 

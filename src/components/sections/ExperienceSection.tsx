@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../../App.css';
 import Box from '@mui/material/Box';
 import { Grid} from '@mui/material';
 import {theme} from '../../assets/theme';
 import Typography from '@mui/material/Typography';
-import Typical from '../atoms/Typical';
 import SectionDivider from '../molecules/SectionDivider';
 import WorkExperienceTimeLine from '../molecules/WorkExperienceTimeLine';
-import { useInView } from "react-intersection-observer";
 import Link  from '@mui/material/Link';
 import {
     Link as RouterLink,
@@ -16,18 +14,6 @@ import {
 import {routes} from '../../routing';
 
 const ExperienceSection = () => {
-    const [ref, inView] = useInView();
-    const [stateTyper, setstateTyper] = React.useState(0);
-
-    useEffect(() => {
-        if(inView){
-            setstateTyper(1);
-        }
-        else{
-            setstateTyper(0);
-        }
-      }, [inView]);
-      
     const workExperienceBoxStyle = {
         //this style is a container that will hold multiple skill tables
         display: 'flex',
@@ -115,20 +101,12 @@ const ExperienceSection = () => {
                 <span>uptime: 2y</span>
                 <span>build: release</span>
             </Box>
-            <Typography className="terminal-command">
-                <span className="terminal-prompt">jp@linux:~$</span>
-                <span className="terminal-command-text">tail -n 5 experience.log</span>
-            </Typography>
             <Grid  md={12}  sx={boxHeaderStyle}>
                 <Grid>
                 <Typography sx={headerStyle} className="terminal-heading">
                     <span className="terminal-prompt">jp@linux:~$</span>
-                    <span ref={ref} style={styleSpecChar} className="terminal-cursor">#</span>
-                    <Typical
-                        steps={[500,"experiences", 5000]}
-                        loop={stateTyper}
-                        wrapper="span"
-                    />  
+                    <span style={styleSpecChar} className="terminal-cursor">#</span>
+                    <span>tail -n 5 experience.log</span>
                     <span className="terminal-cursor">█</span>
                 </Typography>
                 </Grid>

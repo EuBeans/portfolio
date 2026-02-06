@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../../App.css';
 import Box from '@mui/material/Box';
 import { Grid} from '@mui/material';
 import {theme} from '../../assets/theme';
 import Typography from '@mui/material/Typography';
-import Typical from '../atoms/Typical';
 import SectionDivider from '../molecules/SectionDivider';
-import { useInView } from "react-intersection-observer";
 import 'react-awesome-slider/dist/styles.css';
 import ProjectCard from '../molecules/ProjectCard';
 import Link  from '@mui/material/Link';
@@ -18,18 +16,6 @@ import {
 
 
 const ProjectSection = () => {
-    const [ref, inView] = useInView();
-    const [stateTyper, setstateTyper] = React.useState(0);
-
-    useEffect(() => {
-        if(inView){
-            setstateTyper(1);
-        }
-        else{
-            setstateTyper(0);
-        }
-      }, [inView]);
-
     const contentBoxStyle = {
         //this style is a container that will hold multiple skill tables
         display: 'flex',
@@ -118,20 +104,12 @@ const ProjectSection = () => {
                 <span>uptime: 2y</span>
                 <span>build: release</span>
             </Box>
-            <Typography className="terminal-command">
-                <span className="terminal-prompt">jp@linux:~$</span>
-                <span className="terminal-command-text">ls projects/ | head -n 3</span>
-            </Typography>
             <Grid  xs={12}  sx={boxHeaderStyle}>
                 <Grid>
                     <Typography sx={headerStyle} className="terminal-heading">
                         <span className="terminal-prompt">jp@linux:~$</span>
-                        <span ref={ref} style={styleSpecChar} className="terminal-cursor">#</span>
-                        <Typical
-                            steps={[500,"projects", 5000]}
-                            loop={stateTyper}
-                            wrapper="span"
-                        />  
+                        <span style={styleSpecChar} className="terminal-cursor">#</span>
+                        <span>ls projects/ | head -n 3</span>
                         <span className="terminal-cursor">█</span>
                     </Typography>
                 </Grid>

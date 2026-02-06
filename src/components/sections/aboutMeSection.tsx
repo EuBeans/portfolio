@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../../App.css';
 import Box from '@mui/material/Box';
 import { Grid} from '@mui/material';
 import {theme} from '../../assets/theme';
 import Typography from '@mui/material/Typography';
-import Typical from '../atoms/Typical';
 import SectionDivider from '../molecules/SectionDivider';
-import { useInView } from "react-intersection-observer";
 import 'react-awesome-slider/dist/styles.css';
 import secondPicture from '../../assets/images/secondPicture.jpg';
 import ImageBox from '../molecules/imageBox';
@@ -19,17 +17,6 @@ interface AboutMeSectionProps {
 const AboutMeSection = (props:AboutMeSectionProps) => {
     const {showHeader} = props;
     const SPEED = 1.5;
-    const [ref, inView] = useInView();
-    const [stateTyper, setstateTyper] = React.useState(0);
-
-    useEffect(() => {
-        if(inView){
-            setstateTyper(1);
-        }
-        else{
-            setstateTyper(0);
-        }
-      }, [inView]);
 
     let description = aboutMeDescription.split(/\\n/g);
     
@@ -101,20 +88,12 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
                         <span>uptime: 2y</span>
                         <span>build: release</span>
                     </Box>
-                    <Typography className="terminal-command">
-                        <span className="terminal-prompt">jp@linux:~$</span>
-                        <span className="terminal-command-text">cat about_me.txt</span>
-                    </Typography>
                     <Grid  md={12}  sx={boxHeaderStyle}>
                         <Grid>
                         <Typography sx={headerStyle} className="terminal-heading">
                             <span className="terminal-prompt">jp@linux:~$</span>
-                            <span ref={ref} style={styleSpecHeaderChar} className="terminal-cursor">#</span>
-                            <Typical
-                                steps={[500,"about-me", 5000]}
-                                loop={stateTyper}
-                                wrapper="span"
-                            />  
+                            <span style={styleSpecHeaderChar} className="terminal-cursor">#</span>
+                            <span>cat about_me.txt</span>
                             <span className="terminal-cursor">█</span>
                         </Typography>
                         </Grid>
