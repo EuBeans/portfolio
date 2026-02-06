@@ -51,6 +51,8 @@ export default function ImageBox(props: ImageProps) {
         //border bottom not solid dotted
         border: '1.5px dotted',
         borderColor: theme.palette.secondary.main,
+        filter: "grayscale(0.15) contrast(1.05) saturate(0.9)",
+        boxShadow: "0 0 18px rgba(4, 202, 159, 0.12)",
     }
     
     const boxAsteticStyle = {

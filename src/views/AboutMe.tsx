@@ -11,7 +11,6 @@ import SkillSection from '../components/sections/SkillSection';
 const AboutMe = () => {
     const containerStyle = {
         backgroundColor: theme.palette.background.default,
-        paddingTop: '5vh',
         minHeight: '100vh',   
     }
     const contentBoxStyle = {
@@ -43,6 +42,9 @@ const AboutMe = () => {
         fontFamily: theme.typography.fontFamily2,
         fontWeight: theme.typography.h2.fontWeight,
         letterSpacing: theme.typography.h2.letterSpacing,
+        lineHeight: 1.4,
+        maxWidth: "100%",
+        overflowWrap: "anywhere",
     }
 
     const styleSpecChar = {
@@ -65,8 +67,9 @@ const AboutMe = () => {
     <Box sx = {containerStyle}>
         <Grid  xs={12}  sx={boxHeaderStyle}>
             <Grid>
-                <Typography sx={headerStyle}>
-                    <span  style={styleSpecChar}>/</span>
+                <Typography sx={headerStyle} className="terminal-heading">
+                    <span className="terminal-prompt">jp@linux:~$</span>
+                    <span  style={styleSpecChar} className="terminal-cursor">/</span>
                         {"about-me"}
                 </Typography>
             </Grid>

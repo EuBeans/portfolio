@@ -8,7 +8,9 @@ import BoxArt from './BoxArt';
 export default function BackgroundArt() {
     const SPEED= 1.5;
     const containerStyle = {
-        position: 'relative',
+        position: 'absolute',
+        inset: 0,
+        pointerEvents: 'none',
     }
 
 
@@ -33,28 +35,15 @@ export default function BackgroundArt() {
 
     return (
         <Box sx={[containerStyle]}>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'200px'} top={'30vh'} left= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'70vh'} right= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'80px'} top={'100vh'} left= {'98%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'150vh'} right= {'98%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'150px'} top={'170vh'} left= {'90%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'270vh'} left= {'97%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'130px'} top={'300vh'} right= {'94%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'200px'} top={'350vh'} left= {'93%'} x={[0,0]} y={[0,0]} speed={SPEED}/>\
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'410vh'} right= {'92%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'70px'} top={'450vh'} left= {'93%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'140px'} top={'510vh'} right= {'96%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'570vh'} left= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'70px'} top={'630vh'} right= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'690vh'} left= {'98%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'750vh'} right= {'98%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'150px'} top={'770vh'} left= {'90%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'870vh'} left= {'97%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'130px'} top={'900vh'} right= {'94%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'200px'} top={'950vh'} left= {'93%'} x={[0,0]} y={[0,0]} speed={SPEED}/>\
-            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'1010vh'} right= {'92%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'200px'} top={'8%'} left= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'18%'} right= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'80px'} top={'28%'} left= {'98%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'100px'} top={'42%'} right= {'98%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'150px'} top={'55%'} left= {'90%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'130px'} top={'68%'} right= {'94%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
+            <BoxArt box={"box"} boxStyle={boxAsteticStyle} height= {'120px'} top={'82%'} left= {'93%'} x={[0,0]} y={[0,0]} speed={SPEED}/>
 
-            <BoxArt box={"dot"} boxStyle={asciiArtBoxStyle} height= {'100px'} top={'98vh'} right= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>
+            <BoxArt box={"dot"} boxStyle={asciiArtBoxStyle} height= {'100px'} top={'16%'} right= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>
                 <Dots  
                     radius = {2}
                     gap = {16}
@@ -63,7 +52,7 @@ export default function BackgroundArt() {
                     viewBox = "25 0 300 300"
                 />
             </BoxArt>
-            <BoxArt box={"dot"} boxStyle={asciiArtBoxStyle} height= {'100px'} top={'340vh'} right= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>
+            <BoxArt box={"dot"} boxStyle={asciiArtBoxStyle} height= {'100px'} top={'46%'} right= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>
                 <Dots  
                     radius = {2}
                     gap = {16}
@@ -72,7 +61,7 @@ export default function BackgroundArt() {
                     viewBox = "10 0 300 300"
                 />
             </BoxArt>
-            <BoxArt box={"dot"} boxStyle={asciiArtBoxStyle} height= {'100px'} top={'140vh'} left= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}>
+            <BoxArt box={"dot"} boxStyle={asciiArtBoxStyle} height= {'100px'} top={'72%'} left= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}>
                 <Dots  
                     radius = {2}
                     gap = {16}
@@ -81,19 +70,10 @@ export default function BackgroundArt() {
                     viewBox = "0 0 100 100"
                 />
             </BoxArt>
-            <BoxArt box={"dot"} boxStyle={asciiArtBoxStyle} height= {'100px'} top={'600vh'} left= {'95%'} x={[0,0]} y={[0,0]} speed={SPEED}>
-                <Dots
-                    radius = {2}
-                    gap = {16}
-                    width = { 7}
-                    height = {7}
-                    viewBox = "0 0 100 100"
-                />
-            </BoxArt>
-            <BoxArt box={"ascii"}  boxStyle={asciiArtBoxStyle}  height= {'240px'} top={'60vh'} left= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>
+            <BoxArt box={"ascii"}  boxStyle={asciiArtBoxStyle}  height= {'240px'} top={'34%'} left= {'85%'} x={[0,0]} y={[0,0]} speed={SPEED}>
                 <AsciiArt type={"keyboard"} fontSize={theme.typography.h4.fontSize}/>
             </BoxArt>
-            <BoxArt box={"ascii"}  boxStyle={asciiArtBoxStyle} height= {'400px'} top={'210vh'} right= {'92%'}  x={[0,0]} y={[0,0]} speed={SPEED}>
+            <BoxArt box={"ascii"}  boxStyle={asciiArtBoxStyle} height= {'400px'} top={'62%'} right= {'92%'}  x={[0,0]} y={[0,0]} speed={SPEED}>
                 <AsciiArt type={"flopyDisk"} fontSize={theme.typography.h4.fontSize}/>
             </BoxArt>
 

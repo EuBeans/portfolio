@@ -2,7 +2,7 @@
 import React from 'react';
 import '../App.css';
 import Box from '@mui/material/Box';
-import { Container } from '@mui/material';
+import Container from '@mui/material/Container';
 import {theme} from '../assets/theme';
 import SummarySection from '../components/sections/SummarySection';
 import SkillSection from '../components/sections/SkillSection';
@@ -13,15 +13,12 @@ import AboutMeSection from '../components/sections/aboutMeSection';
 const Home = () => {
     const containerStyle = {
         backgroundColor: theme.palette.background.default,
-        paddingTop: '10vh',
         minHeight: '100vh',   
     }
 
     return (
     <Box sx = {containerStyle}>
-        <Container 
-            maxWidth="lg" 
-        >   
+        <Container maxWidth="lg" disableGutters>
             <SummarySection/>
             <ProjectSection/>
             <SkillSection showArt={true}/>

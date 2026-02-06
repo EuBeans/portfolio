@@ -71,6 +71,9 @@ const ExperienceSection = () => {
         fontFamily: theme.typography.fontFamily2,
         fontWeight: theme.typography.h2.fontWeight,
         letterSpacing: theme.typography.h2.letterSpacing,
+        lineHeight: 1.4,
+        maxWidth: "100%",
+        overflowWrap: "anywhere",
     }
 
     const styleSpecChar = {
@@ -111,12 +114,14 @@ const ExperienceSection = () => {
         <SectionDivider>
             <Grid  md={12}  sx={boxHeaderStyle}>
                 <Grid>
-                <Typography sx={headerStyle}>
-                    <span ref={ref} style={styleSpecChar}>#</span><Typical
-                                steps={[500,"experiences", 5000]}
-                                loop={stateTyper}
-                                wrapper="span"
-                            />  
+                <Typography sx={headerStyle} className="terminal-heading">
+                    <span className="terminal-prompt">jp@linux:~$</span>
+                    <span ref={ref} style={styleSpecChar} className="terminal-cursor">#</span>
+                    <Typical
+                        steps={[500,"experiences", 5000]}
+                        loop={stateTyper}
+                        wrapper="span"
+                    />  
                 </Typography>
                 </Grid>
                 <Grid>

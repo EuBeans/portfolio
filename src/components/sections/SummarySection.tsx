@@ -71,6 +71,9 @@ import FileSaver from 'file-saver';
         fontFamily: theme.typography.fontFamily,
         fontWeight: theme.typography.h3.fontWeight,
         letterSpacing: theme.typography.h3.letterSpacing,
+        lineHeight: 1.4,
+        maxWidth: "100%",
+        overflowWrap: "anywhere",
     }
     const aboutTextStyle ={
         color: theme.palette.text.secondary,
@@ -78,6 +81,9 @@ import FileSaver from 'file-saver';
         fontFamily: theme.typography.fontFamily,
         fontWeight: theme.typography.body1.fontWeight,
         letterSpacing: theme.typography.body1.letterSpacing,
+        lineHeight: 1.7,
+        maxWidth: "100%",
+        overflowWrap: "anywhere",
     }
 
     const styleSpecChar = {
@@ -145,11 +151,16 @@ import FileSaver from 'file-saver';
     };
 
     return (
-        <Box sx={{height: '100vh'}}>
+        <Box sx={{minHeight: '70vh'}}>
             <Grid container spacing={2} sx={aboutBoxStyle}  >
                 <Grid  xs={12} md={6} order={{xs:1,sm:1, md:1}} sx={{}}>
                     <Box sx={aboutBoxTextStyle}>
                         <Grid  xs={12} >
+                            <Typography sx={aboutHeadertStyle} className="terminal-heading">
+                                <span className="terminal-prompt">jp@linux:~$</span>
+                                <span style={styleSpecChar} className="terminal-cursor">#</span>
+                                <span>home</span>
+                            </Typography>
                             <Typography sx={aboutHeadertStyle}> 
                             Jean is a <span style={styleSpecChar}> Software Engineer</span> in cybersecurity who loves to&nbsp;<span>
                             <Typical
@@ -189,8 +200,8 @@ import FileSaver from 'file-saver';
                         <Box sx={{...quoteBoxStyle.legendCaption,...quoteBoxStyle.quoteTextStyle}}>"</Box>
                     </fieldset> 
                 </Box>
-            </Grid>        
-        </Box>
+            </Grid>
+        </Box>        
     )
 
 }

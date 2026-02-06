@@ -16,10 +16,17 @@ import Typical from '../atoms/Typical';
         flexWrap: 'wrap'
     }
     const demoBoxStyle = {
-        border: '3px solid',
+        border: '2px dashed',
         borderColor: theme.palette.secondary.main,
         display: 'flex',
         width:'75%',
+    }
+    const demoPlaceholderStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        height: '320px',
     }
     const headerStyle ={
         color: theme.palette.primary.light,
@@ -40,8 +47,9 @@ import Typical from '../atoms/Typical';
     return (
         <Box sx={containerDemoStyle}>
             <Grid>
-                <Typography sx={headerStyle}>
-                    <span style={styleSpecChar}>#</span>
+                <Typography sx={headerStyle} className="terminal-heading">
+                    <span className="terminal-prompt">jp@linux:~$</span>
+                    <span style={styleSpecChar} className="terminal-cursor">#</span>
                     <Typical
                         steps={[500,"polygon-contour", 5000]}
                         loop={1}
@@ -50,18 +58,16 @@ import Typical from '../atoms/Typical';
                 </Typography>
             </Grid>
             <Grid  md={12} sx={demoBoxStyle} >
-                <iframe
-                    src="https://polygon-contour-v2.herokuapp.com/"
-                    height={600}
-                    width={'100%'}
-                    style={{'padding':'0','display':'flex'}}
-                    allow="fullscreen"
-                    frameBorder={0}
-                />
+                <Box sx={demoPlaceholderStyle} className="terminal-output terminal-empty">
+                    <Typography sx={headerStyle}>
+                        Demo currently not available
+                    </Typography>
+                </Box>
             </Grid>
             <Grid>
-                <Typography sx={headerStyle}>
-                    <span style={styleSpecChar}>#</span>
+                <Typography sx={headerStyle} className="terminal-heading">
+                    <span className="terminal-prompt">jp@linux:~$</span>
+                    <span style={styleSpecChar} className="terminal-cursor">#</span>
                     <Typical
                         steps={[500,"simordia-word-game", 5000]}
                         loop={1}
@@ -70,14 +76,11 @@ import Typical from '../atoms/Typical';
                 </Typography>
             </Grid>
             <Grid  md={12} sx={demoBoxStyle} >
-                <iframe
-                    src="https://simordia-front-end-1114b24bf751.herokuapp.com/"
-                    height={1000}
-                    width={'100%'}
-                    style={{'padding':'0','display':'flex'}}
-                    allow="fullscreen"
-                    frameBorder={0}
-                />
+                <Box sx={demoPlaceholderStyle} className="terminal-output terminal-empty">
+                    <Typography sx={headerStyle}>
+                        Demo currently not available
+                    </Typography>
+                </Box>
             </Grid>
         </Box>
     )

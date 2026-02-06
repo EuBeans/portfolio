@@ -11,20 +11,28 @@ export interface TypicalProps extends React.HTMLAttributes<HTMLElement> {
   typeSpeedMs?: number;
 }
 
-const toDelay = (value: Step): number =>
+const toDelay = (value?: Step): number =>
   typeof value === 'number' && Number.isFinite(value) ? value : 0;
 
-const toText = (value: Step): string =>
-  typeof value === 'string' ? value : String(value);
+const toText = (value?: Step): string =>
+  typeof value === 'string' ? value : '';
 
 const parseSteps = (steps: Step[]) => {
+  let initialDelay = 0;
+  let startIndex = 0;
+
+  if (typeof steps[0] === 'number') {
+    initialDelay = toDelay(steps[0]);
+    startIndex = 1;
+  }
+
   const pairs: Array<{ delay: number; text: string }> = [];
-  for (let i = 0; i < steps.length - 1; i += 2) {
-    const delay = toDelay(steps[i]);
-    const text = toText(steps[i + 1]);
+  for (let i = startIndex; i < steps.length; i += 2) {
+    const text = toText(steps[i]);
+    const delay = toDelay(steps[i + 1]);
     pairs.push({ delay, text });
   }
-  return pairs;
+  return { initialDelay, pairs };
 };
 
 const Typical: React.FC<TypicalProps> = ({
@@ -57,18 +65,21 @@ const Typical: React.FC<TypicalProps> = ({
     };
 
     const run = async () => {
-      if (!loop || parsedSteps.length === 0) {
+      if (!loop || parsedSteps.pairs.length === 0) {
         setDisplay('');
         return;
       }
 
       let loopCount = 0;
       while (!cancelled && (loop === Infinity || loopCount < loop)) {
-        for (const step of parsedSteps) {
-          if (cancelled) return;
-          await sleep(step.delay);
+        if (parsedSteps.initialDelay > 0) {
+          await sleep(parsedSteps.initialDelay);
+        }
+        for (const step of parsedSteps.pairs) {
           if (cancelled) return;
           await typeText(step.text);
+          if (cancelled) return;
+          await sleep(step.delay);
         }
         loopCount += 1;
       }

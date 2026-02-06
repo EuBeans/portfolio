@@ -53,7 +53,7 @@ export const theme = {
         },
     },
     typography: {
-        fontFamily: 'Gintronic',
+        fontFamily: 'Dina',
         fontFamily2: 'Dina',
         h1: {
             fontSize: '2.5rem',
@@ -86,19 +86,19 @@ export const theme = {
             color: '#000000',
         },
         h6: {
-            fontSize: '0.95rem',
+            fontSize: '1.15rem',
             fontWeight: 600,
             letterSpacing: '.15rem',
             color: '#000000',
         },
         body1: {
-            fontSize: '0.95rem',
+            fontSize: '1.2rem',
             fontWeight: 300,
             letterSpacing: '.06rem',
             color: '#000000',
         },
         body2: {
-            fontSize: '.85rem',
+            fontSize: '1.05rem',
             fontWeight: 300,
             letterSpacing: '.05rem',
             color: '#000000',

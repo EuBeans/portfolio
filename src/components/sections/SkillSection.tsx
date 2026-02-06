@@ -96,6 +96,9 @@ const SkillSection = (props:SkillTableProps) => {
         fontFamily: theme.typography.fontFamily2,
         fontWeight: theme.typography.h2.fontWeight,
         letterSpacing: theme.typography.h2.letterSpacing,
+        lineHeight: 1.4,
+        maxWidth: "100%",
+        overflowWrap: "anywhere",
     }
 
     const styleSpecChar = {
@@ -199,12 +202,14 @@ const SkillSection = (props:SkillTableProps) => {
             <Grid  md={12}  sx={SkillBoxHeaderStyle}>
                 <Grid>
                 
-                <Typography sx={SkillHeaderStyle}>
-                    <span ref={ref} style={styleSpecChar}>#</span><Typical
-                                steps={[500,"skills", 7000]}
-                                loop={stateTyper}
-                                wrapper="span"
-                                />
+                <Typography sx={SkillHeaderStyle} className="terminal-heading">
+                    <span className="terminal-prompt">jp@linux:~$</span>
+                    <span ref={ref} style={styleSpecChar} className="terminal-cursor">#</span>
+                    <Typical
+                        steps={[500,"skills", 7000]}
+                        loop={stateTyper}
+                        wrapper="span"
+                    />
                 </Typography>
                 </Grid>
                 <Grid>

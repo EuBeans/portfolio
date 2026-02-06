@@ -171,6 +171,7 @@ const ProjectCard = (props:ProjectCardProps) => {
                             height="200"
                             image={project.image}
                             alt="green iguana"
+                            className="terminal-media"
                             sx={{ objectFit: "contain", backgroundColor: theme.palette.background.default, padding: "8px" }}
                             onClick={() => onCardClick(project)}
                             />

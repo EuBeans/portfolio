@@ -151,7 +151,7 @@ export const WorkExperience = [
         company: "University of Ottawa",
         date: "September 2024 - Present",
         location: "Ottawa, Ontario",
-        description: "Pursuing graduate studies focused on applied, interdisciplinary AI and its impact across domains.",
+        description: "Graduate studies focused on applied, interdisciplinary AI, with coursework in cybersecurity, AI, and UI/UX.",
         icon:"school",
         skills: ["Machine Learning", "AI", "Research"]
     },
