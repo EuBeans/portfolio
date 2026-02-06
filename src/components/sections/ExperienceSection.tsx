@@ -17,8 +17,6 @@ import {routes} from '../../routing';
 
 const ExperienceSection = () => {
     const [ref, inView] = useInView();
-
-    //state
     const [stateTyper, setstateTyper] = React.useState(0);
 
     useEffect(() => {
@@ -29,7 +27,6 @@ const ExperienceSection = () => {
             setstateTyper(0);
         }
       }, [inView]);
-
       
     const workExperienceBoxStyle = {
         //this style is a container that will hold multiple skill tables
@@ -83,6 +80,7 @@ const ExperienceSection = () => {
     letterSpacing: theme.typography.h3.letterSpacing, 
     fontSize: theme.typography.h3.fontSize,
     }
+
     const boxHeaderLinkStyle = {
         width: '100px',
         borderColor: theme.palette.primary.light,

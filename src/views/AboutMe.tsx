@@ -2,7 +2,7 @@
 import React from 'react';
 import '../App.css';
 import Box from '@mui/material/Box';
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import {theme} from '../assets/theme';
 import AboutMeSection from '../components/sections/aboutMeSection';
 import SkillSection from '../components/sections/SkillSection';
@@ -23,76 +23,8 @@ const AboutMe = () => {
         paddingTop:"20px"
     }
 
-    const boxHeaderStyle = {
-        paddingTop: '30px',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',        
-    }
-    const boxBodyStyle = {
-        paddingY: '5px',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',        
-    }
-
-    const headerStyle ={
-        color: theme.palette.text.primary,
-        fontSize: theme.typography.h2.fontSize,
-        fontFamily: theme.typography.fontFamily2,
-        fontWeight: theme.typography.h2.fontWeight,
-        letterSpacing: theme.typography.h2.letterSpacing,
-        lineHeight: 1.4,
-        maxWidth: "100%",
-        overflowWrap: "anywhere",
-    }
-
-    const styleSpecChar = {
-    color: theme.palette.text.special, 
-    fontFamily: theme.typography.fontFamily,
-    fontWeight: theme.typography.h3.fontWeight,
-    letterSpacing: theme.typography.h3.letterSpacing, 
-    fontSize: theme.typography.h3.fontSize,
-    }
-
-    const bodyStyle ={
-        color: theme.palette.text.primary,
-        fontSize: theme.typography.body1.fontSize,
-        fontFamily: theme.typography.fontFamily2,
-        fontWeight: theme.typography.body1.fontWeight,
-        letterSpacing: theme.typography.body1.letterSpacing,
-    }
-
     return (
     <Box sx = {containerStyle}>
-        <Box className="terminal-status">
-            <span>status: ok</span>
-            <span>uptime: 2y</span>
-            <span>build: release</span>
-        </Box>
-        <Typography className="terminal-command">
-            <span className="terminal-prompt">jp@linux:~$</span>
-            <span className="terminal-command-text">cat about_me.txt</span>
-        </Typography>
-        <Grid  xs={12}  sx={boxHeaderStyle}>
-            <Grid>
-                <Typography sx={headerStyle} className="terminal-heading">
-                    <span className="terminal-prompt">jp@linux:~$</span>
-                    <span  style={styleSpecChar} className="terminal-cursor">/</span>
-                        {"about-me"}
-                        <span className="terminal-cursor">█</span>
-                </Typography>
-            </Grid>
-        </Grid>
-
-        <Grid  xs={12}  sx={boxBodyStyle}>
-            <Grid>
-            <Typography sx={bodyStyle}>
-                {"Who am I and what do I do?"}
-            </Typography>
-            </Grid>
-        </Grid>
-
         <Grid  md={12} >
             <Box sx={contentBoxStyle}>
                 <AboutMeSection/>

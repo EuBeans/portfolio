@@ -105,28 +105,26 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
                         <span className="terminal-prompt">jp@linux:~$</span>
                         <span className="terminal-command-text">cat about_me.txt</span>
                     </Typography>
+                    <Grid  md={12}  sx={boxHeaderStyle}>
+                        <Grid>
+                        <Typography sx={headerStyle} className="terminal-heading">
+                            <span className="terminal-prompt">jp@linux:~$</span>
+                            <span ref={ref} style={styleSpecHeaderChar} className="terminal-cursor">#</span>
+                            <Typical
+                                steps={[500,"about-me", 5000]}
+                                loop={stateTyper}
+                                wrapper="span"
+                            />  
+                            <span className="terminal-cursor">█</span>
+                        </Typography>
+                        </Grid>
+                        <Grid>
+                            <Box sx={boxHeaderBorderStyle}/>
+                        </Grid>
+                    
+                    </Grid>
                 </>
             )}
-            {showHeader &&
-                <Grid  md={12}  sx={boxHeaderStyle}>
-                    <Grid>
-                    <Typography sx={headerStyle} className="terminal-heading">
-                        <span className="terminal-prompt">jp@linux:~$</span>
-                        <span ref={ref} style={styleSpecHeaderChar} className="terminal-cursor">#</span>
-                        <Typical
-                            steps={[500,"about-me", 5000]}
-                            loop={stateTyper}
-                            wrapper="span"
-                        />  
-                        <span className="terminal-cursor">█</span>
-                    </Typography>
-                    </Grid>
-                    <Grid>
-                        <Box sx={boxHeaderBorderStyle}/>
-                    </Grid>
-                
-                </Grid>
-            }
             <Grid container md={12} sx={{justifyContent:"center",alignItems:"center", paddingTop: showHeader ? "0px": "50px"}}>
                 <Grid  md={8} order={{xs:1,sm:1, md:1}} >
                     <Box sx={{paddingX:"20px"}} className="terminal-output">

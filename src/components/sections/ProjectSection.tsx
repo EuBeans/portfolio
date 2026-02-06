@@ -7,9 +7,7 @@ import Typography from '@mui/material/Typography';
 import Typical from '../atoms/Typical';
 import SectionDivider from '../molecules/SectionDivider';
 import { useInView } from "react-intersection-observer";
-import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
-import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import ProjectCard from '../molecules/ProjectCard';
 import Link  from '@mui/material/Link';
 import {routes} from '../../routing';
@@ -75,6 +73,7 @@ const ProjectSection = () => {
         alignItems: 'flex-start',
         paddingBottom: '15px',
     }
+
     const headerStyle ={
         color: theme.palette.text.primary,
         fontSize: theme.typography.h2.fontSize,

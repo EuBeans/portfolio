@@ -56,7 +56,7 @@ const TerminalPanel = (props: TerminalPanelProps) => {
         <span>mode: public</span>
         {isHome ? (
           <span className="terminal-footer-hint">
-            hint: use <a href="#home">#home</a> <a href="#projects">#projects</a> <a href="#about">#about</a> <a href="#experience">#experience</a>
+            hint: use <a href="#home">#home</a> <a href="#projects">#projects</a> <a href="#aboutme">#about</a> <a href="#experience">#experience</a>
           </span>
         ) : (
           <span className="terminal-footer-hint">

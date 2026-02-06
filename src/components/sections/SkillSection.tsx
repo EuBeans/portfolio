@@ -19,8 +19,6 @@ interface SkillTableProps {
 const SkillSection = (props:SkillTableProps) => {
     const {showArt} = props;
     const [ref, inView] = useInView();
-
-    //state
     const [stateTyper, setstateTyper] = React.useState(0);
 
     useEffect(() => {
@@ -32,7 +30,6 @@ const SkillSection = (props:SkillTableProps) => {
             setstateTyper(0);
         }
       }, [inView]);
-
 
     const skillBoxStyle = {
         overflow: 'visible',
