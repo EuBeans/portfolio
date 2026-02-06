@@ -56,7 +56,7 @@ import FileSaver from 'file-saver';
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        flexWrap: 'nowrap',
+        flexWrap: { xs: 'wrap', md: 'nowrap' },
         }
 
 
@@ -153,9 +153,9 @@ import FileSaver from 'file-saver';
     return (
         <Box sx={{minHeight: '70vh'}}>
             <Grid container spacing={2} sx={aboutBoxStyle}  >
-                <Grid  xs={12} md={6} order={{xs:1,sm:1, md:1}} sx={{}}>
+                <Grid item xs={12} md={6} order={{xs:1,sm:1, md:1}} sx={{ minWidth: 0 }}>
                     <Box sx={aboutBoxTextStyle}>
-                        <Grid  xs={12} >
+                        <Grid item xs={12} >
                             <Typography sx={aboutHeadertStyle} className="terminal-heading">
                                 <span className="terminal-prompt">jp@linux:~$</span>
                                 <span style={styleSpecChar} className="terminal-cursor">#</span>
@@ -171,19 +171,19 @@ import FileSaver from 'file-saver';
                             </span>
                             </Typography>
                         </Grid>
-                        <Grid  xs={12} sx={{paddingTop:"20px"}}>
+                        <Grid item xs={12} sx={{paddingTop:"20px"}}>
                             <Typography sx={aboutTextStyle}>
                                 He builds secure backend services and scalable platforms, while still crafting polished web experiences.
                             </Typography>
                         </Grid>
-                        <Grid  xs={12} sx={{paddingTop:"20px"}}>
+                        <Grid item xs={12} sx={{paddingTop:"20px"}}>
                             <Button variant="outlined" sx={primaryButtonStyle} onClick={()=>{saveManual()}}>Download Resume</Button>
                             <Button variant="outlined" sx={secondaryButtonStyle} href={contactLinks.email}>Email Me</Button>
                         </Grid>
 
                     </Box>
                 </Grid>
-                <Grid  xs={12} md={6} order={{xs:1,sm:1, md:1}} >
+                <Grid item xs={12} md={6} order={{xs:1,sm:1, md:1}} sx={{ minWidth: 0 }}>
                     <ImageBox
                             image={mainPicture}
                             speed= {SPEED}
