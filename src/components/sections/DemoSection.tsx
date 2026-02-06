@@ -12,16 +12,15 @@ import Typical from '../atoms/Typical';
         width:'100%',
         flexDirection: "column",
         justifyContent: 'flex-start',
-        alignItems: 'center',
-        flexWrap: 'wrap'
+        alignItems: 'stretch',
+        flexWrap: 'wrap',
+        gap: '18px'
     }
     const demoBoxStyle = {
         border: '2px dashed',
         borderColor: theme.palette.secondary.main,
         display: 'flex',
         width:'100%',
-        maxWidth: '820px',
-        margin: '0 auto',
     }
     const demoPlaceholderStyle = {
         display: 'flex',
@@ -29,8 +28,7 @@ import Typical from '../atoms/Typical';
         justifyContent: 'center',
         width: '100%',
         height: '320px',
-        padding: '10px',
-        textAlign: 'center',
+        padding: '0 12px',
     }
     const headerStyle ={
         color: theme.palette.primary.light,
