@@ -13,12 +13,14 @@ import AboutMeSection from '../components/sections/aboutMeSection';
 const Home = () => {
     const containerStyle = {
         backgroundColor: theme.palette.background.default,
-        minHeight: '100vh',   
+        minHeight: '100vh',
+        paddingX: { xs: '6px', md: '16px' },
+        paddingBottom: { xs: '18px', md: '24px' },
     }
 
     return (
     <Box sx = {containerStyle}>
-        <Container maxWidth="lg" disableGutters>
+        <Container maxWidth="lg" disableGutters sx={{ marginTop: { xs: '10px', md: '16px' } }}>
             <Box className="home-section">
                 <SummarySection/>
             </Box>

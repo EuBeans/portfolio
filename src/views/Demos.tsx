@@ -13,6 +13,9 @@ const Demos = () => {
         flexDirection: "column",
         backgroundColor: theme.palette.background.default,
         minHeight: '100vh',
+        paddingX: { xs: '6px', md: '16px' },
+        paddingTop: { xs: '8px', md: '14px' },
+        paddingBottom: { xs: '18px', md: '24px' },
     }
     const contentBoxStyle = {
         //this style is a container that will hold multiple skill tables
