@@ -10,15 +10,16 @@ import DemoSection from '../components/sections/DemoSection';
 const Demos = () => {
     const containerStyle = {
         display: 'flex',
-        flexDirection: "row",
+        flexDirection: "column",
         backgroundColor: theme.palette.background.default,
-        minHeight: '100vh',   
+        minHeight: '100vh',
     }
     const contentBoxStyle = {
         //this style is a container that will hold multiple skill tables
         display: 'flex',
         flexDirection: "row",
         flexWrap: 'wrap',
+        alignItems: 'flex-start',
         paddingTop:"20px"
     }
 
@@ -26,7 +27,7 @@ const Demos = () => {
         paddingTop: '30px',
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'nowrap',        
+        flexWrap: 'nowrap',
     }
 
 
@@ -68,13 +69,13 @@ const Demos = () => {
                             <span className="terminal-cursor">█</span>
                     </Typography>
                 </Grid>
-                <Grid  md={12} >
-                <Box sx={contentBoxStyle}>
-                    <DemoSection/>
-                </Box>
-            </Grid>
             </Grid>
         </Box>
+        <Grid  md={12} >
+            <Box sx={contentBoxStyle}>
+                <DemoSection/>
+            </Box>
+        </Grid>
   
 
         

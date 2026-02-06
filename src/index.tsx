@@ -5,6 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
 
+const params = new URLSearchParams(window.location.search);
+if (params.has('embed')) {
+  document.body.classList.add('embed');
+}
+
 ReactDOM.render(
     <React.StrictMode>
     <HashRouter>
