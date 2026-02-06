@@ -182,26 +182,27 @@ const SkillSection = (props:SkillTableProps) => {
 
     return (
         <SectionDivider id="skills">
-            <Box className="terminal-status">
-                <span>status: ok</span>
-                <span>uptime: 2y</span>
-                <span>build: release</span>
-            </Box>
-            <Grid  md={12}  sx={SkillBoxHeaderStyle}>
-                <Grid>
-                
-                <Typography sx={SkillHeaderStyle} className="terminal-heading">
-                    <span className="terminal-prompt">jp@linux:~$</span>
-                    <span style={styleSpecChar} className="terminal-cursor">#</span>
-                    <span>cat skills.txt</span>
-                    <span className="terminal-cursor">█</span>
-                </Typography>
-                </Grid>
-                <Grid>
-                    <Box sx={skillBoxHeaderBorderBoxStyle}/>
-                </Grid>
+            <Box className="terminal-header-block">
+                <Box className="terminal-status">
+                    <span>status: ok</span>
+                    <span>uptime: 2y</span>
+                    <span>build: release</span>
+                </Box>
+                <Grid  md={12}  sx={SkillBoxHeaderStyle}>
+                    <Grid>
+                    <Typography sx={SkillHeaderStyle} className="terminal-heading">
+                        <span className="terminal-prompt">jp@linux:~$</span>
+                        <span style={styleSpecChar} className="terminal-cursor">#</span>
+                        <span>cat skills.txt</span>
+                        <span className="terminal-cursor">█</span>
+                    </Typography>
+                    </Grid>
+                    <Grid>
+                        <Box sx={skillBoxHeaderBorderBoxStyle}/>
+                    </Grid>
 
-            </Grid>
+                </Grid>
+            </Box>
 
             <Grid container spacing={2} sx={[skillBoxStyle,{paddingX: showArt ? '50px':"0px", flexWrap: showArt?"nowrap":"wrap"}]}  >
                 {showArt&&

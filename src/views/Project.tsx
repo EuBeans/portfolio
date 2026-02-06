@@ -64,21 +64,23 @@ const Project = () => {
 
     return (
     <Box sx = {containerStyle}>
-        <Box className="terminal-status">
-            <span>status: ok</span>
-            <span>uptime: 2y</span>
-            <span>build: release</span>
-        </Box>
-        <Grid  xs={12}  sx={boxHeaderStyle}>
-            <Grid>
-            <Typography sx={headerStyle} className="terminal-heading">
-                    <span className="terminal-prompt">jp@linux:~$</span>
-                    <span  style={styleSpecChar} className="terminal-cursor">/</span>
-                        {"ls projects/"}
-                        <span className="terminal-cursor">█</span>
-                </Typography>
+        <Box className="terminal-header-block">
+            <Box className="terminal-status">
+                <span>status: ok</span>
+                <span>uptime: 2y</span>
+                <span>build: release</span>
+            </Box>
+            <Grid  xs={12}  sx={boxHeaderStyle}>
+                <Grid>
+                <Typography sx={headerStyle} className="terminal-heading">
+                        <span className="terminal-prompt">jp@linux:~$</span>
+                        <span  style={styleSpecChar} className="terminal-cursor">/</span>
+                            {"ls projects/"}
+                            <span className="terminal-cursor">█</span>
+                    </Typography>
+                </Grid>
             </Grid>
-        </Grid>
+        </Box>
 
         <Grid  xs={12}  sx={boxBodyStyle}>
             <Grid>

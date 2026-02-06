@@ -96,40 +96,42 @@ const ExperienceSection = () => {
 
     return (
         <SectionDivider id="experience">
-            <Box className="terminal-status">
-                <span>status: ok</span>
-                <span>uptime: 2y</span>
-                <span>build: release</span>
-            </Box>
-            <Grid  md={12}  sx={boxHeaderStyle}>
-                <Grid>
-                <Typography sx={headerStyle} className="terminal-heading">
-                    <span className="terminal-prompt">jp@linux:~$</span>
-                    <span style={styleSpecChar} className="terminal-cursor">#</span>
-                    <span>tail -n 5 experience.log</span>
-                    <span className="terminal-cursor">█</span>
-                </Typography>
-                </Grid>
-                <Grid>
-                    <Box sx={boxHeaderBorderBoxStyle}/>
-                </Grid>
-                <Grid container xs={12 }sx={boxHeaderLinkStyle}>
-                    <RouterLink
-                        to={routes[2].path}
-                        style={{ textDecoration: "none" }}
-                        >
-                            <Link
-                                component="button"
-                                variant="body2"
-                                key={'projects'}
-                                sx={styleNavLink}
+            <Box className="terminal-header-block">
+                <Box className="terminal-status">
+                    <span>status: ok</span>
+                    <span>uptime: 2y</span>
+                    <span>build: release</span>
+                </Box>
+                <Grid  md={12}  sx={boxHeaderStyle}>
+                    <Grid>
+                    <Typography sx={headerStyle} className="terminal-heading">
+                        <span className="terminal-prompt">jp@linux:~$</span>
+                        <span style={styleSpecChar} className="terminal-cursor">#</span>
+                        <span>tail -n 5 experience.log</span>
+                        <span className="terminal-cursor">█</span>
+                    </Typography>
+                    </Grid>
+                    <Grid>
+                        <Box sx={boxHeaderBorderBoxStyle}/>
+                    </Grid>
+                    <Grid container xs={12 }sx={boxHeaderLinkStyle}>
+                        <RouterLink
+                            to={routes[2].path}
+                            style={{ textDecoration: "none" }}
                             >
-                            {"View all ==>"}
-                        </Link>
-                    </RouterLink>
-                </Grid>
+                                <Link
+                                    component="button"
+                                    variant="body2"
+                                    key={'projects'}
+                                    sx={styleNavLink}
+                                >
+                                {"View all ==>"}
+                            </Link>
+                        </RouterLink>
+                    </Grid>
 
-            </Grid>
+                </Grid>
+            </Box>
            
             <Grid  md={12} >
                 <Box sx={workExperienceBoxStyle}>

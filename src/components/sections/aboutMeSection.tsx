@@ -82,7 +82,7 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
     return (
         <SectionDivider id="about">
             {showHeader && (
-                <>
+                <Box className="terminal-header-block">
                     <Box className="terminal-status">
                         <span>status: ok</span>
                         <span>uptime: 2y</span>
@@ -102,7 +102,7 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
                         </Grid>
                     
                     </Grid>
-                </>
+                </Box>
             )}
             <Grid container md={12} sx={{justifyContent:"center",alignItems:"center", paddingTop: showHeader ? "0px": "50px"}}>
                 <Grid  md={8} order={{xs:1,sm:1, md:1}} >

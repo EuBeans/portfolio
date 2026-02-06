@@ -74,6 +74,7 @@ import FileSaver from 'file-saver';
         lineHeight: 1.4,
         maxWidth: "100%",
         overflowWrap: "anywhere",
+        marginVertical: '5px',
     }
     const aboutTextStyle ={
         color: theme.palette.text.secondary,
@@ -157,19 +158,20 @@ import FileSaver from 'file-saver';
                 <Grid item xs={12} md={6} order={{xs:1,sm:1, md:1}} sx={{ minWidth: 0 }}>
                     
                     <Box sx={aboutBoxTextStyle}>
-                        <Box className="terminal-status">
+                        <Box className="terminal-header-block">
+                            <Box className="terminal-status">
                                 <span>status: ok</span>
                                 <span>uptime: 2y</span>
                                 <span>build: release</span>
                             </Box>
-                        <Grid item xs={12} >
-                           
                             <Typography sx={aboutHeadertStyle} className="terminal-heading">
                                 <span className="terminal-prompt">jp@linux:~$</span>
                                 <span style={styleSpecChar} className="terminal-cursor">#</span>
                                 <span>cat home.txt</span>
                                 <span className="terminal-cursor">█</span>
                             </Typography>
+                        </Box>
+                        <Grid item xs={12} >
                             <Typography sx={aboutHeadertStyle}> 
                             Jean is a <span style={styleSpecChar}> Software Engineer</span> in cybersecurity who loves to&nbsp;<span>
                             <Typical

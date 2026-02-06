@@ -53,26 +53,28 @@ const Demos = () => {
 
     return (
     <Box sx = {containerStyle}>
-        <Box className="terminal-status">
-            <span>status: ok</span>
-            <span>uptime: 2y</span>
-            <span>build: release</span>
-        </Box>
-        <Grid  md={12}  sx={boxHeaderStyle}>
-            <Grid>
-                <Typography sx={headerStyle} className="terminal-heading">
-                    <span className="terminal-prompt">jp@linux:~$</span>
-                    <span  style={styleSpecChar} className="terminal-cursor">/</span>
-                        {"demos --list"}
-                        <span className="terminal-cursor">█</span>
-                </Typography>
-            </Grid>
-            <Grid  md={12} >
-            <Box sx={contentBoxStyle}>
-                <DemoSection/>
+        <Box className="terminal-header-block">
+            <Box className="terminal-status">
+                <span>status: ok</span>
+                <span>uptime: 2y</span>
+                <span>build: release</span>
             </Box>
-        </Grid>
-        </Grid>
+            <Grid  md={12}  sx={boxHeaderStyle}>
+                <Grid>
+                    <Typography sx={headerStyle} className="terminal-heading">
+                        <span className="terminal-prompt">jp@linux:~$</span>
+                        <span  style={styleSpecChar} className="terminal-cursor">/</span>
+                            {"demos --list"}
+                            <span className="terminal-cursor">█</span>
+                    </Typography>
+                </Grid>
+                <Grid  md={12} >
+                <Box sx={contentBoxStyle}>
+                    <DemoSection/>
+                </Box>
+            </Grid>
+            </Grid>
+        </Box>
   
 
         

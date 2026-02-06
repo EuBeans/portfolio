@@ -19,11 +19,21 @@ const Home = () => {
     return (
     <Box sx = {containerStyle}>
         <Container maxWidth="lg" disableGutters>
-            <SummarySection/>
-            <ProjectSection/>
-            <SkillSection showArt={true}/>
-            <AboutMeSection showHeader={true}/>
-            <ExperienceSection/>
+            <Box className="home-section">
+                <SummarySection/>
+            </Box>
+            <Box className="home-section">
+                <ProjectSection/>
+            </Box>
+            <Box className="home-section">
+                <SkillSection showArt={true}/>
+            </Box>
+            <Box className="home-section">
+                <AboutMeSection showHeader={true}/>
+            </Box>
+            <Box className="home-section">
+                <ExperienceSection/>
+            </Box>
         </Container>
     </Box>
     );
