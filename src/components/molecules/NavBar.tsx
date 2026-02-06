@@ -1,16 +1,11 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
 import {theme} from '../../assets/theme';
 import Link  from '@mui/material/Link';
 import "../../App.css"
-import { Drawer, Grid, List, ListItem, ListItemIcon,  } from '@mui/material';
-import Typical from '../atoms/Typical';
+import { Drawer, List, ListItem, ListItemIcon,  } from '@mui/material';
 import {
   Link as RouterLink,
 } from 'react-router-dom';
@@ -40,46 +35,12 @@ function ResponsiveAppBar() {
     
   }
 
-  const mediaStyleBox = {
-    position : 'fixed',
-    top: '0px',
-    left: '0px',
-    maxWidth: '40px',
-    height: '365px',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    zIndex: 1,
-  }
-
-  const mediaLineStyle ={
-    border : '1px solid',
-    borderLeft: 'none',
-    borderTop: 'none',
-    borderBottom: 'none',
-    borderColor: theme.palette.background.special,
-    height: '300px',
-    width: '2px',
-    position: 'fixed',
-    top: '0px',
-    left:  '15px',
-    zIndex: 1,
-  }
-
-  const mediaIconStyle = {
+  const navIconStyle = {
     color: theme.palette.text.secondary,
-    fontSize: '30px',
-    marginTop: '-13px',
-    left:  '15px',
+    fontSize: '22px',
     '&:hover': {
       color: theme.palette.text.hover,
     },
-  }
-
-  const mediaIconBoxStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    marginLeft: '7px',
-    alignItems: 'center',
   }
 
   const styleNavLink = {
@@ -141,98 +102,59 @@ const list = () => (
 );
 
   return (
-    <>
-
-      <AppBar position="fixed" sx={{backgroundColor:theme.palette.background.default, boxShadow:'none'}}>
-        <Grid 
-          container     
-          direction="column-reverse"
-          sx={mediaStyleBox}> 
-          <Grid item sx={mediaLineStyle}/>
-          <Grid item sx={mediaIconBoxStyle} direction="column">
-            <Link href={contactLinks.github} sx={mediaIconStyle} >
-              <GitHubIcon sx={{width:"80%"}}/>
-            </Link>
-            <Link href={contactLinks.email} sx={mediaIconStyle} >
-              <EmailIcon sx={{width:"80%"}}/>
-            </Link>
-          </Grid>
-        </Grid>
-        
-        <Drawer
-            sx={{ display: { xs: 'flex', md: 'none' } }}
-            anchor={"right"}
-            open={drawerOpen}
-            onClose={toggleDrawer(false)}
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <Drawer
+        sx={{ display: { xs: 'flex', md: 'none' } }}
+        anchor={"right"}
+        open={drawerOpen}
+        onClose={toggleDrawer(false)}
+      >
+        {list()}
+      </Drawer>
+      <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+        {routes.map((route) => (
+          route.nav &&
+          <Link
+            component={RouterLink}
+            to={route.path}
+            variant="body2"
+            onClick={toggleDrawer(false)}
+            sx={[
+              styleNavLink,
+              {
+                color:
+                  location.pathname === route.path
+                    ? theme.palette.text.hover
+                    : theme.palette.text.secondary,
+              },
+            ]}
           >
-              {list()}
-        </Drawer>
-        <Container maxWidth="lg">
-          <Toolbar disableGutters>
-            <Typography
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'flex' },
-                fontFamily: theme.typography.fontFamily2,
-                fontSize: theme.typography.h1.fontSize,
-                fontWeight: theme.typography.h1.fontWeight,
-                letterSpacing: theme.typography.h1.letterSpacing,
-                color: theme.palette.text.special,
-                textDecoration: 'none',
-              }}
-            >
-            
-                <Typical
-                    steps={[500, `"Jean"`, 4000,`"JP"`, 4000, `"Jean Pierre"`,4000]}
-                    loop={Infinity}
-                    wrapper="span"
-                  />
-            
-            </Typography>
-            <Box sx={{ justifyContent:'flex-end', flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
-              {routes.map((route) => (
-                route.nav &&
-                <Link
-                  component={RouterLink}
-                  to={route.path}
-                  variant="body2"
-                  onClick={toggleDrawer(false)}
-                  sx={[
-                    styleNavLink,
-                    {
-                      color:
-                        location.pathname === route.path
-                          ? theme.palette.text.hover
-                          : theme.palette.text.secondary,
-                    },
-                  ]}
-                >
-                  <span style={styleSpecChar}>#</span>
-                  {route.name}
-                </Link>
-                
-              ))}
-            </Box>
-            <Box sx={{ justifyContent:'flex-end', flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={toggleDrawer(true)}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </>
+            <span style={styleSpecChar}>#</span>
+            {route.name}
+          </Link>
+        ))}
+      </Box>
+      <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: '8px' }}>
+        <Link href={contactLinks.github} sx={navIconStyle} >
+          <GitHubIcon sx={{width:"80%"}}/>
+        </Link>
+        <Link href={contactLinks.email} sx={navIconStyle} >
+          <EmailIcon sx={{width:"80%"}}/>
+        </Link>
+      </Box>
+      <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+        <IconButton
+          size="small"
+          aria-label="open navigation"
+          aria-controls="menu-appbar"
+          aria-haspopup="true"
+          onClick={toggleDrawer(true)}
+          color="inherit"
+        >
+          <MenuIcon />
+        </IconButton>
+      </Box>
+    </Box>
   );
 }
 export default ResponsiveAppBar;
