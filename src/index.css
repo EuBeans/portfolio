@@ -18,7 +18,7 @@ body {
 }
 
 body.embed {
-  --embed-scale: 0.85;
+  --embed-scale: 0.7;
   transform: scale(var(--embed-scale));
   transform-origin: top left;
   width: calc(100% / var(--embed-scale));
