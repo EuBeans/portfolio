@@ -346,11 +346,16 @@
   flex-wrap: nowrap;
   white-space: nowrap;
   text-shadow: 0 0 10px rgba(4, 202, 159, 0.35);
+  font-size: 1.15em;
+  margin-bottom: 12px;
 }
 .terminal-heading * {
   min-width: 0;
   max-width: 100%;
   word-break: break-word;
+}
+.terminal-heading .terminal-prompt {
+  font-size: 0.85rem;
 }
 .terminal-prompt {
   white-space: nowrap;
