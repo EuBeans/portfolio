@@ -28,7 +28,10 @@ const TerminalPanel = (props: TerminalPanelProps) => {
             <span className="terminal-light terminal-light-yellow" />
             <span className="terminal-light terminal-light-green" />
           </Box>
-          <Box className="terminal-title">{title}</Box>
+          <Box className="terminal-title">
+            <span className="terminal-title-text">{title}</span>
+            <span className="terminal-title-meta">tty1 • 1920x1080</span>
+          </Box>
           <Box className="terminal-actions">
             {headerContent}
           </Box>

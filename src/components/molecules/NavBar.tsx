@@ -82,6 +82,7 @@ const list = () => (
                 to={route.path}
                 variant="body2"
                 onClick={toggleDrawer(false)}
+                className={`terminal-nav-link${location.pathname === route.path ? " terminal-nav-link--active" : ""}`}
                 sx={[
                   styleNavLink,
                   {
@@ -119,6 +120,7 @@ const list = () => (
             to={route.path}
             variant="body2"
             onClick={toggleDrawer(false)}
+            className={`terminal-nav-link${location.pathname === route.path ? " terminal-nav-link--active" : ""}`}
             sx={[
               styleNavLink,
               {
