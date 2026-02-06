@@ -19,7 +19,7 @@ const SectionDivider = (props: SectionDividerProps) => {
         backgroundColor: 'Transparent',
         position: 'relative',
         paddingTop: '0vh',
-        paddingBottom: '5vh',
+        paddingBottom: { xs: '3vh', md: '5vh' },
 
     }
 

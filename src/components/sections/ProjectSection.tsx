@@ -30,7 +30,8 @@ const ProjectSection = () => {
         paddingY: '30px',
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'nowrap',        
+        flexWrap: { xs: 'wrap', md: 'nowrap' },
+        rowGap: '10px',
     }
 
     const boxHeaderBorderStyle = {
@@ -39,7 +40,7 @@ const ProjectSection = () => {
         borderRight: '0px',
         borderLeft: '0px',
         borderTop: '0px',
-        width: '100px',
+        width: { xs: '80px', md: '100px' },
         borderColor: theme.palette.secondary.main,
         flexDirection: 'row-reverse',
         display: 'inline-flex',
@@ -51,7 +52,7 @@ const ProjectSection = () => {
     }
 
     const boxHeaderLinkStyle = {
-        width: '100px',
+        width: { xs: '100%', md: '100px' },
         borderColor: theme.palette.primary.light,
         flexDirection: 'row-reverse',
         display: 'inline-flex',
@@ -105,7 +106,7 @@ const ProjectSection = () => {
                     <span>uptime: 2y</span>
                     <span>build: release</span>
                 </Box>
-                <Grid  xs={12}  sx={boxHeaderStyle}>
+                <Grid xs={12} sx={boxHeaderStyle}>
                     <Grid>
                         <Typography sx={headerStyle} className="terminal-heading">
                             <span className="terminal-prompt">jp@linux:~$</span>
@@ -134,7 +135,7 @@ const ProjectSection = () => {
                     </Grid>
                 </Grid>
             </Box>
-            <Grid  md={12} >
+            <Grid xs={12} md={12} >
                 <Box sx={contentBoxStyle}>
                     <ProjectCard
                         ShowAll ={false}

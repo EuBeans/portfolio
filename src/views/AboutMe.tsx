@@ -25,12 +25,12 @@ const AboutMe = () => {
 
     return (
     <Box sx = {containerStyle}>
-        <Grid  md={12} >
+        <Grid xs={12} md={12} >
             <Box sx={contentBoxStyle}>
                 <AboutMeSection showHeader={true}/>
             </Box>
         </Grid>
-        <Grid  md={12} >
+        <Grid xs={12} md={12} >
             <Box sx={contentBoxStyle}>
                 <SkillSection
                     showArt={false}

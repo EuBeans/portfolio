@@ -55,7 +55,7 @@ const ProjectCard = (props:ProjectCardProps) => {
         justifyContent: 'space-evenly',
         alignItems: 'stretch',
         flexWrap: 'wrap',
-        padding: '20px',
+        padding: { xs: '12px', md: '20px' },
         width: '100%',
         height: '100%',
 
@@ -64,9 +64,10 @@ const ProjectCard = (props:ProjectCardProps) => {
 
     const cardContentStyle = {
         display: 'flex',
-        maxWidth: '300px',
+        width: { xs: '100%', sm: '320px', md: '300px' },
+        maxWidth: { xs: '100%', sm: '320px', md: '300px' },
         marginBottom: '20px',
-        marginX: '20px',
+        marginX: { xs: '0px', sm: '12px', md: '20px' },
         backgroundColor: theme.palette.background.default,
         color: theme.palette.text.primary,
         borderRadius: '0px',

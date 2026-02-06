@@ -25,7 +25,8 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
         paddingY: '30px',
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'nowrap',        
+        flexWrap: { xs: 'wrap', md: 'nowrap' },
+        rowGap: '10px',
     }
 
     const boxHeaderBorderStyle = {
@@ -34,7 +35,7 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
         borderRight: '0px',
         borderLeft: '0px',
         borderTop: '0px',
-        width: '300px',
+        width: { xs: '160px', md: '300px' },
         borderColor: theme.palette.secondary.main,
         display: 'inline-flex',
         justifyContent: 'center',
@@ -73,7 +74,7 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
 
     const aboutTextStyle ={
         color: theme.palette.text.secondary,
-        fontSize: theme.typography.body2.fontSize,
+        fontSize: { xs: theme.typography.body1.fontSize, md: theme.typography.body2.fontSize },
         fontFamily: theme.typography.fontFamily,
         fontWeight: theme.typography.body2.fontWeight,
         letterSpacing: theme.typography.body1.letterSpacing,
@@ -88,7 +89,7 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
                         <span>uptime: 2y</span>
                         <span>build: release</span>
                     </Box>
-                    <Grid  md={12}  sx={boxHeaderStyle}>
+                    <Grid xs={12} md={12} sx={boxHeaderStyle}>
                         <Grid>
                         <Typography sx={headerStyle} className="terminal-heading">
                             <span className="terminal-prompt">jp@linux:~$</span>
@@ -104,9 +105,9 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
                     </Grid>
                 </Box>
             )}
-            <Grid container md={12} sx={{justifyContent:"center",alignItems:"center", paddingTop: showHeader ? "0px": "50px"}}>
-                <Grid  md={8} order={{xs:1,sm:1, md:1}} >
-                    <Box sx={{paddingX:"20px"}} className="terminal-output">
+            <Grid container xs={12} sx={{justifyContent:"center",alignItems:"center", paddingTop: showHeader ? "0px": "50px"}}>
+                <Grid xs={12} md={8} order={{xs:1,sm:1, md:1}} >
+                    <Box sx={{paddingX:{ xs: "12px", md: "20px" }}} className="terminal-output">
                         <Typography sx={aboutTextStyle}>
                             {description.map((description,index) => {
                                 return(
@@ -124,7 +125,7 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
                         </Typography>
                     </Box>
                 </Grid>
-                <Grid  md={4} order={{xs:1,sm:1, md:1}} >
+                <Grid xs={12} md={4} order={{xs:1,sm:1, md:1}} >
                    <ImageBox
                         image={secondPicture}
                         speed= {SPEED}

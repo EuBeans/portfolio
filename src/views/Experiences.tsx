@@ -26,13 +26,14 @@ const Experience = () => {
         paddingTop: '30px',
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'nowrap',        
+        flexWrap: { xs: 'wrap', md: 'nowrap' },
+        rowGap: '10px',
     }
     const boxBodyStyle = {
         paddingY: '5px',
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'nowrap',        
+        flexWrap: { xs: 'wrap', md: 'nowrap' },
     }
 
     const headerStyle ={
@@ -90,7 +91,7 @@ const Experience = () => {
             </Grid>
         </Grid>
 
-        <Grid  md={12} >
+        <Grid xs={12} md={12} >
             <Box sx={contentBoxStyle}>
                 <WorkExperienceTimeLine
                     ShowAll={true}

@@ -43,7 +43,8 @@ import FileSaver from 'file-saver';
         letterSpacing: theme.typography.h6.letterSpacing,
         padding: '10px',
         borderRadius: '0px',
-        marginLeft: '12px',
+        marginLeft: { xs: 0, sm: '12px' },
+        marginTop: { xs: '10px', sm: 0 },
         '&:hover': {
             backgroundColor: theme.palette.background.secondary,
             borderColor: theme.palette.background.secondary,
@@ -57,6 +58,7 @@ import FileSaver from 'file-saver';
         justifyContent: 'center',
         alignItems: 'center',
         flexWrap: { xs: 'wrap', md: 'nowrap' },
+        gap: { xs: '16px', md: '0px' },
         }
 
 
@@ -67,7 +69,7 @@ import FileSaver from 'file-saver';
 
     const aboutHeadertStyle ={
         color: theme.palette.text.primary,
-        fontSize: theme.typography.h3.fontSize,
+        fontSize: { xs: theme.typography.h4.fontSize, md: theme.typography.h3.fontSize },
         fontFamily: theme.typography.fontFamily,
         fontWeight: theme.typography.h3.fontWeight,
         letterSpacing: theme.typography.h3.letterSpacing,
@@ -97,12 +99,13 @@ import FileSaver from 'file-saver';
 
     const quoteBoxStyle ={
         quoteBoxStyle:{
-            paddingTop: '15vh',
+            paddingTop: { xs: '6vh', md: '15vh' },
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-            flexWrap: 'nowrap',
+            flexWrap: { xs: 'wrap', md: 'nowrap' },
+            gap: '12px',
 
 
         },
@@ -113,6 +116,7 @@ import FileSaver from 'file-saver';
             fontFamily: theme.typography.fontFamily,
             fontWeight: theme.typography.h6.fontWeight,
             letterSpacing: theme.typography.body1.letterSpacing,
+            textAlign: { xs: 'center', md: 'left' },
         
         },
 
@@ -129,6 +133,8 @@ import FileSaver from 'file-saver';
             alignItems: 'center',
             justifyContent: 'center',
             borderColor: theme.palette.background.secondary,
+            padding: '12px 16px',
+            maxWidth: '100%',
         },
         legendCaption :{ 
             position: 'relative',
@@ -210,7 +216,7 @@ import FileSaver from 'file-saver';
                     />
                 </Grid>
             </Grid>
-            <Grid  md={12} order={{xs: 3}} >
+            <Grid xs={12} md={12} order={{xs: 3}} >
                 <Box sx={quoteBoxStyle.quoteBoxStyle}>
                     <fieldset style={quoteBoxStyle.fieldSet}>
                         <legend style={{...quoteBoxStyle.quoteTextStyle}} >"</legend> 

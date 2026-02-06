@@ -48,7 +48,7 @@ import Typical from '../atoms/Typical';
 
     return (
         <Box sx={containerDemoStyle} id="demos">
-            <Grid>
+            <Grid xs={12}>
                 <Typography sx={headerStyle} className="terminal-heading">
                     <span className="terminal-prompt">jp@linux:~$</span>
                     <span style={styleSpecChar} className="terminal-cursor">#</span>
@@ -60,14 +60,14 @@ import Typical from '../atoms/Typical';
                     <span className="terminal-cursor">█</span>
                 </Typography>
             </Grid>
-            <Grid  md={12} sx={demoBoxStyle} >
+            <Grid xs={12} md={12} sx={demoBoxStyle} >
                 <Box sx={demoPlaceholderStyle} className="terminal-output terminal-empty">
                     <Typography sx={headerStyle}>
                         Demo currently not available
                     </Typography>
                 </Box>
             </Grid>
-            <Grid>
+            <Grid xs={12}>
                 <Typography sx={headerStyle} className="terminal-heading">
                     <span className="terminal-prompt">jp@linux:~$</span>
                     <span style={styleSpecChar} className="terminal-cursor">#</span>
@@ -79,7 +79,7 @@ import Typical from '../atoms/Typical';
                     <span className="terminal-cursor">█</span>
                 </Typography>
             </Grid>
-            <Grid  md={12} sx={demoBoxStyle} >
+            <Grid xs={12} md={12} sx={demoBoxStyle} >
                 <Box sx={demoPlaceholderStyle} className="terminal-output terminal-empty">
                     <Typography sx={headerStyle}>
                         Demo currently not available

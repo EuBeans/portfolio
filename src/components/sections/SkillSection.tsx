@@ -64,7 +64,7 @@ const SkillSection = (props:SkillTableProps) => {
         borderRight: '0px',
         borderLeft: '0px',
         borderTop: '0px',
-        width: '200px',
+        width: { xs: '120px', md: '200px' },
         borderColor: theme.palette.secondary.main,
         display: 'inline-flex',
         justifyContent: 'center',
@@ -188,7 +188,7 @@ const SkillSection = (props:SkillTableProps) => {
                     <span>uptime: 2y</span>
                     <span>build: release</span>
                 </Box>
-                <Grid  md={12}  sx={SkillBoxHeaderStyle}>
+            <Grid xs={12} md={12} sx={SkillBoxHeaderStyle}>
                     <Grid>
                     <Typography sx={SkillHeaderStyle} className="terminal-heading">
                         <span className="terminal-prompt">jp@linux:~$</span>
@@ -204,9 +204,19 @@ const SkillSection = (props:SkillTableProps) => {
                 </Grid>
             </Box>
 
-            <Grid container spacing={2} sx={[skillBoxStyle,{paddingX: showArt ? '50px':"0px", flexWrap: showArt?"nowrap":"wrap"}]}  >
+            <Grid
+                container
+                spacing={2}
+                sx={[
+                    skillBoxStyle,
+                    {
+                        paddingX: { xs: '0px', md: showArt ? '50px' : '0px' },
+                        flexWrap: { xs: 'wrap', md: showArt ? 'nowrap' : 'wrap' }
+                    }
+                ]}
+            >
                 {showArt&&
-                    <Grid  md={5} >
+                    <Grid xs={12} md={5} >
                         <Box sx={skillBoxArtStyle}>
                             <BoxArt box={"box"} width= {'100px'} height= {'100px'} top=  {'60%'} right= {'80%'} x={[-0,-120]} y={[0,410]} speed={0.5}/>
                             <BoxArt box={"box"} width= {'50px'} height= {'50px'} top=  {'78%'} right= {'20%'} x={[0,120]} y={[0,510]} speed={0.5}/>
@@ -247,26 +257,26 @@ const SkillSection = (props:SkillTableProps) => {
                         </Box>
                     </Grid>
                 }
-                <Grid   md={showArt ? 7: 12} >
+                <Grid xs={12} md={showArt ? 7: 12} >
                     <Box sx={skillTableBoxStyle}>
-                        <Grid  md={showArt ? 6: 2} xs={showArt ? 12: 6} sx={{padding:"3px"}}>
+                        <Grid xs={12} md={showArt ? 6: 2} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[0])}
                             
                         </Grid>
-                        <Grid  md={showArt ? 6: 2} xs={showArt ? 12: 6} sx={{padding:"3px"}}>
+                        <Grid xs={12} md={showArt ? 6: 2} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[1])}
                         </Grid>
-                        <Grid  md={showArt ? 6: 2} xs={showArt ? 12: 6} sx={{padding:"3px"}}>
+                        <Grid xs={12} md={showArt ? 6: 2} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[2])}
                         </Grid>
-                        <Grid  md={showArt ? 6: 2} xs={showArt ? 12: 6} sx={{padding:"3px"}}>
+                        <Grid xs={12} md={showArt ? 6: 2} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[3])}
                         </Grid>
-                        <Grid  md={showArt ? 6: 2} xs={showArt ? 12: 6} sx={{padding:"3px"}}>
+                        <Grid xs={12} md={showArt ? 6: 2} sx={{padding:"3px"}}>
                             {generateSkillTable(skillTableData[4])}
                         </Grid>
                         {showArt&&
-                            <Grid xs={3} sx={{padding:"10px",position:"relative", overflow: "visible"}}>
+                            <Grid xs={3} sx={{padding:"10px",position:"relative", overflow: "visible", display: { xs: "none", md: "block" }}}>
                                 <Box sx={[asciiArtBoxStyle,{top: '5%', left: '30%', height:"100 px ", overflow: "visible"}]}>
                                     <AsciiArt type={"artLinux"} fontSize={theme.typography.h4.fontSize}/>
                                 </Box>

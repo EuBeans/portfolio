@@ -27,7 +27,8 @@ const Demos = () => {
         paddingTop: '30px',
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'nowrap',
+        flexWrap: { xs: 'wrap', md: 'nowrap' },
+        rowGap: '10px',
     }
 
 
@@ -60,7 +61,7 @@ const Demos = () => {
                 <span>uptime: 2y</span>
                 <span>build: release</span>
             </Box>
-            <Grid  md={12}  sx={boxHeaderStyle}>
+            <Grid xs={12} md={12} sx={boxHeaderStyle}>
                 <Grid>
                     <Typography sx={headerStyle} className="terminal-heading">
                         <span className="terminal-prompt">jp@linux:~$</span>
@@ -71,7 +72,7 @@ const Demos = () => {
                 </Grid>
             </Grid>
         </Box>
-        <Grid  md={12} >
+        <Grid xs={12} md={12} >
             <Box sx={contentBoxStyle}>
                 <DemoSection/>
             </Box>

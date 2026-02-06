@@ -30,7 +30,8 @@ const ExperienceSection = () => {
         paddingY: '30px',
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'nowrap',        
+        flexWrap: { xs: 'wrap', md: 'nowrap' },
+        rowGap: '10px',
     }
 
     const boxHeaderBorderBoxStyle = {
@@ -39,7 +40,7 @@ const ExperienceSection = () => {
         borderRight: '0px',
         borderLeft: '0px',
         borderTop: '0px',
-        width: '300px',
+        width: { xs: '160px', md: '300px' },
         borderColor: theme.palette.secondary.main,
         display: 'inline-flex',
         justifyContent: 'center',
@@ -68,7 +69,7 @@ const ExperienceSection = () => {
     }
 
     const boxHeaderLinkStyle = {
-        width: '100px',
+        width: { xs: '100%', md: '100px' },
         borderColor: theme.palette.primary.light,
         flexDirection: 'row-reverse',
         display: 'inline-flex',
@@ -102,7 +103,7 @@ const ExperienceSection = () => {
                     <span>uptime: 2y</span>
                     <span>build: release</span>
                 </Box>
-                <Grid  md={12}  sx={boxHeaderStyle}>
+                <Grid xs={12} md={12} sx={boxHeaderStyle}>
                     <Grid>
                     <Typography sx={headerStyle} className="terminal-heading">
                         <span className="terminal-prompt">jp@linux:~$</span>
@@ -133,7 +134,7 @@ const ExperienceSection = () => {
                 </Grid>
             </Box>
            
-            <Grid  md={12} >
+            <Grid xs={12} md={12} >
                 <Box sx={workExperienceBoxStyle}>
                     <WorkExperienceTimeLine
                         ShowAll={false}
