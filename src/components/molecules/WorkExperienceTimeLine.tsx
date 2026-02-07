@@ -124,16 +124,6 @@ const WorkExperienceTimeLine = (props:WorkExperienceTimeLineProps) => {
                     iconStyle={workIconStyle}
                     icon={workExperience.icon === "work" ?<WorkOutlineIcon/> : <SchoolIcon/>}
                 >
-                    {!!workExperience.stack?.length && (
-                        <div className="experience-stack-group">
-                            <span style={styleSpecChar}>stack:</span>
-                            <div className="experience-stack-tags">
-                                {workExperience.stack.map((stackTag) => (
-                                    <span key={`${workExperience.title}-stack-${stackTag}`} className="experience-stack-tag">{stackTag}</span>
-                                ))}
-                            </div>
-                        </div>
-                    )}
                     {workExperience.skills.map((skill) => {
                             return(
                                 <Stack key={skill} direction="row" spacing={1} sx={stackStyle}>
