@@ -16,6 +16,9 @@ Personal portfolio site built with React, TypeScript, and MUI. The design leans 
 **Build**
 1. `npm run build`
 
+**Test**
+1. `npm test -- --watchAll=false`
+
 **Deploy**
 1. `npm run deploy`
 

@@ -14,6 +14,8 @@ interface SkillTableProps {
     showArt: boolean;
 }
 
+type SkillTableEntry = (typeof skillTableData)[number];
+
 const SkillSection = (props:SkillTableProps) => {
     const {showArt} = props;
 
@@ -39,7 +41,7 @@ const SkillSection = (props:SkillTableProps) => {
 
     }
     const skillBoxArtStyle = {
-        boder: '1px solid',
+        border: '1px solid',
         justifyContent: 'center',
         alignItems: 'flex-start',
         backgroundColor: 'transparent',
@@ -127,9 +129,9 @@ const SkillSection = (props:SkillTableProps) => {
 
 
     //function will genereate a table of skills
-    const generateSkillTable = (skillTableData: any) => {
+    const generateSkillTable = (skillCategory: SkillTableEntry) => {
         return (
-            <TableContainer sx={{ margin: '8px'}}>
+            <TableContainer sx={{ margin: '8px' }}>
                 <Table
                     sx={{
                         border: '1px solid',
@@ -151,15 +153,12 @@ const SkillSection = (props:SkillTableProps) => {
                                 }}
                                 align="center"
                             >
-                                {skillTableData.tableName}
+                                {skillCategory.tableName}
                             </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <TableRow
-                            key={1}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
+                        <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                             <TableCell
                                 component="th"
                                 scope="row"
@@ -169,7 +168,7 @@ const SkillSection = (props:SkillTableProps) => {
                                     backgroundColor: 'rgba(255,255,255,0.02)'
                                 }}
                             >
-                                {skillTableData.tableData.map((skill: any) => (
+                                {skillCategory.tableData.map((skill: string) => (
                                     printSkills(skill)
                                 ))}
                             </TableCell>
@@ -259,22 +258,11 @@ const SkillSection = (props:SkillTableProps) => {
                 }
                 <Grid xs={12} md={showArt ? 7: 12} >
                     <Box sx={skillTableBoxStyle}>
-                        <Grid xs={12} md={showArt ? 6: 2} sx={{padding:"3px"}}>
-                            {generateSkillTable(skillTableData[0])}
-                            
-                        </Grid>
-                        <Grid xs={12} md={showArt ? 6: 2} sx={{padding:"3px"}}>
-                            {generateSkillTable(skillTableData[1])}
-                        </Grid>
-                        <Grid xs={12} md={showArt ? 6: 2} sx={{padding:"3px"}}>
-                            {generateSkillTable(skillTableData[2])}
-                        </Grid>
-                        <Grid xs={12} md={showArt ? 6: 2} sx={{padding:"3px"}}>
-                            {generateSkillTable(skillTableData[3])}
-                        </Grid>
-                        <Grid xs={12} md={showArt ? 6: 2} sx={{padding:"3px"}}>
-                            {generateSkillTable(skillTableData[4])}
-                        </Grid>
+                        {skillTableData.map((skillCategory) => (
+                            <Grid key={skillCategory.tableName} xs={12} md={showArt ? 6: 2} sx={{padding:"3px"}}>
+                                {generateSkillTable(skillCategory)}
+                            </Grid>
+                        ))}
                         {showArt&&
                             <Grid xs={3} sx={{padding:"10px",position:"relative", overflow: "visible", display: { xs: "none", md: "block" }}}>
                                 <Box sx={[asciiArtBoxStyle,{top: '5%', left: '30%', height:"100 px ", overflow: "visible"}]}>

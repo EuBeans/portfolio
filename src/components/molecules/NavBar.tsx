@@ -5,7 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {theme} from '../../assets/theme';
 import Link  from '@mui/material/Link';
 import "../../App.css"
-import { Drawer, List, ListItem, ListItemIcon,  } from '@mui/material';
+import { Drawer, List, ListItem } from '@mui/material';
 import {
   Link as RouterLink,
 } from 'react-router-dom';
@@ -19,6 +19,7 @@ import { contactLinks } from '../../const/constants';
 function ResponsiveAppBar() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const location = useLocation();
+  const navRoutes = routes.filter((route) => route.nav);
 
   // list of routes
 
@@ -72,11 +73,8 @@ const list = () => (
     onKeyDown={toggleDrawer(false)}
   >
     <List>
-      {routes.map((route) => (
-        route.nav && 
+      {navRoutes.map((route) => (
         <ListItem key={route.name} >
-            <ListItemIcon>
-            </ListItemIcon>
               <Link
                 component={RouterLink}
                 to={route.path}
@@ -86,10 +84,7 @@ const list = () => (
                 sx={[
                   styleNavLink,
                   {
-                    color:
-                      location.pathname === route.path
-                        ? theme.palette.text.hover
-                        : theme.palette.text.secondary,
+                    color: location.pathname === route.path ? theme.palette.text.hover : theme.palette.text.secondary,
                   },
                 ]}
               >
@@ -113,9 +108,9 @@ const list = () => (
         {list()}
       </Drawer>
       <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-        {routes.map((route) => (
-          route.nav &&
+        {navRoutes.map((route) => (
           <Link
+            key={route.name}
             component={RouterLink}
             to={route.path}
             variant="body2"
@@ -137,10 +132,10 @@ const list = () => (
         ))}
       </Box>
       <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: '8px' }}>
-        <Link href={contactLinks.github} sx={navIconStyle} >
+        <Link href={contactLinks.github} sx={navIconStyle} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <GitHubIcon sx={{width:"80%"}}/>
         </Link>
-        <Link href={contactLinks.email} sx={navIconStyle} >
+        <Link href={contactLinks.email} sx={navIconStyle} aria-label="Email">
           <EmailIcon sx={{width:"80%"}}/>
         </Link>
       </Box>

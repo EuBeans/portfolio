@@ -1,29 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../../App.css';
-import Box from '@mui/material/Box';
 import {theme} from '../../assets/theme';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import 'react-awesome-slider/dist/styles.css';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { Alert, ButtonBase, CardActionArea, Grid, Snackbar } from '@mui/material';
+import { Alert, CardActionArea, Grid, Snackbar } from '@mui/material';
 import {projects} from '../../const/constants';
 import Typical from '../atoms/Typical';
-import Slide, { SlideProps } from '@mui/material/Slide';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 interface ProjectCardProps {
     ShowAll: boolean;
     ShowSections: boolean;
 }
-type TransitionProps = Omit<SlideProps, 'direction'>;
 
 const ProjectCard = (props:ProjectCardProps) => {
-    let numCardAlgo = 0;
-    let numCardApp = 0;
-    let numCardML = 0;
-
     const {ShowAll, ShowSections} = props;
 
     const headerStyle ={
@@ -113,10 +107,8 @@ const ProjectCard = (props:ProjectCardProps) => {
         backgroundColor: theme.palette.error.main,
     }
 
-    
     const [open, setOpen] = React.useState(false);
 
-      
     const printSkills = (skill:string) => {
         return (
             <span style={textStyle} key={skill}>{skill}<span style={textSpecStyle}>|</span></span>
@@ -128,79 +120,71 @@ const ProjectCard = (props:ProjectCardProps) => {
       };
 
     const onCardClick = (project: typeof projects[0]) => {
-        if(!project.isPrivate){
-            window.open(project.link);
+        if(!project.isPrivate && project.link){
+            window.open(project.link, "_blank", "noopener,noreferrer");
             return;
-        }     
-        setOpen(true);  
-        console.log("open", open);
-        return;
+        }
+
+        setOpen(true);
     }
 
-    const showProjectCards = (type:string) => {
-       
-
-        const projectCards = projects.map((project,index) => {
-            //if prop on only show the first three
-            if(index > 2 && !ShowAll){
-                return;
+    const getVisibleProjects = (type?: string) => {
+        return projects.filter((project, index) => {
+            if (index > 2 && !ShowAll) {
+                return false;
             }
 
-            if(ShowSections && project.type !== type){
-                return;
-            } 
-            
-            project.type === "Algorithm" && numCardAlgo++;
-            project.type === "Application" && numCardApp++;
-            project.type === "Machine Learning" && numCardML++;
+            if (ShowSections && type && project.type !== type) {
+                return false;
+            }
 
-            return (
-                <>
-                
-                    <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}   anchorOrigin={{ vertical: 'top',  horizontal: 'right', }}>
-                        <Alert onClose={handleClose} severity="error" sx={snackBarStyle} icon={<ErrorOutlineIcon sx={{color:theme.palette.text.primary}} />}>
-                            <Typography variant="body2" sx={textStyle}>
-                                {"This repository is private."}
-                            </Typography>
-                        </Alert>
-                    </Snackbar>
-            
-                    <Card sx={cardContentStyle}>
-                        <CardActionArea sx={cardActiontyle}>               
-                            <CardMedia
-                            component="img"
-                            height="200"
-                            image={project.image}
-                            alt="green iguana"
-                            className="terminal-media"
-                            sx={{ objectFit: "contain", backgroundColor: theme.palette.background.default, padding: "8px" }}
-                            onClick={() => onCardClick(project)}
-                            />
-                            <CardContent sx ={{}}>
-                                <Typography gutterBottom variant="h5" component="div" sx={headerStyle}>
-                                    {project.title}
-                                </Typography>
-                                <Box sx={skillBoxStyle}>
-                                    {project.skills.map((skill) => printSkills(skill))}
-                                </Box>
-                                <Typography variant="body2" sx={textStyle}>
-                                    {project.description}
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>     
-                </>
-            )
-            })    
+            return true;
+        });
+    };
+
+    const showProjectCards = (type?: string) => {
+        const projectCards = getVisibleProjects(type).map((project) => (
+            <Card key={project.title} sx={cardContentStyle}>
+                <CardActionArea sx={cardActiontyle} onClick={() => onCardClick(project)}>
+                    <CardMedia
+                        component="img"
+                        height="200"
+                        image={project.image}
+                        alt={`${project.title} preview`}
+                        className="terminal-media"
+                        sx={{ objectFit: "contain", backgroundColor: theme.palette.background.default, padding: "8px" }}
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div" sx={headerStyle}>
+                            {project.title}
+                        </Typography>
+                        <Box sx={skillBoxStyle}>
+                            {project.skills.map((skill) => printSkills(skill))}
+                        </Box>
+                        <Typography variant="body2" sx={textStyle}>
+                            {project.description}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+        ));
+
         return projectCards;
     }
 
 
     return (
         <>
+            <Snackbar open={open} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+                <Alert onClose={handleClose} severity="error" sx={snackBarStyle} icon={<ErrorOutlineIcon sx={{color:theme.palette.text.primary}} />}>
+                    <Typography variant="body2" sx={textStyle}>
+                        {"This repository is private."}
+                    </Typography>
+                </Alert>
+            </Snackbar>
             {!ShowSections &&
                 <Box  sx={cardContainerStyle}>
-                    {showProjectCards("All")}
+                    {showProjectCards()}
                 </Box>
             }
 

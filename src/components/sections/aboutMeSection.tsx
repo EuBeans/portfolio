@@ -18,7 +18,7 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
     const {showHeader} = props;
     const SPEED = 1.5;
 
-    let description = aboutMeDescription.split(/\\n/g);
+    const description = aboutMeDescription.split(/\\n/g);
     
 
     const boxHeaderStyle = {
@@ -109,16 +109,16 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
                 <Grid xs={12} md={8} order={{xs:1,sm:1, md:1}} >
                     <Box sx={{paddingX:{ xs: "12px", md: "20px" }}} className="terminal-output">
                         <Typography sx={aboutTextStyle}>
-                            {description.map((description,index) => {
+                            {description.map((line,index) => {
                                 return(
-                                    <>
-                                        <span style={ styleSpecChar}>//</span>
-                                        <span key={index}>
-                                            {description}
+                                    <React.Fragment key={`about-line-${index}`}>
+                                        <span style={ styleSpecChar}>{"//"}</span>
+                                        <span>
+                                            {line}
                                             <br/>
                                             <br/>
                                         </span>
-                                    </>
+                                    </React.Fragment>
                                 )
                             })
                             }

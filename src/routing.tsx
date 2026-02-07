@@ -1,7 +1,4 @@
-// this file will hold all the routes for the application
-
 import React from "react";
-import { BrowserRouter, Routes,  } from "react-router-dom";
 import Home from "./views/Home";
 import Project from "./views/Project";
 import NoPage from "./views/NoPage";
@@ -9,18 +6,14 @@ import Experience from "./views/Experiences";
 import AboutMe from "./views/AboutMe";
 import Demos from "./views/Demos";
 
-//json object
-interface Route {
-    
+export interface RouteConfig {
     name: string;
     path: string;
     element: JSX.Element;
     nav: boolean;
-    
-    
 }
 
-export const routes :Route[] = [
+export const routes: RouteConfig[] = [
      {
         name: "home",
         path: "/",
@@ -52,11 +45,9 @@ export const routes :Route[] = [
         nav: true,
     },
     {   
-
         name: "NoPage",
         path: "*",
         element: <NoPage />,
         nav: false,
     }
-]
-
+];

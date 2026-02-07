@@ -87,7 +87,7 @@ const WorkExperienceTimeLine = (props:WorkExperienceTimeLineProps) => {
     }
     
     const chipStyle = {
-        backgroud:"transparent",
+        background:"transparent",
         color: theme.palette.text.primary,
         border: '1px solid',
         borderRadius:"0px",
@@ -105,22 +105,17 @@ const WorkExperienceTimeLine = (props:WorkExperienceTimeLineProps) => {
     }
     //generate the work experience timeline
     const generateWorkExperienceTimeline = () => {
-
-        //find all the line breaks in description and replace them with a new line and a tab
-        let workExperiences :string[][] = []
-        WorkExperience.forEach((workExperience,index) => {
-            workExperiences[index] = workExperience.description.split(/\\n/g);
-        })
+        const workExperiences = WorkExperience.map((workExperience) => workExperience.description.split(/\\n/g));
         return WorkExperience.map((workExperience,index) => {
 
 
             //if prop on only show the first two
             if (!ShowAll && index >1){
-                return;
+                return null;
             }
             return(
                 <VerticalTimelineElement
-                    key={index}
+                    key={`${workExperience.title}-${workExperience.date}`}
                     className="vertical-timeline-element--work"
                     contentStyle={ index % 2  ? workContentBoxStyle : workContentBoxStyle2}
                     contentArrowStyle={index % 2 ? contentArrowStyle : contentArrowStyle2}
@@ -147,16 +142,16 @@ const WorkExperienceTimeLine = (props:WorkExperienceTimeLineProps) => {
                         {workExperience.location}
                     </h5>
                     <p style={bodyStyle}>
-                        {workExperiences[index].map((description,index) => {
+                        {workExperiences[index].map((description, descriptionIndex) => {
                             return(
-                                <>
+                                <React.Fragment key={`${workExperience.title}-${descriptionIndex}`}>
                                     <span style={ styleSpecChar}>@</span>
-                                    <span key={index}>
+                                    <span>
                                         {description}
                                         <br/>
                                         <br/>
                                     </span>
-                                </>
+                                </React.Fragment>
                             )
                         })
                         }

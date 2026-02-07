@@ -1,9 +1,9 @@
 import Box from '@mui/material/Box';
-import react, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { theme } from '../../assets/theme';
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import React from 'react';
+
 interface BoxArtProps {
     children?: React.ReactNode;
     width?: string;
@@ -23,9 +23,7 @@ interface BoxArtProps {
 
 const BoxArt = (props:BoxArtProps) => {
     const [ref, inView] = useInView();
-    //state
-    const [stateTyper, setstateTyper] = React.useState(0);
-    const control = useAnimation()
+    const control = useAnimation();
     const {box,children, width, height, top, right, bottom, left,x,y,speed,boxStyle, className} = props;
 
     useEffect(() => {
@@ -37,7 +35,7 @@ const BoxArt = (props:BoxArtProps) => {
         else{
             control.start({ opacity: 0, display: "hidden" })
         }
-      }, [inView]);
+      }, [control, inView, speed, x, y]);
 
 
     const boxAsteticStyle = {
@@ -84,7 +82,7 @@ const BoxArt = (props:BoxArtProps) => {
             
         >
             <Box ref={ref} className={className} sx={[
-                boxStyle ? boxStyle : box === "box" ? boxAsteticStyle : box == "dot" ? dotAsteticStyle : asciiArtBoxStyle,
+                boxStyle ? boxStyle : box === "box" ? boxAsteticStyle : box === "dot" ? dotAsteticStyle : asciiArtBoxStyle,
                 sizeStyle
             ]}>
                 {children}
