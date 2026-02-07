@@ -3,7 +3,7 @@ import '../../App.css';
 import Box from '@mui/material/Box';
 import { Grid, Typography } from '@mui/material';
 import {theme} from '../../assets/theme';
-import Typical from '../atoms/Typical';
+import { DemoStatus, demoStatuses } from '../../const/constants';
 
  const DemoSection = () => {
     
@@ -24,11 +24,13 @@ import Typical from '../atoms/Typical';
     }
     const demoPlaceholderStyle = {
         display: 'flex',
-        alignItems: 'center',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
         justifyContent: 'center',
         width: '100%',
-        height: '320px',
-        padding: '0 12px',
+        minHeight: '260px',
+        padding: '18px 16px',
+        gap: '10px',
     }
     const headerStyle ={
         color: theme.palette.primary.light,
@@ -46,46 +48,42 @@ import Typical from '../atoms/Typical';
         fontSize: theme.typography.h3.fontSize,
     }
 
+    const renderDemoStatus = (demo: DemoStatus) => {
+        const statusLabel = `status: ${demo.status}`;
+
+        return (
+            <React.Fragment key={demo.title}>
+                <Grid xs={12}>
+                    <Typography sx={headerStyle} className="terminal-heading">
+                        <span className="terminal-prompt">jp@linux:~$</span>
+                        <span style={styleSpecChar} className="terminal-cursor">#</span>
+                        <span>{demo.title}</span>
+                        <span className="terminal-cursor">█</span>
+                    </Typography>
+                </Grid>
+                <Grid xs={12} md={12} sx={demoBoxStyle} className={`demo-status-card demo-status-card--${demo.status}`}>
+                    <Box sx={demoPlaceholderStyle} className="terminal-output demo-status-panel">
+                        <Typography sx={headerStyle} className="demo-status-badge">
+                            {statusLabel}
+                        </Typography>
+                        <Typography sx={headerStyle} className="demo-status-note">
+                            {demo.note}
+                        </Typography>
+                        <Typography sx={headerStyle} className="demo-status-cta">
+                            {demo.ctaLabel}
+                            {demo.ctaCommand && (
+                                <span className="terminal-command-muted">{demo.ctaCommand}</span>
+                            )}
+                        </Typography>
+                    </Box>
+                </Grid>
+            </React.Fragment>
+        );
+    };
+
     return (
         <Box sx={containerDemoStyle} id="demos">
-            <Grid xs={12}>
-                <Typography sx={headerStyle} className="terminal-heading">
-                    <span className="terminal-prompt">jp@linux:~$</span>
-                    <span style={styleSpecChar} className="terminal-cursor">#</span>
-                    <Typical
-                        steps={[500,"polygon-contour", 5000]}
-                        loop={1}
-                        wrapper="span"
-                    />  
-                    <span className="terminal-cursor">█</span>
-                </Typography>
-            </Grid>
-            <Grid xs={12} md={12} sx={demoBoxStyle} >
-                <Box sx={demoPlaceholderStyle} className="terminal-output terminal-empty">
-                    <Typography sx={headerStyle}>
-                        Demo currently not available
-                    </Typography>
-                </Box>
-            </Grid>
-            <Grid xs={12}>
-                <Typography sx={headerStyle} className="terminal-heading">
-                    <span className="terminal-prompt">jp@linux:~$</span>
-                    <span style={styleSpecChar} className="terminal-cursor">#</span>
-                    <Typical
-                        steps={[500,"simordia-word-game", 5000]}
-                        loop={1}
-                        wrapper="span"
-                    />  
-                    <span className="terminal-cursor">█</span>
-                </Typography>
-            </Grid>
-            <Grid xs={12} md={12} sx={demoBoxStyle} >
-                <Box sx={demoPlaceholderStyle} className="terminal-output terminal-empty">
-                    <Typography sx={headerStyle}>
-                        Demo currently not available
-                    </Typography>
-                </Box>
-            </Grid>
+            {demoStatuses.map((demo) => renderDemoStatus(demo))}
         </Box>
     )
 }

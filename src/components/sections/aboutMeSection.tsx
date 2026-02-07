@@ -8,7 +8,7 @@ import SectionDivider from '../molecules/SectionDivider';
 import 'react-awesome-slider/dist/styles.css';
 import secondPicture from '../../assets/images/secondPicture.jpg';
 import ImageBox from '../molecules/imageBox';
-import {aboutMeDescription} from '../../const/constants';
+import {aboutMeDescription, whatIDeliver} from '../../const/constants';
 
 
 interface AboutMeSectionProps {
@@ -108,6 +108,17 @@ const AboutMeSection = (props:AboutMeSectionProps) => {
             <Grid container xs={12} sx={{justifyContent:"center",alignItems:"center", paddingTop: showHeader ? "0px": "50px"}}>
                 <Grid xs={12} md={8} order={{xs:1,sm:1, md:1}} >
                     <Box sx={{paddingX:{ xs: "12px", md: "20px" }}} className="terminal-output">
+                        <Box className="terminal-deliver-block">
+                            <Typography sx={aboutTextStyle}>
+                                <span style={ styleSpecChar}>{"//"}</span>
+                                What I deliver
+                            </Typography>
+                            <ul className="terminal-outcome-list">
+                                {whatIDeliver.map((item) => (
+                                    <li key={item}>{item}</li>
+                                ))}
+                            </ul>
+                        </Box>
                         <Typography sx={aboutTextStyle}>
                             {description.map((line,index) => {
                                 return(

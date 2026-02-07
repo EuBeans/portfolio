@@ -6,7 +6,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline'
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import {WorkExperience} from '../../const/constants';
+import {WorkExperience, WorkExperienceEntry} from '../../const/constants';
 import SchoolIcon from '@mui/icons-material/School';
 
 interface WorkExperienceTimeLineProps {
@@ -106,7 +106,7 @@ const WorkExperienceTimeLine = (props:WorkExperienceTimeLineProps) => {
     //generate the work experience timeline
     const generateWorkExperienceTimeline = () => {
         const workExperiences = WorkExperience.map((workExperience) => workExperience.description.split(/\\n/g));
-        return WorkExperience.map((workExperience,index) => {
+        return WorkExperience.map((workExperience: WorkExperienceEntry,index) => {
 
 
             //if prop on only show the first two
@@ -124,6 +124,16 @@ const WorkExperienceTimeLine = (props:WorkExperienceTimeLineProps) => {
                     iconStyle={workIconStyle}
                     icon={workExperience.icon === "work" ?<WorkOutlineIcon/> : <SchoolIcon/>}
                 >
+                    {!!workExperience.stack?.length && (
+                        <div className="experience-stack-group">
+                            <span style={styleSpecChar}>stack:</span>
+                            <div className="experience-stack-tags">
+                                {workExperience.stack.map((stackTag) => (
+                                    <span key={`${workExperience.title}-stack-${stackTag}`} className="experience-stack-tag">{stackTag}</span>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                     {workExperience.skills.map((skill) => {
                             return(
                                 <Stack key={skill} direction="row" spacing={1} sx={stackStyle}>
