@@ -228,7 +228,7 @@ interface IntroCommandRenderLine extends IntroCommandLine {
 
     const quoteBoxStyle ={
         quoteBoxStyle:{
-            paddingTop: { xs: '6vh', md: '15vh' },
+            paddingTop: { xs: '1vh', md: '2vh' },
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',

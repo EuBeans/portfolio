@@ -730,7 +730,7 @@
 
 .terminal-command-intro {
   margin-top: 8px;
-  height: 340px;
+  height: 350px;
   display: flex;
   flex-direction: column;
 }
@@ -1144,7 +1144,7 @@
     transform: none;
   }
   .terminal-command-intro {
-    height: 380px;
+    height: 440px;
   }
 }
 
