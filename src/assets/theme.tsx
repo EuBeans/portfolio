@@ -1,4 +1,4 @@
-//theme colors
+//theme colorssss
 import '../App.css';
 
 export const theme = {
